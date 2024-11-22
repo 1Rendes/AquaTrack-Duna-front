@@ -6,6 +6,7 @@ import { PrivateRoute } from "./PrivateRoute";
 import { refreshUser } from "./redux/auth/operations";
 import { Layout } from "./Layout";
 import { selectIsRefreshing } from "./redux/auth/selectors";
+import './styles/common.css'
 
 
 const Contacts = lazy(() => import("./pages/Contacts"));
