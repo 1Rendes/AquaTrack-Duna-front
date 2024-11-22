@@ -1,0 +1,7 @@
+.list {
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  list-style-type: none;
+  max-width: 1280px;
+}
