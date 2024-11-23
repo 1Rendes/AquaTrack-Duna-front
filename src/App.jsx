@@ -9,7 +9,7 @@
 import "./styles/common.css";
 
 const App = () => {
-  return <> {/* Your component code here */}</>;
+  return <div className="app-common"> {/* Your component code here */}</div>;
 };
 
 export default App;
