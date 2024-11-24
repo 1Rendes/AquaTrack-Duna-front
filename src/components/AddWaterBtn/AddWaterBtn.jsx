@@ -1,13 +1,9 @@
+import css from "./AddWaterBtn.module.css";
 
-        import css from './AddWaterBtn.module.css';
+const AddWaterBtn = () => {
+  return (
+    <div className={css.addwaterbtn}>{/* Your component code here */}</div>
+  );
+};
 
-        const AddWaterBtn = () => {
-        return (
-                <div className={css.addwaterbtn}>
-                {/* Your component code here */}
-                </div>
-                );
-        };
-
-        export default AddWaterBtn;
-        
+export default AddWaterBtn;
