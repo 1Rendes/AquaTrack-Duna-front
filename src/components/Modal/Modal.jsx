@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 import closeBtn from '../../assets/Modal/modalCloseBtn.svg';
         import css from './Modal.module.css';
 
@@ -14,6 +15,21 @@ import closeBtn from '../../assets/Modal/modalCloseBtn.svg';
                                 
                         </div>
                          </div>
+=======
+        import closeBtn from '../../assets/logOut/closeBtn.svg'
+        import css from './Modal.module.css';
+
+const Modal = ({ children }) => {
+                
+        return (
+                <div className={css.backdrop}>
+                 <div className={css.modal}>
+                   <button className={css.modalCloseBtn}>
+                   <img src={closeBtn} alt="closeBtn" />
+                   </button>                           
+                   {children}
+                  </div>           
+>>>>>>> Stashed changes
                 </div>
         );
         };

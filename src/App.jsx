@@ -1,3 +1,14 @@
+<<<<<<< Updated upstream
+=======
+// import { useDispatch, useSelector } from "react-redux";
+// import { lazy, useEffect } from "react";
+// import { Route, Routes } from "react-router-dom";
+// import { RestrictedRoute } from "./RestrictedRoute";
+// import { PrivateRoute } from "./PrivateRoute";
+// import { refreshUser } from "./redux/auth/operations";
+// import SharedLayout from "./components/SharedLayout.jsx";
+
+>>>>>>> Stashed changes
 import "./styles/common.css";
 import { Routes, Route } from "react-router-dom";
 import PrivateRoute from "./components/PrivateRoute.jsx";
@@ -12,7 +23,9 @@ const SignUpPage = lazy(() => import("./pages/SignUpPage.jsx"));
 const TrackerPage = lazy(() => import("./pages/TrackerPage.jsx"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage.jsx"));
 
+
 const App = () => {
+<<<<<<< Updated upstream
   return (
     <>
       <SharedLayout>
@@ -80,6 +93,12 @@ const App = () => {
       />
     </>
   );
+=======
+  
+  
+  return <div className="app-common"> 
+  </div>;
+>>>>>>> Stashed changes
 };
 
 export default App;
