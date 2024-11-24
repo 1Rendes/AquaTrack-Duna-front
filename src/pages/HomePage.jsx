@@ -12,10 +12,8 @@ const HomePage = () => {
                   <Link to="/signup">Go to SignUp Page</Link>
                 
                   <button type="button" onClick={() => setIsModalOpen(true)}>+Add Water</button>
-                  <LogOutModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}>
-                          <h2>Log Out</h2>
-                          <p>Are you sure you want to log out?</p> for visual
-                  </LogOutModal> 
+                  <LogOutModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)}/>
+                          
                   
     </div>
   );
