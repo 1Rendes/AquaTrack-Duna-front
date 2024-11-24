@@ -1,7 +1,19 @@
 @import url(./fonts.css);
 @import url(./reset.css);
 
+
+:root {
+  --main: #323f47;
+	--main-text: #2f2f2f;
+	--accent: #9be1a0;
+	--background: #f0eff4;
+	--main-white: #fff;
+  --font-family: "Poppins", sans-serif;
+  --error: #ef5050;
+  --hover-green: #87d28d;
+}
+
 .app-common {
-  font-family: Poppins, sans-serif;
+  font-family: var(--font-family);
   font-weight: 500;
 }

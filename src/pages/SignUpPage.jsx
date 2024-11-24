@@ -1,13 +1,12 @@
+import { Link } from "react-router-dom";
 
-        import css from './SignUpPage.module.css';
+const SignUpPage = () => {
+  return (
+    <div>
+      <p>SignInPage</p>
+      <Link to="/">Go to HomePage</Link>
+    </div>
+  );
+};
 
-        const SignUpPage = () => {
-        return (
-                <div className={css.signuppage}>
-                {/* Your component code here */}
-                </div>
-                );
-        };
-
-        export default SignUpPage;
-        
+export default SignUpPage;

@@ -1,13 +1,12 @@
+import { Suspense } from "react";
+import css from "./SharedLayout.module.css";
 
-        import css from './SharedLayout.module.css';
+const SharedLayout = ({ children }) => {
+  return (
+    <div className={css.sharedlayout}>
+      <Suspense fallback={null}>{children}</Suspense>
+    </div>
+  );
+};
 
-        const SharedLayout = () => {
-        return (
-                <div className={css.sharedlayout}>
-                {/* Your component code here */}
-                </div>
-                );
-        };
-
-        export default SharedLayout;
-        
+export default SharedLayout;
