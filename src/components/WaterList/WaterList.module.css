@@ -1,5 +1,53 @@
-
-        .waterlist {
-        /* Your styles here */
-        }
-        
+.waterlist {
+  background-color: #f0eff4;
+  padding: 40px 20px;
+}
+.waterlistDay {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+.waterlistAddbtn {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  text-align: center;
+}
+.waterlistTitle {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  flex-direction: row;
+  gap: 80px;
+}
+.waterlistPortions {
+  display: flex;
+  text-align: center;
+  flex-direction: row;
+  padding-top: 24px;
+  padding-bottom: 24px;
+  justify-content: left;
+  gap: 8px;
+}
+.icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 30px;
+  background-color: #9be1a0;
+}
+.waterlistBtnText {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: -0.01em;
+  text-align: center;
+}
+.waterlistBtn {
+  display: flex;
+  text-align: center;
+  flex-direction: row;
+  justify-content: center;
+  gap: 10px;
+}
