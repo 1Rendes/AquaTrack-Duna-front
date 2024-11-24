@@ -1,13 +1,7 @@
+import css from "./SignInPage.module.css";
 
-        import css from './SignInPage.module.css';
+const SignInPage = () => {
+  return <div className={css.signinpage}>{/* Your component code here */}</div>;
+};
 
-        const SignInPage = () => {
-        return (
-                <div className={css.signinpage}>
-                {/* Your component code here */}
-                </div>
-                );
-        };
-
-        export default SignInPage;
-        
+export default SignInPage;
