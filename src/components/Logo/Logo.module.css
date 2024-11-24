@@ -1,14 +1,25 @@
+@media only screen and (min-width:320px){
 .logo {
-        position: absolute;
+position: absolute;
 }
-.titleLogo {
+
+.titleLogo{
 font-family: "Poppins", sans-serif;
 font-weight: 700;
-font-size: 24px;
-line-height: 1;
+font-size: 18px;
+line-height: 1.11111;
 letter-spacing: -0.01em;
 text-transform: uppercase;
 text-align: center;
 color: #323f47;
 }
+}
+
+@media only screen and (min-width:768px){
+.titleLogo{
+font-size: 24px;
+line-height: 1;
+}
+}
+
         
