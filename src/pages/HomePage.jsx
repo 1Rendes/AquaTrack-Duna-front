@@ -1,13 +1,13 @@
+import { Link } from "react-router-dom";
 
-        import css from './HomePage.module.css';
+const HomePage = () => {
+  return (
+    <div>
+      <p>HomePage</p>
+      <Link to="/signin">Go to SignIn Page</Link>
+      <Link to="/signup">Go to SignUp Page</Link>
+    </div>
+  );
+};
 
-        const HomePage = () => {
-        return (
-                <div className={css.homepage}>
-                {/* Your component code here */}
-                </div>
-                );
-        };
-
-        export default HomePage;
-        
+export default HomePage;
