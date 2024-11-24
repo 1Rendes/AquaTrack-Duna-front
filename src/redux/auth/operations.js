@@ -1,1 +1,103 @@
-//Async Thunks
+import { createAsyncThunk } from "@reduxjs/toolkit";
+import axios from "axios";
+
+export const instance = axios.create({
+  baseURL:
+    "https://h2o-experts-server.onrender.comaquatrack-duna-server.onrender.com",
+  withCredentials: true,
+});
+
+const setAuthHeader = (token) => {
+  instance.defaults.headers.common.Authorization = `Bearer ${token}`;
+};
+
+const clearAuthHeader = () => {
+  instance.defaults.headers.common.Authorization = "";
+};
+
+export const register = createAsyncThunk(
+  "auth/register",
+  async (userData, thunkAPI) => {
+    try {
+      const { data } = await instance.post("/auth/register", userData);
+
+      setAuthHeader(data.data.accessToken);
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const login = createAsyncThunk(
+  "auth/login",
+  async (userData, thunkAPI) => {
+    try {
+      const { data } = await instance.post("/auth/login", userData);
+      setAuthHeader(data.data.accessToken);
+
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const logOut = createAsyncThunk("/auth/logout", async (_, thunkAPI) => {
+  try {
+    const { data } = await instance.post("/auth/logout");
+    clearAuthHeader();
+
+    return data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue(error.message);
+  }
+});
+
+export const refreshUser = createAsyncThunk(
+  "auth/refresh",
+  async (_, thunkAPI) => {
+    try {
+      const { data } = await instance.post("/auth/refresh");
+      setAuthHeader(data.data.accessToken);
+      return data;
+    } catch (error) {
+      clearAuthHeader();
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const editUser = createAsyncThunk(
+  "auth/edit",
+  async (editData, thunkAPI) => {
+    try {
+      const { data } = await instance.patch("/users/current", editData);
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const currentUser = createAsyncThunk(
+  "auth/current",
+  async (_, { getState, rejectWithValue }) => {
+    try {
+      const state = getState();
+
+      setAuthHeader(state.auth.accessToken);
+      const response = await instance.get("/users/current");
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  },
+  {
+    condition: (_, { getState }) => {
+      const token = getState().auth.accessToken;
+      if (!token) return true;
+      return false;
+    },
+  }
+);
