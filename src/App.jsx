@@ -1,8 +1,8 @@
 import "./styles/common.css";
 import { Routes, Route } from "react-router";
-import PrivateRoute from "components/PrivateRoute.jsx";
-import RestrictedRoute from "components/RestrictedRoute.jsx";
-import SharedLayout from "components/SharedLayout/SharedLayout.jsx";
+import PrivateRoute from "./components/PrivateRoute.jsx";
+import RestrictedRoute from "./components/RestrictedRoute.jsx";
+import SharedLayout from "./components/SharedLayout/SharedLayout.jsx";
 import { lazy } from "react";
 import { Toaster } from "react-hot-toast";
 
