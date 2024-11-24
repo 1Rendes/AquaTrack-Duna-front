@@ -51,7 +51,7 @@ export const showErrorToast = (message) => {
 
 const authSlice = createSlice({
   name: "auth",
-  INITIAL_STATE,
+  initialState: INITIAL_STATE,
   extraReducers: (builder) => {
     builder
       .addCase(register.pending, handlePending)

@@ -1,5 +1,5 @@
 import "./styles/common.css";
-import { Routes, Route } from "react-router";
+import { Routes, Route } from "react-router-dom";
 import PrivateRoute from "./components/PrivateRoute.jsx";
 import RestrictedRoute from "./components/RestrictedRoute.jsx";
 import SharedLayout from "./components/SharedLayout/SharedLayout.jsx";

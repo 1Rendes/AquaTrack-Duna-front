@@ -1,7 +1,12 @@
-import css from "./SignInPage.module.css";
+import { Link } from "react-router-dom";
 
 const SignInPage = () => {
-  return <div className={css.signinpage}>{/* Your component code here */}</div>;
+  return (
+    <div>
+      <p>SignInPage</p>
+      <Link to="/">Go to HomePage</Link>
+    </div>
+  );
 };
 
 export default SignInPage;
