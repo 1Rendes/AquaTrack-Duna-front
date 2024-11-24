@@ -1,13 +1,12 @@
-
-        import css from './Logo.module.css';
+import css from './Logo.module.css';
 
         const Logo = () => {
         return (
                 <div className={css.logo}>
-                {/* Your component code here */}
+               <h2 className={css.titleLogo}>AQUATRACK</h2>
                 </div>
                 );
         };
 
-        export default Logo;
+export default Logo;
         
