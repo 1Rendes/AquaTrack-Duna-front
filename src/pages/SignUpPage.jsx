@@ -1,11 +1,20 @@
-import { Link } from "react-router-dom";
+import AdvantagesSection from "../components/AdvantagesSection/AdvantagesSection";
+import SignUpForm from "../components/SignUpForm/SignUpForm";
+import { Toaster } from "react-hot-toast";
+import Logo from '../components/Logo/Logo';
 
 const SignUpPage = () => {
   return (
-    <div>
-      <p>SignInPage</p>
-      <Link to="/">Go to HomePage</Link>
-    </div>
+    <>
+      <div>
+        <Logo />
+        <SignUpForm />
+      </div>
+      <div>
+        <AdvantagesSection />
+      </div>
+      <Toaster position="top-right" />
+    </>
   );
 };
 

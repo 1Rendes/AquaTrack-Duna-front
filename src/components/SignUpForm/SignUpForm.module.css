@@ -1,5 +1,215 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  padding: 16px;
+  margin: 0 auto;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f0eff4;
+  border-radius: 30px;
 
-        .signupform {
-        /* Your styles here */
-        }
-        
+  /* height: 780px; */
+}
+
+.title {
+  color: #323f47;
+  margin-bottom: 32px;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  font-family: Poppins;
+  margin-left: 15px;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+  
+}
+
+.input {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+.field:nth-child(3) {
+  margin-bottom: 32px;
+}
+
+.label {
+  display: inline-block;
+  color: #2f2f2f;
+  font-family: Poppins, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.input {
+  display: flex;
+  padding: 16px;
+  margin-bottom: 20px;
+  width: 311px;
+  font-size: 14px;
+  font-family: Poppins, sans-serif;
+  color: rgba(47, 47, 47, 0.8);
+  outline: none;
+  border: 1px solid rgba(47, 47, 47, 0.2);
+  background-color: transparent;
+  border-radius: 15px;
+}
+
+input:focus {
+  border: 1px solid rgba(47, 47, 47, 0.4);
+}
+
+.btn {
+  background-color: #9be1a0;
+  color: #323f47;
+
+  font-size: 16px;
+  font-weight: 700;
+  padding: 12px 0;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  text-align: center;
+  width: 100%;
+  line-height: 24px; /* 150% */
+  letter-spacing: -0.16px;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.btn:hover {
+  background-color: #87d28d;
+}
+
+.textSignUp {
+  display: flex;
+  margin-top: 16px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 16px;
+  line-height: 18px;
+  letter-spacing: -0.01em;
+  color: rgba(47, 47, 47, 0.5);
+}
+
+.navLink {
+  font-weight: 700;
+  text-decoration: underline;
+  color: #2f2f2f;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: -0.14px;
+}
+
+.iconWrapper {
+  position: relative;
+  width: 311px;
+}
+
+.icon {
+  position: absolute;
+  top: 50%;
+  right: 16px;
+  stroke: currentColor;
+  fill: transparent;
+  transform: translateY(-50%);
+}
+
+.errorMessage {
+  text-align: center;
+  color: #ef5050;
+  font-weight: 400;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.error {
+  color: #ef5050;
+  border: 1px solid #323f47;
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+@media only screen and (min-width: 768px) {
+  .wrapper {
+    padding: 171px 134px;
+   
+  }
+
+  .title {
+    font-size: 36px;
+    line-height: 1.06;
+  }
+
+  .label,
+  .input,
+  .btn,
+  .textSignUp {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .input,
+  .field,
+  .iconWrapper {
+    width: 436px;
+  }
+
+  .btn {
+    height: 60px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+  .icon {
+    right: 18px;
+  }
+
+  .errorMessage {
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .form {
+    width: 672px;
+  }
+}
+
+@media only screen and (min-width: 320px) and (max-width: 375px) {
+  .input,
+  .field,
+  .btn,
+  .iconWrapper {
+    width: calc(100vw - 64px);
+  }
+
+  .btnWrapper {
+    flex-direction: column;
+    gap: 4px;
+  }
+  .textSignIn {
+    flex-direction: column;
+  }
+}

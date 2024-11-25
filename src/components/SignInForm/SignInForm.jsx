@@ -27,7 +27,7 @@ const SignInForm = () => {
         "Please enter valid email"
       ),
     password: Yup.string()
-      .min(7, "Must contain at least 6 characters")
+      .min(6, "Must contain at least 6 characters")
       .required("Password is required"),
   });
 
