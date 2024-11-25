@@ -1,115 +1,101 @@
-import { useId, useState } from "react";
+import { useState } from "react";
+import { ErrorMessage, Form, Field, Formik } from "formik";
 import { NavLink, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import css from "./SignInForm.module.css";
 import sprite from "../../sprite.svg";
-
-import { yupResolver } from "@hookform/resolvers/yup";
-import { useForm } from "react-hook-form";
 import { login } from "../../redux/auth/operations";
 import { useDispatch } from "react-redux";
-import { toast } from "react-hot-toast";
+
+const initialValues = {
+  email: "",
+  password: "",
+};
+
+const validationSchema = Yup.object().shape({
+  email: Yup.string()
+    .email("Invalid email address")
+    .required("Email is required")
+    .matches(
+      /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
+      "Please enter valid email"
+    ),
+  password: Yup.string()
+    .min(6, "Must contain at least 6 characters")
+    .required("Password is required"),
+});
 
 const SignInForm = () => {
-  const emailId = useId();
-  const passwordId = useId();
   const [visiblePassword, setVisiblePassword] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const validationSchema = Yup.object().shape({
-    email: Yup.string()
-      .email("Invalid email address")
-      .required("Email is required")
-      .matches(
-        /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
-        "Please enter valid email"
-      ),
-    password: Yup.string()
-      .min(6, "Must contain at least 6 characters")
-      .required("Password is required"),
-  });
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm({
-    values: { email: "", password: "" },
-    resolver: yupResolver(validationSchema),
-  });
-
-  const onSubmit = (values) => {
-    setIsLoading(true);
-    dispatch(
-      login({
+  const handleSubmit = (values, actions) => {
+    try {
+      const userInfo = {
         email: values.email,
         password: values.password,
-      })
-    )
-      .unwrap()
-      .then(() => {
-        setIsLoading(false);
-        toast.success("Successfully signed in"),
-          {
-            duration: 2500,
-          };
-        reset();
+      };
+
+      const loginResult = dispatch(login(userInfo));
+      if (login.fulfilled.match(loginResult)) {
         navigate("/tracker");
-      })
-      .catch(() => {
-        setIsLoading(false);
-        toast.error("Failed to login, please try again"),
-          {
-            duration: 2500,
-          };
-      });
+
+        actions.resetForm();
+      } else {
+        setError("Login failed");
+      }
+    } catch (err) {
+      const errorMessage = err.response?.data?.message || err.message;
+      setError(errorMessage);
+    }
   };
 
   return (
-    <>
-      
-      {isLoading && <p>loading...</p>}
-      <div className={css.wrapper}>
-        
-        <h2 className={css.title}>Sign In</h2>
-        <form
+    <div className={css.wrapper}>
+      <h2 className={css.title}>Sign In</h2>
+      <Formik
+        validationSchema={validationSchema}
+        initialValues={initialValues}
+        onSubmit={handleSubmit}
+      >
+        <Form
           noValidate
           autoComplete="off"
-          onSubmit={handleSubmit(onSubmit)}
+          onSubmit={handleSubmit}
           className={css.form}
         >
           <div className={css.field}>
-            <label htmlFor={emailId} className={css.label}>
+            <label htmlFor="email" className={css.label}>
               Email
             </label>
-            <input
-              type="email"
-              {...register("email")}
-              id={emailId}
+            <Field
+              type="text"
+              id="email"
+              name="email"
               placeholder="Enter your email"
-              className={`${css.input} ${errors.email ? css.error : ""}`}
+              className={css.input}
             />
-            {errors.email && (
-              <p className={css.errorMessage}>
-                {errors.email.message}
-              </p>
-            )}
+            <ErrorMessage
+              className={css.errorMessage}
+              name="email"
+              component="div"
+            />
+            {error && <div className={css.errorMessage}>{emailError}</div>}
           </div>
 
           <div className={css.field}>
-            <label htmlFor={passwordId} className={css.label}>
+            <label htmlFor="password" className={css.label}>
               Password
             </label>
             <div className={css.iconWrapper}>
-              <input
+              <Field
                 type={visiblePassword ? "text" : "password"}
-                {...register("password")}
-                id={passwordId}
+                id="password"
+                name="password"
                 placeholder="Enter your password"
-                className={`${css.input} ${errors.password ? css.error : ""}`}
+                className={css.input}
               />
               <svg
                 className={css.iconEye}
@@ -124,10 +110,13 @@ const SignInForm = () => {
                 />
               </svg>
             </div>
-            {errors.password && (
-              <p className={css.errorMessage}>
-                {errors.password.message}
-              </p>
+            <ErrorMessage
+              name="password"
+              component="div"
+              className={css.errorMessage}
+            />
+            {error.password && (
+              <div className={css.errorMessage}>{error.password.message}</div>
             )}
           </div>
           <div className={css.btnWrapper}>
@@ -135,15 +124,16 @@ const SignInForm = () => {
               Sign In
             </button>
           </div>
-        </form>
-        <p className={css.textSignIn}>
-          Don’t have an account?
-          <NavLink className={css.navLink} to="/signup">
-            Sign Up
-          </NavLink>
-        </p>
-      </div>
-    </>
+        </Form>
+      </Formik>
+
+      <p className={css.textSignIn}>
+        Don’t have an account?
+        <NavLink className={css.navLink} to="/signup">
+          Sign Up
+        </NavLink>
+      </p>
+    </div>
   );
 };
 

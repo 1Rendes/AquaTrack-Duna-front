@@ -2,7 +2,7 @@ import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import css from "./SignUpForm.module.css";
-import sprite from "../../sprite2.svg";
+import sprite from "../../sprite.svg";
 import { useDispatch } from "react-redux";
 import { register, login } from "../../redux/auth/operations";
 import { ErrorMessage, Form, Field, Formik } from "formik";
@@ -34,20 +34,21 @@ const SignUpForm = () => {
   const [emailError, setEmailError] = useState("");
   const [error, setError] = useState("");
 
-  const handleSubmit = async (values, actions) => {
+  const handleSubmit = (values, actions) => {
     try {
       const userInfo = {
         email: values.email,
         password: values.password,
       };
 
-      const registration = await dispatch(register(userInfo));
+      const registration = dispatch(register(userInfo));
       if (register.fulfilled.match(registration)) {
         const { email, password } = userInfo;
 
-        const loginResult = await dispatch(login({ email, password }));
+        const loginResult = dispatch(login({ email, password }));
         if (login.fulfilled.match(loginResult)) {
           navigate("/tracker");
+
           actions.resetForm();
         } else {
           setError("Login failed");
@@ -85,7 +86,7 @@ const SignUpForm = () => {
             onSubmit={handleSubmit}
             className={css.form}
           >
-            <div className={css.inputWrapper}>
+            <div>
               <label htmlFor="email" className={css.label}>
                 Email
               </label>
@@ -94,7 +95,7 @@ const SignUpForm = () => {
                 id="email"
                 name="email"
                 placeholder="Enter your email"
-                className={`${css.input} ${errors.email ? css.error : ""}`}
+                className={css.input}
               />
               <ErrorMessage
                 className={css.errorMessage}
@@ -115,7 +116,7 @@ const SignUpForm = () => {
                   id="password"
                   name="password"
                   placeholder="Enter your password"
-                  className={`${css.input} ${errors.password ? css.error : ""}`}
+                  className={css.input}
                 />
                 <svg
                   className={css.icon}
@@ -151,9 +152,7 @@ const SignUpForm = () => {
                   id="repeatPassword"
                   name="repeatPassword"
                   placeholder="Repeat password"
-                  className={`${css.input} ${
-                    errors.repeatPassword ? css.error : ""
-                  }`}
+                  className={css.input}
                 />
                 <svg
                   className={css.icon}
@@ -193,12 +192,14 @@ const SignUpForm = () => {
         )}
       </Formik>
 
-      <p className={css.textSignUp}>
-        Already have account
-        <NavLink className={css.navLink} to="/signin">
-          Sign In
-        </NavLink>
-      </p>
+      <div className={css.navLinkDiv}>
+        <p className={css.textSignUp}>
+          Already have account
+          <NavLink className={css.navLink} to="/signin">
+            Sign In
+          </NavLink>
+        </p>
+      </div>
     </div>
   );
 };
