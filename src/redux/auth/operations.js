@@ -96,8 +96,10 @@ export const currentUser = createAsyncThunk(
   {
     condition: (_, { getState }) => {
       const token = getState().auth.accessToken;
-      if (!token) return true;
-      return false;
+      if (!token) return false;
+      return true;
     },
   }
 );
+
+export default instance;
