@@ -59,7 +59,6 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.user = payload.data.user;
         showSuccessToast("User successfully registered!");
-        navigate("/signin", { replace: true });
       })
       .addCase(register.rejected, (state, { payload }) => {
         state.isLoading = false;
@@ -81,8 +80,8 @@ const authSlice = createSlice({
         showErrorToast(`Sorry, ${payload}`);
       })
       .addCase(logOut.pending, handlePending)
-      .addCase(logOut.fulfilled, (state) => {
-        state = INITIAL_STATE;
+      .addCase(logOut.fulfilled, () => {
+        return INITIAL_STATE;
       })
       .addCase(logOut.rejected, (state, { payload }) => {
         state.isLoading = false;
