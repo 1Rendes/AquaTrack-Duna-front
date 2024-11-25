@@ -1,8 +1,15 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import SvgIcon from '../../SvgIcon/SvgIcon';
-import css from './CalendarPagination.module.css';
-import { useTranslation } from 'react-i18next';
+import PropTypes from "prop-types";
+import { useState, useEffect } from "react";
+
+
+///////////////////import SvgIcon from "../../SvgIcon/SvgIcon";
+
+
+import css from "./CalendarPagination.module.css";
+//////////////////import { useTranslation } from "react-i18next";
+//import PropTypes from "prop-types";
+//import css from "./CalendarPagination.module.css";
+
 
 const CalendarPagination = ({ data }) => {
   const getMonthName = (monthNumber) => {
@@ -28,7 +35,6 @@ const CalendarPagination = ({ data }) => {
   const nextMonth = () => {
     console.log("Change to next month");
   };
-  
   return (
     <div className={css.container}>
       <button className={css["month-back"]} onClick={prevMonth}></button>
@@ -39,9 +45,7 @@ const CalendarPagination = ({ data }) => {
     </div>
   );
 };
-
 CalendarPagination.propTypes = {
   data: PropTypes.object,
 };
-
 export default CalendarPagination;

@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+//import React, { useState } from 'react';
 import CalendarLine from './CalendarLine/CalendarLine.jsx';
 import CalendarPagination from '../CalendarPagination/CalendarPagination.jsx';
-import MonthInfo from '../MonthInfo/MonthInfo.jsx';
+//import MonthInfo from '../MonthInfo/MonthInfo.jsx';
 import css from './Calendar.module.css';
+
+
+//import { useEffect, useState, useMemo } from "react";
 
 const Calendar = () => {
   const data = {
@@ -42,33 +45,48 @@ const Calendar = () => {
     month: 9,
     year: 2024,
   };
+
   const addEmptyDays = (data) => {
     const firstDayDate = new Date(data.year, data.month - 1, data.days[0].date);
+
     const firstDayOfWeek = firstDayDate.getDay();
+    
+    
     const lastDayDate = new Date(
       data.year,
       data.month - 1,
       data.days[data.days.length - 1].date
     );
+    
     const lastDayOfWeek = lastDayDate.getDay();
+    console.log(firstDayDate)
+    
     const emptyDaysAtStart = [];
+    
     const emptyDaysAtEnd = [];
+    
     for (let i = 0; i < firstDayOfWeek; i++) {
       emptyDaysAtStart.push({ isEmpty: true });
     }
+    
     for (let i = lastDayOfWeek + 1; i < 7; i++) {
       emptyDaysAtEnd.push({ isEmpty: true });
     }
     return [...emptyDaysAtStart, ...data.days, ...emptyDaysAtEnd];
   };
+
   const splitIntoChunks = (array, chunkSize) => {
     const chunks = [];
+    
     for (let i = 0; i < array.length; i += chunkSize) {
       chunks.push(array.slice(i, i + chunkSize));
     }
+    
     return chunks;
   };
+
   const chunks = splitIntoChunks(addEmptyDays(data), 7);
+
   return (
     <>
       <div className={css["pagination-container"]}>
@@ -90,5 +108,4 @@ const Calendar = () => {
     </>
   );
 };
-
 export default Calendar;

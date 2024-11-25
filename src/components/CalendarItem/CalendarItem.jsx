@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import css from './CalendarItem.module.css';
-import { useDispatch } from 'react-redux';
-import { getByOneDayRecordsThunk } from '../../../redux/water/operations';
+////import { useDispatch } from 'react-redux';
+////import { getByOneDayRecordsThunk } from '../../../redux/water/operations';
 
 const concaniteClasses = (str1, str2) => {
   return `${str1} ${str2}`;
