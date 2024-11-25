@@ -1,6 +1,5 @@
 import AdvantagesSection from "../components/AdvantagesSection/AdvantagesSection";
 import SignUpForm from "../components/SignUpForm/SignUpForm";
-import { Toaster } from "react-hot-toast";
 import Logo from '../components/Logo/Logo';
 
 const SignUpPage = () => {
@@ -13,7 +12,7 @@ const SignUpPage = () => {
       <div>
         <AdvantagesSection />
       </div>
-      <Toaster position="top-right" />
+    
     </>
   );
 };
