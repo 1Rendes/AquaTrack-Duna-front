@@ -1,5 +1,15 @@
+.sharedlayout {
+  box-sizing: border-box;
+  margin: 0 auto;
+  max-width: 375px;
+  padding: 16px;
 
-        .sharedlayout {
-        /* Your styles here */
-        }
-        
+  @media screen and (min-width: 768px) {
+    max-width: 768px;
+    padding: 32px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    max-width: 1440px;
+  }
+}
