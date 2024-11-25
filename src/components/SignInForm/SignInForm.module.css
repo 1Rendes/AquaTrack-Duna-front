@@ -1,64 +1,59 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  align-items: left;
   padding: 16px;
-  padding-bottom: 50px;
-  margin: auto;
+  margin: 0 auto;
+  /* align-items: center; */
   justify-content: center;
-  height: 100vh;
-  background-color: #f0eff4;;
+  /* height: 100vh; */
+  background-color: var(--background);
   border-radius: 30px;
+  height: 780px;
+  
 }
 
 .title {
-  padding-bottom: 32px;
+  color: var(--main);
+  margin-bottom: 32px;
   font-size: 32px;
   font-weight: 700;
   line-height: 1;
   letter-spacing: -0.01em;
-  color: var(--main);
+  align-self: left;
   font-family: Poppins;
 }
 
 .form {
-  width: 100%;
-}
-
-.field {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  margin-bottom: 16px;
-  width: 311px;
-}
-
-.field:nth-child(2) {
-  margin-bottom: 32px;
+  align-self: center;
+  width: 100%;
+  margin: 0 auto;
+  color: var(--main-text);
 }
 
 .label {
+  display: inline-block;
+  color: var(--main-text);
   font-size: 14px;
   font-weight: 700;
-  line-height: 1.28;
-  letter-spacing: -0.01em;
+  line-height: 1.1;
+  margin-bottom: 8px;
+  font-family: Poppins;
 }
 
 .input {
-  position: relative;
-
+  display: flex;
   padding: 16px;
-  width: 100%;
-
+  margin-bottom: 20px;
+  width: 311px;
   font-size: 14px;
-  line-height: 1.28;
-  letter-spacing: -0.01em;
 
-  background-color: transparent;
+  color: var(--main-text);
   outline: none;
-
-  border-radius: 15px;
   border: 1px solid rgba(47, 47, 47, 0.2);
+  background-color: transparent;
+  border-radius: 15px;
 }
 
 input:focus {
@@ -66,152 +61,116 @@ input:focus {
 }
 
 .btn {
-  background-color: #9be1a0;
-  color: #323f47;
-
+  background-color: var(--accent);
+  color: var(--main);
   font-size: 16px;
   font-weight: 700;
-
+  padding: 12px 0;
   border: none;
   border-radius: 30px;
   cursor: pointer;
   text-align: center;
   width: 100%;
+  line-height: 24px; /* 150% */
+  letter-spacing: -0.16px;
   transition: background-color 0.3s ease;
-
-  padding-top: 16px;
-  padding-bottom: 16px;
-
-  height: 50px;
+  margin-top: 10px;
 }
 
 .btn:hover {
-  background-color: #87d28d;
+  background-color: var(--hover-green);
 }
 
 .textSignIn {
   display: flex;
   margin-top: 16px;
-  align-items: center;
-  justify-content: center;
-
+  
+  gap: 10px;
   font-size: 16px;
   line-height: 18px;
   letter-spacing: -0.01em;
   color: rgba(47, 47, 47, 0.5);
-  gap: 10px;
+  font-family: Poppins;
 }
 
 .navLink {
   font-weight: 700;
   text-decoration: underline;
-  color: #2f2f2f;
+  color: var(--main-text);
   font-size: 16px;
-  line-height: 24px;
+  line-height: 18px;
   letter-spacing: -0.14px;
 }
 
 .iconWrapper {
   position: relative;
-  width: 100%;
+  width: 311px;
 }
 
-.iconEye {
+.icon {
   position: absolute;
   top: 50%;
-  right: 16px;
-  transform: translateY(-50%);
-
+  right: 5px;
   stroke: currentColor;
   fill: transparent;
-}
-
-.btnWrapper {
-  display: flex;
-  justify-content: center;
-  gap: 8px;
-  flex-wrap: wrap;
+  transform: translateY(-50%);
+  cursor: pointer;
 }
 
 .errorMessage {
   text-align: center;
-  color: #ef5050;
+  color: var(--error);
   font-weight: 400;
-  font-size: 14px;
+  font-size: 13px;
   margin-bottom: 12px;
 }
 
-.error {
-  color: #ef5050;
-  border: 1px solid #ef5050;
-}
-
 @media only screen and (min-width: 768px) {
-  .logo {
-    padding: 32px 0 0 32px;
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 169px 134px;
   }
+
   .title {
     font-size: 36px;
-    line-height: 1.5;
+    line-height: 1.06;
   }
+
+  .input {
+    position: relative;
+    max-width: 436px;
+  }
+  
   .label,
   .input,
   .btn,
-  .textSignIn {
+  .textSignUp {
     font-size: 16px;
     line-height: 1.5;
   }
-  .wrapper {
-    padding-left: 134px;
-    padding-right: 134px;
-  }
-  .field {
+  .input,
+  .field,
+  .iconWrapper {
     width: 436px;
   }
 
   .btn {
-    width: 214px;
     height: 60px;
-    padding-top: 18px;
-    padding-bottom: 18px;
+    width: 436px;
   }
-
-  .textSignIn {
-    flex-direction: row;
-  }
-}
-@media only screen and (min-width: 320px) and (max-width: 375px) {
-  .input,
-  .field,
-  .btn,
-  .iconWrapper {
-    width: calc(100vw - 64px);
-  }
-
-  .btnWrapper {
-    flex-direction: column;
-    gap: 4px;
-  }
-  .textSignIn {
-    flex-direction: column;
-  }
-}
-
-@media only screen and (min-width: 768px) {
+ 
   .errorMessage {
     font-size: 16px;
     line-height: 1.5;
     letter-spacing: -0.01em;
   }
-
-  .logoWrapper {
-    padding-right: 32px;
-  }
 }
 
 @media only screen and (min-width: 1440px) {
   .wrapper {
-    padding-left: 118px;
-    padding-right: 118px;
+    width: 672px;
+    padding: 169px 118px;
   }
 }
+

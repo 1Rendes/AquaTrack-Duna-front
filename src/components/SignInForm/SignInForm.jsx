@@ -10,16 +10,13 @@ import { useDispatch } from "react-redux";
 const initialValues = {
   email: "",
   password: "",
+  general: "",
 };
 
 const validationSchema = Yup.object().shape({
   email: Yup.string()
     .email("Invalid email address")
-    .required("Email is required")
-    .matches(
-      /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
-      "Please enter valid email"
-    ),
+    .required("Email is required"),
   password: Yup.string()
     .min(6, "Must contain at least 6 characters")
     .required("Password is required"),
@@ -27,31 +24,26 @@ const validationSchema = Yup.object().shape({
 
 const SignInForm = () => {
   const [visiblePassword, setVisiblePassword] = useState(false);
-  const [error, setError] = useState("");
+
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  const handleSubmit = (values, actions) => {
+  const handleSubmit = async (values, actions) => {
     try {
       const userInfo = {
         email: values.email,
         password: values.password,
       };
-
-      const loginResult = dispatch(login(userInfo));
-      if (login.fulfilled.match(loginResult)) {
-        navigate("/tracker");
-
-        actions.resetForm();
-      } else {
-        setError("Login failed");
-      }
+  
+      await dispatch(login(userInfo)).unwrap(); 
+      navigate("/tracker");
+      actions.resetForm();
     } catch (err) {
-      const errorMessage = err.response?.data?.message || err.message;
-      setError(errorMessage);
+      const errorMessage = err.response?.data?.message || err.message || "Login failed. Try again.";
+      actions.setFieldError("general", errorMessage); 
     }
   };
-
+  
   return (
     <div className={css.wrapper}>
       <h2 className={css.title}>Sign In</h2>
@@ -82,7 +74,7 @@ const SignInForm = () => {
               name="email"
               component="div"
             />
-            {error && <div className={css.errorMessage}>{emailError}</div>}
+  
           </div>
 
           <div className={css.field}>
@@ -98,7 +90,7 @@ const SignInForm = () => {
                 className={css.input}
               />
               <svg
-                className={css.iconEye}
+                className={css.icon}
                 width={20}
                 height={20}
                 onClick={() => setVisiblePassword(!visiblePassword)}
@@ -115,9 +107,7 @@ const SignInForm = () => {
               component="div"
               className={css.errorMessage}
             />
-            {error.password && (
-              <div className={css.errorMessage}>{error.password.message}</div>
-            )}
+    
           </div>
           <div className={css.btnWrapper}>
             <button type="submit" className={css.btn}>

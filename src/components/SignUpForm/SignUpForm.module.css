@@ -26,6 +26,7 @@
 .form {
   display: flex;
   flex-direction: column;
+  align-self: center;
   width: 100%;
   margin: 0 auto;
   color: var(--main-text);
@@ -38,6 +39,7 @@
   font-weight: 700;
   line-height: 1.1;
   margin-bottom: 8px;
+  font-family: Poppins;
 }
 
 .input {
@@ -82,12 +84,13 @@ input:focus {
 .textSignUp {
   display: flex;
   margin-top: 16px;
-  text-align: center;
+  
   gap: 10px;
   font-size: 16px;
   line-height: 18px;
   letter-spacing: -0.01em;
   color: rgba(47, 47, 47, 0.5);
+  font-family: Poppins;
 }
 
 .navLink {
@@ -97,11 +100,6 @@ input:focus {
   font-size: 16px;
   line-height: 24px;
   letter-spacing: -0.14px;
-}
-.navLinkDiv {
-  display: flex;
-  width: 100%;
-  text-align: center;
 }
 
 .iconWrapper {
@@ -136,8 +134,7 @@ input:focus {
   .wrapper {
     display: flex;
     flex-direction: column;
-    padding: 171px 134px;
-    width: 709px;
+    padding: 169px 134px;
   }
 
   .title {
@@ -177,7 +174,7 @@ input:focus {
 
 @media only screen and (min-width: 1440px) {
   .wrapper {
-    max-width: 672px;
+    width: 672px;
     padding: 169px 118px;
   }
 }

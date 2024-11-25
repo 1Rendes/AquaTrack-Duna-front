@@ -15,11 +15,7 @@ const initialValues = {
 const validationSchema = Yup.object().shape({
   email: Yup.string()
     .email("Invalid email address")
-    .required("Email is required!")
-    .matches(
-      /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/,
-      "Please enter valid email"
-    ),
+    .required("Email is required!"),
   password: Yup.string()
     .min(6, "Must contain at least 6 characters")
     .required("Password is required!"),
@@ -32,38 +28,23 @@ const SignUpForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [emailError, setEmailError] = useState("");
-  const [error, setError] = useState("");
 
-  const handleSubmit = (values, actions) => {
+  const handleSubmit = async (values, actions) => {
     try {
       const userInfo = {
         email: values.email,
         password: values.password,
       };
 
-      const registration = dispatch(register(userInfo));
-      if (register.fulfilled.match(registration)) {
-        const { email, password } = userInfo;
-
-        const loginResult = dispatch(login({ email, password }));
-        if (login.fulfilled.match(loginResult)) {
-          navigate("/tracker");
-
-          actions.resetForm();
-        } else {
-          setError("Login failed");
-        }
-      } else {
-        setError("Registration failed");
-      }
+      await dispatch(register(userInfo)).unwrap();
+      await dispatch(login(userInfo)).unwrap();
+      navigate("/tracker");
+      actions.resetForm();
     } catch (err) {
-      const status = err.response?.data?.message;
-
-      if (status === "409 Conflict") {
-        setEmailError("Email already in use");
+      if (err.response?.status === 409) {
+        actions.setFieldError("email", "Email already in use");
       } else {
-        const errorMessage = err.response?.data?.message || err.message;
-        setError(errorMessage);
+        actions.setFieldError("general", "Something went wrong. Try again.");
       }
     }
   };
@@ -79,13 +60,8 @@ const SignUpForm = () => {
         initialValues={initialValues}
         onSubmit={handleSubmit}
       >
-        {({ values, errors }) => (
-          <Form
-            noValidate
-            autoComplete="off"
-            onSubmit={handleSubmit}
-            className={css.form}
-          >
+        {({ values }) => (
+          <Form noValidate autoComplete="off" className={css.form}>
             <div>
               <label htmlFor="email" className={css.label}>
                 Email
@@ -98,13 +74,10 @@ const SignUpForm = () => {
                 className={css.input}
               />
               <ErrorMessage
-                className={css.errorMessage}
                 name="email"
                 component="div"
+                className={css.errorMessage}
               />
-              {emailError && (
-                <div className={css.errorMessage}>{emailError}</div>
-              )}
             </div>
             <div className={css.inputWrapper}>
               <label htmlFor="password" className={css.label}>
@@ -120,8 +93,8 @@ const SignUpForm = () => {
                 />
                 <svg
                   className={css.icon}
-                  width={20}
-                  height={20}
+                  width={22}
+                  height={22}
                   onClick={() => setVisiblePassword(!visiblePassword)}
                 >
                   <use
@@ -136,11 +109,6 @@ const SignUpForm = () => {
                 component="div"
                 className={css.errorMessage}
               />
-              {errors.password && (
-                <div className={css.errorMessage}>
-                  {errors.password.message}
-                </div>
-              )}
             </div>
             <div className={css.inputWrapper}>
               <label htmlFor="repeatPassword" className={css.label}>
@@ -156,8 +124,8 @@ const SignUpForm = () => {
                 />
                 <svg
                   className={css.icon}
-                  width={20}
-                  height={20}
+                  width={22}
+                  height={22}
                   onClick={() =>
                     setVisibleRepeatPassword(!visibleRepeatPassword)
                   }
@@ -176,11 +144,6 @@ const SignUpForm = () => {
                   className={css.errorMessage}
                 />
               )}
-              {error.repeatPassword && (
-                <div className={css.errorMessage}>
-                  {errors.repeatPassword.message}
-                </div>
-              )}
             </div>
 
             <div className={css.buttonWrapper}>
@@ -192,13 +155,11 @@ const SignUpForm = () => {
         )}
       </Formik>
 
-      <div className={css.navLinkDiv}>
-        <p className={css.textSignUp}>
-          Already have account
-          <NavLink className={css.navLink} to="/signin">
-            Sign In
-          </NavLink>
-        </p>
+      <div className={css.textSignUp}>
+        Already have account
+        <NavLink className={css.navLink} to="/signin">
+          Sign In
+        </NavLink>
       </div>
     </div>
   );
