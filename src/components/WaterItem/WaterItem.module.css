@@ -1,5 +1,54 @@
+.wateritem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 18px 14px;
+  min-width: 149px;
+  /* height: 74px; */
+  border-radius: 15px;
+  background-color: #fff;
+  backdrop-filter: blur(33.599998474121094px);
+}
+.infoList {
+  list-style: none;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  /* padding-inline-start: 0px; */
+  line-height: 1;
+  gap: 6px;
+}
+.waterVolume {
+  font-weight: 700;
+  font-size: 14px;
+  color: #323f47;
+}
+.infoListTime {
+  font-weight: 400;
+  font-size: 12px;
+  color: rgba(47, 47, 47, 0.6);
+}
 
-        .wateritem {
-        /* Your styles here */
-        }
-        
+.icon {
+  width: 14px;
+  height: 14px;
+}
+.btn {
+  size: 14px;
+  border: none;
+}
+
+.listItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.btnList {
+  display: flex;
+  text-align: left;
+  flex-direction: column;
+  gap: 8px;
+}
+/* .btnlistItem { */
+/* } */
