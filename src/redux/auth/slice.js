@@ -58,9 +58,8 @@ const authSlice = createSlice({
       .addCase(register.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.user = payload.data.user;
-        state.accessToken = payload.data.accessToken;
-        state.isLoggedIn = true;
         showSuccessToast("User successfully registered!");
+        navigate("/signin", { replace: true });
       })
       .addCase(register.rejected, (state, { payload }) => {
         state.isLoading = false;
