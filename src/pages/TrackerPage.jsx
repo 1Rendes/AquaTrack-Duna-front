@@ -1,6 +1,5 @@
 import { useState } from "react";
 import WaterModal from "../components/WaterModal/WaterModal";
-import css from "./TrackerPage.module.css";
 
 const TrackerPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -13,7 +12,7 @@ const TrackerPage = () => {
     setIsModalOpen(false);
   };
   return (
-    <div className={css.trackerpage}>
+    <div>
       <WaterModal values={modalType}></WaterModal>
       <button
         onClick={() => {
