@@ -1,13 +1,7 @@
+import css from "./Modal.module.css";
 
-        import css from './Modal.module.css';
+const Modal = ({ children }) => {
+  return <div className={css.modal}>{children}</div>;
+};
 
-        const Modal = () => {
-        return (
-                <div className={css.modal}>
-                {/* Your component code here */}
-                </div>
-                );
-        };
-
-        export default Modal;
-        
+export default Modal;
