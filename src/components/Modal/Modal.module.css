@@ -9,6 +9,7 @@ background-color: rgba(0, 0, 0, 0.75);
 overflow: hidden;
 overflow-y: auto;
 transition: opacity 0.3s ease-in-out;
+
 }
 .modal {
 position: absolute;
