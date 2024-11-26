@@ -2,7 +2,7 @@ import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import css from "./SignUpForm.module.css";
-import sprite from "../../sprite.svg";
+import sprite from "../../img/icons.svg";
 import { useDispatch } from "react-redux";
 import { register, login } from "../../redux/auth/operations";
 import { ErrorMessage, Form, Field, Formik } from "formik";
@@ -27,7 +27,6 @@ const validationSchema = Yup.object().shape({
 const SignUpForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [emailError, setEmailError] = useState("");
 
   const handleSubmit = async (values, actions) => {
     try {

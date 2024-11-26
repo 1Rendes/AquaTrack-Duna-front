@@ -3,14 +3,13 @@ import { ErrorMessage, Form, Field, Formik } from "formik";
 import { NavLink, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import css from "./SignInForm.module.css";
-import sprite from "../../sprite.svg";
+import sprite from "../../img/icons.svg";
 import { login } from "../../redux/auth/operations";
 import { useDispatch } from "react-redux";
 
 const initialValues = {
   email: "",
   password: "",
-  general: "",
 };
 
 const validationSchema = Yup.object().shape({
@@ -40,7 +39,7 @@ const SignInForm = () => {
       actions.resetForm();
     } catch (err) {
       const errorMessage = err.response?.data?.message || err.message || "Login failed. Try again.";
-      actions.setFieldError("general", errorMessage); 
+      actions.setFieldError(errorMessage); 
     }
   };
   

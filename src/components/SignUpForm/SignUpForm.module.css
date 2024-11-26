@@ -110,7 +110,7 @@ input:focus {
 .icon {
   position: absolute;
   top: 50%;
-  right: 5px;
+  right: 20px;
   stroke: currentColor;
   fill: transparent;
   transform: translateY(-50%);
