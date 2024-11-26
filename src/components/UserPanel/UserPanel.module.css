@@ -1,5 +1,32 @@
+.userpanel {
+  gap: 20px;
+  margin-bottom: 40px;
+}
+.greeting {
+  font-family: "Gilroy", sans-serif;
+  font-weight: 400;
+  font-size: 32px;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: #323f47;
+  margin-bottom: 20px;
+}
+.userName {
+  font-weight: 700;
+}
 
-        .userpanel {
-        /* Your styles here */
-        }
-        
+@media screen and (min-width: 768px) {
+  .userpanel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 40px;
+  }
+  .greeting {
+    font-size: 36px;
+    line-height: 1.05556;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+}
