@@ -28,7 +28,7 @@
   flex-direction: row;
   padding-top: 24px;
   padding-bottom: 24px;
-  justify-content: left;
+  justify-content: space-between;
   gap: 8px;
 }
 .icon {
