@@ -3,13 +3,12 @@
   flex-direction: column;
   padding: 16px;
   margin: 0 auto;
-  /* align-items: center; */
+  align-items: center;
   justify-content: center;
-  /* height: 100vh; */
+  height: 100vh;
   background-color: var(--background);
   border-radius: 30px;
-  height: 780px;
-  
+  /* height: 780px; */
 }
 
 .title {
@@ -20,7 +19,6 @@
   line-height: 1;
   letter-spacing: -0.01em;
   align-self: left;
-  font-family: Poppins;
 }
 
 .form {
@@ -39,7 +37,6 @@
   font-weight: 700;
   line-height: 1.1;
   margin-bottom: 8px;
-  font-family: Poppins;
 }
 
 .input {
@@ -90,7 +87,6 @@ input:focus {
   line-height: 18px;
   letter-spacing: -0.01em;
   color: rgba(47, 47, 47, 0.5);
-  font-family: Poppins;
 }
 
 .navLink {
