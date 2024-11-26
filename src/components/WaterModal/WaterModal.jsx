@@ -1,13 +1,14 @@
+import Modal from "../Modal/Modal";
 
-        import css from './WaterModal.module.css';
+const WaterModal = ({ modalType }) => {
+  return (
+    <Modal>
+      <div>
+        <h2>dgdgdfg</h2>
+        <p>paragraph</p>
+      </div>
+    </Modal>
+  );
+};
 
-        const WaterModal = () => {
-        return (
-                <div className={css.watermodal}>
-                {/* Your component code here */}
-                </div>
-                );
-        };
-
-        export default WaterModal;
-        
+export default WaterModal;
