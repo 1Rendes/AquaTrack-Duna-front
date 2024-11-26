@@ -1,15 +1,16 @@
-@media only screen and (min-width:320px){
+
     .welcomesection{
         border-radius: 30px;
         width: 343px;
         height: 411px;
         background: #f0eff4;
-        padding: 24px, 16px;
-    }
+       }
 
     .titleSection{
-        padding-top: 94px;
-        padding-bottom: 43px;
+        padding-top: 118px;
+        padding-bottom: 67px;
+        padding-left: 16px;
+        padding-right: 16px;
     }
 
     .subtitle{
@@ -50,8 +51,7 @@
 
     .singUp{
         border: 1px solid #323f47;
-        border-radius: 30px;
-        
+        border-radius: 30px;  
         width: 104px;
         height: 46px;
         font-family: "Poppins", sans-serif;
@@ -62,21 +62,19 @@
         text-align: center;
         color: #323f47;
 }
-}
+
 
 @media only screen and (min-width:768px){
     .welcomesection{
         width: 704px;
         height: 498px;
-        padding: 32px;
-
     }
 
     .titleSection{
-        padding-top: 74px;
-        padding-bottom: 18px;
-        padding-left: 32px;
-        padding-right: 61px;
+        padding-top: 106px;
+        padding-bottom: 50px;
+        padding-left: 64px;
+        padding-right: 93px;
     }
 
     .subtitle{
@@ -115,10 +113,10 @@ height: 736px;
 }
 
 .titleSection{
-padding-top: 156px;
-padding-bottom: 156px;
-padding-left: 124px;
-padding-right: 121px;
+padding-top: 188px;
+padding-bottom: 188px;
+padding-left: 64px;
+padding-right: 61px;
 }
 
     

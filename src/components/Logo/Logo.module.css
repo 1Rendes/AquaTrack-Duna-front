@@ -1,6 +1,8 @@
-@media only screen and (min-width:320px){
+
 .logo {
 position: absolute;
+padding-left: 16px;
+padding-top: 24px;
 }
 
 .titleLogo{
@@ -13,9 +15,14 @@ text-transform: uppercase;
 text-align: center;
 color: #323f47;
 }
-}
+
+
+
 
 @media only screen and (min-width:768px){
+.logo{
+padding: 32px;
+}
 .titleLogo{
 font-size: 24px;
 line-height: 1;
