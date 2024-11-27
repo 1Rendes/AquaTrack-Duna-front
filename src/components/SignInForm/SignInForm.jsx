@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ErrorMessage, Form, Field, Formik } from "formik";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink} from "react-router-dom";
 import * as Yup from "yup";
 import css from "./SignInForm.module.css";
 import sprite from "../../img/icons.svg";
@@ -25,7 +25,7 @@ const SignInForm = () => {
   const [visiblePassword, setVisiblePassword] = useState(false);
 
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+  
 
   const handleSubmit = async (values, actions) => {
     try {
@@ -35,7 +35,7 @@ const SignInForm = () => {
       };
   
       await dispatch(login(userInfo)).unwrap(); 
-      navigate("/tracker");
+     
       actions.resetForm();
     } catch (err) {
       const errorMessage = err.response?.data?.message || err.message || "Login failed. Try again.";

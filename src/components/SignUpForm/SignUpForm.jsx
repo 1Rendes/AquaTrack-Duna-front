@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink} from "react-router-dom";
 import * as Yup from "yup";
 import css from "./SignUpForm.module.css";
 import sprite from "../../img/icons.svg";
@@ -26,7 +26,7 @@ const validationSchema = Yup.object().shape({
 
 const SignUpForm = () => {
   const dispatch = useDispatch();
-  const navigate = useNavigate();
+ 
 
   const handleSubmit = async (values, actions) => {
     try {
@@ -37,7 +37,7 @@ const SignUpForm = () => {
 
       await dispatch(register(userInfo)).unwrap();
       await dispatch(login(userInfo)).unwrap();
-      navigate("/tracker");
+   
       actions.resetForm();
     } catch (err) {
       if (err.response?.status === 409) {
