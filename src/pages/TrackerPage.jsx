@@ -1,6 +1,7 @@
 import { useState } from "react";
 import WaterModal from "../components/WaterModal/WaterModal";
 import WaterMainInfo from "../components/WaterMainInfo/WaterMainInfo";
+import UserBar from "../components/UserBar/UserBar";
 
 const TrackerPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -14,6 +15,7 @@ const TrackerPage = () => {
   };
   return (
     <div>
+      <UserBar></UserBar>
       <WaterMainInfo onClick={handleWaterAddOrEditModal} />
       <WaterModal values={modalType}></WaterModal>
       <button
