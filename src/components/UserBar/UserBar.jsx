@@ -2,9 +2,14 @@ import { useEffect, useRef, useState } from "react";
 import UserBarPopover from "../UserBarPopover/UserBarPopover";
 import icons from "../../img/icons.svg";
 import css from "./UserBar.module.css";
+import UserSettingsModal from "../UserSettingsModal/UserSettingsModal";
+import LogOutModal from "../LogOutModal/LogOutModal";
 
 const UserBar = ({ userName, userPhoto }) => {
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
+  const [settingsModalIsOpen, setSettingsModalIsOpen] = useState(false);
+  const [logoutModalIsOpen, setLogoutModalIsOpen] = useState(false);
+
   const buttonRef = useRef(null);
   const popoverRef = useRef(null);
 
@@ -28,6 +33,24 @@ const UserBar = ({ userName, userPhoto }) => {
     return () => document.removeEventListener("click", handleClickOutside);
   }, [isPopoverOpen]);
 
+  const handleSettingsModalIsOpen = () => {
+    setSettingsModalIsOpen(true);
+    setIsPopoverOpen(false);
+    console.log("Open settings modal");
+  };
+
+  const handleSettingsModalIsClosed = () => {
+    setSettingsModalIsOpen(false);
+  };
+
+  const handleLogoutModalIsOpen = () => {
+    setLogoutModalIsOpen(true);
+    setIsPopoverOpen(false);
+  };
+
+  const handleLogoutModalIsClose = () => {
+    setLogoutModalIsOpen(false);
+  };
   const firstLetter = userName ? userName.slice(0, 1) : "";
 
   return (
@@ -61,8 +84,20 @@ const UserBar = ({ userName, userPhoto }) => {
       </button>
       {isPopoverOpen && (
         <div ref={popoverRef}>
-          <UserBarPopover onClose={() => setIsPopoverOpen(false)} />
+          <UserBarPopover
+            handleLogoutModalIsOpen={handleLogoutModalIsOpen}
+            handleSettingsModalIsOpen={handleSettingsModalIsOpen}
+          />
         </div>
+      )}
+      {settingsModalIsOpen && (
+        <UserSettingsModal handleModalClose={handleSettingsModalIsClosed} />
+      )}
+      {logoutModalIsOpen && (
+        <LogOutModal
+          handleLogoutModalIsClose={handleLogoutModalIsClose}
+          logoutModalIsOpen={logoutModalIsOpen}
+        />
       )}
     </div>
   );
