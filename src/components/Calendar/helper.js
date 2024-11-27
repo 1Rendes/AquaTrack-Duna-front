@@ -1,4 +1,4 @@
-export const addEmptyDays = (record) => {
+/* export const addEmptyDays = (record) => {
   const firstDayDate = new Date(record[0].date);
   firstDayDate.setDate(firstDayDate.getDate() - 1);
   const firstDayOfWeek = firstDayDate.getDay();
@@ -59,4 +59,4 @@ export const convertData = (rawData, date) => {
   });
 
   return newData;
-};
+}; */
