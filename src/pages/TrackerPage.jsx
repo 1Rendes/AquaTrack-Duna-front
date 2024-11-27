@@ -1,11 +1,15 @@
-<<<<<<< HEAD
+
 import Calendar from "../components/Calendar/Calendar";
 
 const TrackerPage = () => {
   return <>TrackerPage
     <Calendar />
   </>;
-=======
+}
+
+export default TrackerPage;
+
+/* 
 import { useState } from "react";
 import WaterModal from "../components/WaterModal/WaterModal";
 import WaterMainInfo from "../components/WaterMainInfo/WaterMainInfo";
@@ -38,7 +42,8 @@ const TrackerPage = () => {
       ></button>
     </div>
   );
->>>>>>> da16526bed85e96797daf171863639bf502dc0c8
+
 };
 
 export default TrackerPage;
+ */

@@ -81,7 +81,7 @@ const Calendar = () => {
 
   useEffect(() => {
     const updateChunks = () => {
-      if (window.innerWidth < 768) {
+      if (window.innerWidth > 768) {
         setChunks(splitIntoChunks(addEmptyDays(data), 8));
       } else {
         setChunks(splitIntoChunks(addEmptyDays(data), 7));
