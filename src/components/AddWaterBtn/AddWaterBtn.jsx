@@ -1,15 +1,7 @@
 import clsx from "clsx";
 import icons from "../../img/icons.svg";
-import { useState } from "react";
-// import WaterModal from "../WaterModal/WaterModal.jsx";
 import css from "./AddWaterBtn.module.css";
 const AddWaterBtn = ({ variant, onClick }) => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const handleClick = () => {
-    setIsModalOpen(true);
-    onClick();
-  };
   return (
     <>
       <button
@@ -17,8 +9,7 @@ const AddWaterBtn = ({ variant, onClick }) => {
           variant === "mainInfo" && css.main,
           variant === "dailyInfo" && css.daily
         )}
-        onClick={handleClick}
-        // onClick={() => onClick("add")}
+        onClick={onClick}
       >
         <div className={css.svgWaterBtn}>
           <svg>
@@ -27,7 +18,6 @@ const AddWaterBtn = ({ variant, onClick }) => {
         </div>
         Add Water
       </button>
-      {isModalOpen && <div>Модалка відкрита!</div>}
     </>
   );
 };
