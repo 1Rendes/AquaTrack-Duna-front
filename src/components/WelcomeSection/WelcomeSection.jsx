@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import css from './WelcomeSection.module.css';
 import Logo from '../Logo/Logo';
 const WelcomeSection = () => {
@@ -12,8 +12,8 @@ const WelcomeSection = () => {
                                  <p className={css.subtitle}>Record daily water intake and track</p>
                         <h1 className={css.title}>Water consumption tracker</h1>
                         <div className={css.buttons}>
-                                <button className={css.tracker} onClick={() => navigate('/singup')}> Try tracker </button>
-                                <button className={css.singUp} onClick={() => navigate('/singin')}>Singn In</button>
+                                        <NavLink to="/singup" className={css.tracker} > Try tracker </NavLink>
+                                        <NavLink  to = "/singin" className={css.tracker} > Sing In </NavLink>
                         </div>
                         </div>
                 </div>
