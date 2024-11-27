@@ -1,12 +1,11 @@
 .advantagessection {
-  /* width: 353px ;
-  height: 343x ; */
-  overflow: hidden; /* Обрізає все, що виходить за межі контейнера */
+  
+  overflow: hidden; 
 }
 
  img {
-  width: 100%;
+  /* width: 100%; */
   height: 100%;
   object-fit: cover;
-  object-position: right center; /* Зображення буде масштабовано так, щоб заповнити контейнер, обрізаючи частини */
+  object-position: right center; 
 }
