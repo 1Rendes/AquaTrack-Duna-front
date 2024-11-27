@@ -23,11 +23,11 @@ const WaterList = () => {
   return (
     <div className={css.waterlist}>
       <div className={css.waterlistTitle}>
-        <p className={css.waterlistDay}>Today</p>
-
+        <div className={css.waterlistDay}>
+          <p>Today</p>
+        </div>
         <div className={css.waterlistBtn} onClick={handleAddWaterClick}>
-          <AddWaterBtn />
-          <span className={css.waterlistBtnText}>Add water</span>
+          <AddWaterBtn variant={"dailyInfo"} />
         </div>
       </div>
 
