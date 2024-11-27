@@ -1,5 +1,172 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  margin: 0 auto;
+  /* align-items: center; */
+  justify-content: center;
+  height: 100vh;
+  background-color: var(--background);
+  border-radius: 30px;
+  /* height: 780px; */
+}
 
-        .signinform {
-        /* Your styles here */
-        }
-        
+.title {
+  color: var(--main);
+  margin-bottom: 32px;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  align-self: left;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  width: 100%;
+  margin: 0 auto;
+  color: var(--main-text);
+}
+
+.label {
+  display: inline-block;
+  color: var(--main-text);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 8px;
+}
+
+.input {
+  display: flex;
+  padding: 16px;
+  margin-bottom: 20px;
+  width: 311px;
+  font-size: 14px;
+
+  color: var(--main-text);
+  outline: none;
+  border: 1px solid rgba(47, 47, 47, 0.2);
+  background-color: transparent;
+  border-radius: 15px;
+}
+
+input:focus {
+  border: 1px solid rgba(47, 47, 47, 0.4);
+}
+
+.btn {
+  background-color: var(--accent);
+  color: var(--main);
+  font-size: 16px;
+  font-weight: 700;
+  padding: 12px 0;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  text-align: center;
+  width: 100%;
+  line-height: 24px; /* 150% */
+  letter-spacing: -0.16px;
+  transition: background-color 0.3s ease;
+  margin-top: 10px;
+}
+
+.btn:hover {
+  background-color: var(--hover-green);
+}
+
+.textSignIn {
+  display: flex;
+  margin-top: 16px;
+  justify-content: center;
+  gap: 10px;
+  font-size: 16px;
+  line-height: 18px;
+  letter-spacing: -0.01em;
+  color: rgba(47, 47, 47, 0.5);
+}
+
+.navLink {
+  font-weight: 700;
+  text-decoration: underline;
+  color: var(--main-text);
+  font-size: 16px;
+  line-height: 18px;
+  letter-spacing: -0.14px;
+}
+
+.iconWrapper {
+  position: relative;
+  width: 311px;
+}
+
+.icon {
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  stroke: currentColor;
+  fill: transparent;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+.errorMessage {
+  text-align: center;
+  color: var(--error);
+  font-weight: 400;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+@media only screen and (min-width: 768px) {
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    padding: 169px 134px;
+  }
+
+  .title {
+    font-size: 36px;
+    line-height: 1.06;
+  }
+
+  .input {
+    position: relative;
+    max-width: 436px;
+  }
+  
+  .label,
+  .input,
+  .btn,
+  .textSignUp {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .input,
+  .field,
+  .iconWrapper {
+    width: 436px;
+  }
+
+  .btn {
+    height: 60px;
+    width: 436px;
+  }
+ 
+  .errorMessage {
+    font-size: 16px;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+  }
+}
+
+@media only screen and (min-width: 1440px) {
+  .wrapper {
+    width: 672px;
+    padding: 169px 118px;
+  }
+}
+

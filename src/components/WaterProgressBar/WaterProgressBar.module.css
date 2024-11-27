@@ -1,5 +1,123 @@
+/* mobile */
+.waterProgressBarContainer {
+  width: 100%;
+  max-width: 198px;
+  padding: 12px;
+  border-radius: 15px;
+  box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.1);
+  background: #fff;
+  position: relative;
+}
 
-        .waterprogressbar {
-        /* Your styles here */
-        }
-        
+.todayLabel {
+  text-align: left;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1;
+  color: #323f47;
+  margin-bottom: 16px;
+}
+
+.progressBarWrapper {
+  position: relative;
+  margin-bottom: 6px;
+}
+
+.progressBar {
+  width: 100%;
+  height: 6px;
+  background-color: #ddd;
+  border-radius: 9px;
+  position: relative;
+}
+
+.progress {
+  height: 100%;
+  background-color: #9be1a0;
+  border-radius: 9px;
+  transition: width 0.3s ease-in-out;
+}
+
+.labels {
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 1;
+  color: rgba(47, 47, 47, 0.6);
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  text-align: left;
+}
+
+.dynamicLabel {
+  position: absolute;
+  transform: translateX(-50%);
+  font-weight: 400;
+  font-size: 8px;
+  line-height: 1;
+  color: #9be1a0;
+  text-align: center;
+  transition: left 0.3s ease-in-out;
+  z-index: 1;
+  bottom: 100%;
+  margin-bottom: 6px;
+}
+.icon {
+  position: absolute;
+  top: -3px;
+  transform: translateX(-50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 100%;
+  fill: #fff;
+  stroke-width: 1px;
+  stroke: #9be1a0;
+}
+
+/* tablet */
+
+@media (min-width: 768px) {
+  .waterProgressBarContainer {
+    max-width: 295px;
+    padding: 16px;
+  }
+
+  .todayLabel {
+    font-size: 15px;
+    line-height: 1.49;
+    margin-bottom: 16px;
+  }
+
+  .progressBarWrapper {
+    margin-bottom: 6px;
+  }
+
+  .progressBar {
+    height: 8px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1440px) {
+  .waterProgressBarContainer {
+    max-width: 295px;
+    padding: 20px;
+  }
+
+  .todayLabel {
+    margin-bottom: 24px;
+  }
+
+  .progressBarWrapper {
+    margin-bottom: 6px;
+  }
+
+  .progressBar {
+    height: 8px;
+  }
+
+  .dynamicLabel {
+    font-size: 12px;
+    margin-bottom: 10px;
+  }
+}

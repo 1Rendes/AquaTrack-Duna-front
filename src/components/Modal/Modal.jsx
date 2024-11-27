@@ -1,13 +1,21 @@
+import ReactModal from "react-modal";
+import css from "./Modal.module.css";
 
-        import css from './Modal.module.css';
+const Modal = ({ children, handleClose, IsOpen }) => {
+  return (
+    <div className={css.modal}>
+      <ReactModal
+        overlayClassName={css.backdrop}
+        className={css.modal}
+        isOpen={IsOpen}
+        onRequestClose={handleClose}
+        ariaHideApp={false}
+      >
+        <button onClick={handleClose}>Х</button>
+        {children}
+      </ReactModal>
+    </div>
+  );
+};
 
-        const Modal = () => {
-        return (
-                <div className={css.modal}>
-                {/* Your component code here */}
-                </div>
-                );
-        };
-
-        export default Modal;
-        
+export default Modal;

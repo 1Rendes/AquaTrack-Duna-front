@@ -1,13 +1,56 @@
+import { selectDayWater } from "../../redux/water/selectors";
+import { useDispatch, useSelector } from "react-redux";
+import { addWater } from "../../redux/water/operations";
+import WaterItem from "../WaterItem/WaterItem";
+import AddWaterBtn from "../AddWaterBtn/AddWaterBtn";
+import css from "./WaterList.module.css";
+import { useState } from "react";
+import WaterModal from "../WaterModal/WaterModal";
 
-        import css from './WaterList.module.css';
+const WaterList = () => {
+  const dispatch = useDispatch();
+  const dayWaterList = useSelector(selectDayWater) || []; // Защита от undefined/null
+  const [addWaterModalIsOpen, setAddWaterIsOpen] = useState(false);
 
-        const WaterList = () => {
-        return (
-                <div className={css.waterlist}>
-                {/* Your component code here */}
-                </div>
-                );
-        };
+  const handleAddWaterClick = () => setAddWaterIsOpen(true);
+  const handleCloseAddWaterModal = () => setAddWaterIsOpen(false);
 
-        export default WaterList;
-        
+  const handleAddWater = (updatedData) => {
+    dispatch(addWater({ ...updatedData }));
+    setAddWaterIsOpen(false);
+  };
+
+  return (
+    <div className={css.waterlist}>
+      <div className={css.waterlistTitle}>
+        <p className={css.waterlistDay}>Today</p>
+
+        <div className={css.waterlistBtn} onClick={handleAddWaterClick}>
+          <AddWaterBtn />
+          <span className={css.waterlistBtnText}>Add water</span>
+        </div>
+      </div>
+
+      <ul className={css.waterlistPortions}>
+        {dayWaterList.length === 0 ? (
+          <p>No information on water consumption for the selected day</p>
+        ) : (
+          dayWaterList.map(({ id, water, time }) => (
+            <li className={css.item} key={id}>
+              <WaterItem water={water} time={time} />
+            </li>
+          ))
+        )}
+      </ul>
+
+      {addWaterModalIsOpen && (
+        <WaterModal
+          handleClose={handleCloseAddWaterModal}
+          onAdd={handleAddWater}
+        />
+      )}
+    </div>
+  );
+};
+
+export default WaterList;
