@@ -24,7 +24,7 @@ const AdvantagesSection = () => {
         />
         <img
           src={desktopImage}
-          alt="Banking App"
+          alt="Water"
           className={css.img} 
         />
       </picture>
