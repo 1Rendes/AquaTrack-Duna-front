@@ -81,12 +81,12 @@ const authSlice = createSlice({
       })
       .addCase(logOut.pending, handlePending)
       .addCase(logOut.fulfilled, () => {
+        showSuccessToast("User successfully logged out!");
         return INITIAL_STATE;
       })
-      .addCase(logOut.rejected, (state, { payload }) => {
-        state.isLoading = false;
-        state.error = payload;
-        showErrorToast(`Sorry, ${payload}`);
+      .addCase(logOut.rejected, () => {
+        showSuccessToast("User successfully logged out!");
+        return INITIAL_STATE;
       })
       .addCase(refreshUser.pending, (state) => {
         state.isRefreshing = true;
