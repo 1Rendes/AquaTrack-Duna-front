@@ -7,7 +7,7 @@ const LogOutModal = ({
   logoutModalIsOpen,
 }) => {
   return (
-    <Modal handleClose={handleLogoutModalIsClose} IsOpen={logoutModalIsOpen}>
+    <Modal handleClose={handleLogoutModalIsClose} isOpen={logoutModalIsOpen}>
       <h1>hallo</h1>
       <h2>{modalType}</h2>
       <p>3143241</p>
