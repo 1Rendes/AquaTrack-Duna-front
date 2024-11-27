@@ -1,15 +1,19 @@
 import { useState } from "react";
+import { editWater, deleteWater } from "../../redux/water/operations";
 import css from "./WaterItem.module.css";
-import Modal from "../Modal/Modal";
+// import Modal from "../Modal/Modal";
 import WaterModal from "../WaterModal/WaterModal";
 import DeleteWaterModal from "../DeleteWaterModal/DeleteWaterModal";
+import { useDispatch } from "react-redux";
 
 const WaterItem = ({ water, time, id }) => {
+  const dispatch = useDispatch();
+
   const [editModalIsOpen, setEditIsOpen] = useState(false);
   const [delModalIsOpen, setDelIsOpen] = useState(false);
 
-  const handleEditClick = () => setEditIsOpen(true);
-  const handleDelClick = () => setDelIsOpen(true);
+  const handleOpenEditModal = () => setEditIsOpen(true);
+  const handleOpenDelModal = () => setDelIsOpen(true);
   const handleCloseEditModal = () => setEditIsOpen(false);
   const handleCloseDelModal = () => setDelIsOpen(false);
 
@@ -38,14 +42,22 @@ const WaterItem = ({ water, time, id }) => {
       </ul>
       <ul className={css.btnList}>
         <li className={css.btnlistItem}>
-          <button className={css.btn} type="button" onClick={handleEditClick}>
+          <button
+            className={css.btn}
+            type="button"
+            onClick={handleOpenEditModal}
+          >
             <svg className={css.icon}>
               <use href="../../img/icons.svg#icon-edit-2"></use>
             </svg>
           </button>
         </li>
         <li className={css.btnlistItem}>
-          <button className={css.btn} type="button" onClick={handleDelClick}>
+          <button
+            className={css.btn}
+            type="button"
+            onClick={handleOpenDelModal}
+          >
             <svg className={css.icon} height="14">
               <use href="../../img/icons.svg#icon-drop-down"></use>
             </svg>
@@ -53,14 +65,18 @@ const WaterItem = ({ water, time, id }) => {
         </li>
       </ul>
       {editModalIsOpen && (
-        <Modal>
-          <WaterModal handleClose={handleCloseEditModal} id={id} />
-        </Modal>
+          <WaterModal
+            handleClose={handleCloseEditModal}
+            onEdit={(updatedData) =>
+              dispatch(editWater({ id, ...updatedData }))
+            }
+          />
       )}
       {delModalIsOpen && (
-        <Modal>
-          <DeleteWaterModal handleClose={handleCloseDelModal} id={id} />
-        </Modal>
+          <DeleteWaterModal
+            handleClose={handleCloseDelModal}
+            onDelete={() => dispatch(deleteWater(id))}
+          />
       )}
     </div>
   );
