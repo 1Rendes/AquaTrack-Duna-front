@@ -1,11 +1,18 @@
-import { Link } from "react-router-dom";
+import SignInForm from "../components/SignInForm/SignInForm";
+import AdvantagesSection from "../components/AdvantagesSection/AdvantagesSection";
+import Logo from '../components/Logo/Logo';
 
 const SignInPage = () => {
   return (
-    <div>
-      <p>SignInPage</p>
-      <Link to="/">Go to HomePage</Link>
-    </div>
+    <>
+      <div>
+        <Logo />
+        <SignInForm />
+      </div>
+      <div>
+        <AdvantagesSection />
+      </div>
+    </>
   );
 };
 

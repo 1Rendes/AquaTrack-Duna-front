@@ -1,5 +1,51 @@
+.userbarpopover {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 137px;
+  height: 72px;
+  border-radius: 15px;
+  padding: 11px 26px 11px 14px;
+  margin-top: 4px;
+  box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.1);
+  background: #fff;
+  z-index: 100;
+  position: absolute;
+}
+.popoverButton {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.28571;
+  color: rgba(50, 63, 71, 0.4);
+  cursor: pointer;
+  background: #fff;
+}
+.popoverButton:hover {
+  color: #323f47;
+}
+.popoverIcon {
+  display: inline-block;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: none;
+}
 
-        .userbarpopover {
-        /* Your styles here */
-        }
-        
+@media screen and (min-width: 768px) {
+  .userbarpopover {
+    width: 157px;
+    height: 82px;
+    padding: 14px 34px 14px 20px;
+    margin-top: 8px;
+  }
+  .popoverButton {
+    font-size: 15px;
+    line-height: 1.49333;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+}

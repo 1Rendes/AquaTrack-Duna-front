@@ -1,5 +1,73 @@
+.userBarButton {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  border-radius: 30px;
+  padding: 6px 12px;
+  width: 137px;
+  height: 50px;
+  cursor: pointer;
+  background: #323f47;
+  position: relative;
+}
+.userBarName {
+  display: inline-block;
+  width: 43px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: #fff;
+}
+.userBarPhoto {
+  border-radius: 100%;
+  width: 38px;
+  height: 38px;
+}
+.userBarInitial {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  width: 38px;
+  height: 38px;
+  background: gray;
+  font-size: 22px;
+  color: white;
+  font-weight: bold;
+}
+.userBarVectorDown {
+  fill: none;
+  stroke: #fff;
+}
 
-        .userbar {
-        /* Your styles here */
-        }
-        
+@media screen and (min-width: 768px) {
+  .userBarButton {
+    gap: 10px;
+    width: 157px;
+    height: 56px;
+  }
+  .userBarName {
+    width: 49px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .userBarPhoto {
+    width: 44px;
+    height: 44px;
+  }
+  .userBarInitial {
+    width: 44px;
+    height: 44px;
+    font-size: 24px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+}

@@ -1,13 +1,13 @@
+import UserPanel from "../UserPanel/UserPanel";
 
-        import css from './WaterDetailedInfo.module.css';
+import css from "./WaterDetailedInfo.module.css";
 
-        const WaterDetailedInfo = () => {
-        return (
-                <div className={css.waterdetailedinfo}>
-                {/* Your component code here */}
-                </div>
-                );
-        };
+const WaterDetailedInfo = () => {
+  return (
+    <div className={css.waterdetailedinfo}>
+      <UserPanel />
+    </div>
+  );
+};
 
-        export default WaterDetailedInfo;
-        
+export default WaterDetailedInfo;
