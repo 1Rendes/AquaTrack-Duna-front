@@ -3,7 +3,7 @@ import axios from "axios";
 import { persistor } from "../store";
 
 export const instance = axios.create({
-  baseURL: "http://localhost:3000",
+  baseURL: "https://aquatrack-duna-server.onrender.com/",
   withCredentials: true,
 });
 
