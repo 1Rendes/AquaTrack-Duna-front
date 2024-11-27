@@ -116,12 +116,12 @@ const SignInForm = () => {
         </Form>
       </Formik>
 
-      <p className={css.textSignIn}>
-        Don’t have an account?
+      <div className={css.textSignIn}>
+        <p>Don’t have an account?</p>
         <NavLink className={css.navLink} to="/signup">
           Sign Up
         </NavLink>
-      </p>
+      </div>
     </div>
   );
 };

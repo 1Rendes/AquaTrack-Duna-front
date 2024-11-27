@@ -155,7 +155,7 @@ const SignUpForm = () => {
       </Formik>
 
       <div className={css.textSignUp}>
-        Already have account
+        <p>Already have account</p>
         <NavLink className={css.navLink} to="/signin">
           Sign In
         </NavLink>
