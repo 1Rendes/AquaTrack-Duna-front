@@ -1,149 +1,138 @@
-
-    .welcomesection{
-        border-radius: 30px;
-        background: #f0eff4;
-        margin-bottom: 14px;
-   
-       }
-
-    .titleSection{
-        padding-top: 118px;
-        padding-bottom: 67px;
-        padding-left: 16px;
-        padding-right: 16px;
-          margin-bottom: 16px;
-    }
-
-    .subtitle{
-        font-family: "Poppins", sans-serif;
-        font-weight: 400;
-        font-size: 14px;
-        line-height: 1.28571;
-        letter-spacing: 0.06em;
-        color: #2f2f2f;
-      
-    }
-
-    .title{
-        font-family: "Poppins", sans-serif;
-        font-weight: 700;
-        font-size: 38px;
-        line-height: 1;
-        letter-spacing: -0.01em;
-        color: #323f47;
-        margin-bottom: 32px;
-    }
-
-    .tracker{
-        display: inline-block;
-        text-decoration: none;
-        border-radius: 30px;
-        padding: 14px 19px;
-        width: 116px;
-        height: 46px;
-        background: #9be1a0;
-        font-family: "Poppins", sans-serif;
-        font-weight: 700;
-        font-size: 14px;
-        line-height: 1.28571;
-        letter-spacing: -0.01em;
-        text-align: center;
-        color: #323f47;
-        margin-right: 10px;
-    }
-
-    .singUp{
-        display: inline-block;
-        text-decoration: none;
-        border: 1px solid #323f47;
-        border-radius: 30px;  
-        width: 104px;
-        height: 46px;
-        font-family: "Poppins", sans-serif;
-        font-weight: 700;
-        font-size: 14px;
-        line-height: 1.28571;
-        letter-spacing: -0.01em;
-        text-align: center;
-        color: #323f47;
+.welcomesection {
+  border-radius: 30px;
+  background: #f0eff4;
+  margin-bottom: 14px;
 }
 
-
-@media only screen and (min-width:768px){
-    .welcomesection{
-        width: 704px;
-        height: 498px;
-       
-    }
-
-    .titleSection{
-        padding-top: 106px;
-        padding-bottom: 50px;
-        padding-left: 64px;
-        padding-right: 93px;
-         margin-bottom: 16px;
-    }
-
-    .subtitle{
-        font-size: 16px;
-        line-height: 1.5;
-    }
-
-    .title{
-        font-size: 64px;
-        line-height: 1.09375;
-    }
-
-    .tracker{
-        margin-right: 16px;
-        padding: 18px 40px;
-        width: 169px;
-        height: 60px;
-        font-size: 16px;
-        line-height: 1.5;
-    }
-
-    .singUp{
-        width: 135px;
-        height: 60px;
-        font-size: 16px;
-        line-height: 1.5;
-    }
-
+.buttons {
+  display: flex;
 }
 
-
-@media only screen and (min-width:1440px){
-   .welcomesection {
-width: 672px;
-height: 736px;
+.titleSection {
+  padding-top: 118px;
+  padding-bottom: 67px;
+  padding-left: 16px;
+  padding-right: 16px;
+  
 }
 
-.titleSection{
-padding-top: 188px;
-padding-bottom: 188px;
-padding-left: 64px;
-padding-right: 61px;
-margin-bottom: 0px;
+.subtitle {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: 0.06em;
+  color: #2f2f2f;
+  margin-bottom: 16px;
 }
 
-    
 .title {
-font-size: 80px;
-line-height: 0.95;
-margin-bottom: 32px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 38px;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  color: #323f47;
+  margin-bottom: 32px;
 }
 
-.tracker{
-padding: 18px 40px;
-width: 169px;
-height: 60px;
+.tracker {
+  border-radius: 30px;
+  padding: 14px 19px;
+  width: 116px;
+  height: 46px;
+  background: #9be1a0;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: #323f47;
+  margin-right: 10px;
 }
+
+.singUp {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #323f47;
+  border-radius: 30px;
+  width: 104px;
+  height: 46px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: #323f47;
 }
 
+@media only screen and (min-width: 768px) {
+  .welcomesection {
+    width: 704px;
+    height: 498px;
+    margin-bottom: 16px;
+  }
 
+  .titleSection {
+    padding-top: 106px;
+    padding-bottom: 50px;
+    padding-left: 64px;
+    padding-right: 93px;
+    
+  }
 
+  .subtitle {
+    font-size: 16px;
+    line-height: 1.5;
+  }
 
+  .title {
+    font-size: 64px;
+    line-height: 1.09375;
+  }
 
+  .tracker {
+    margin-right: 16px;
+    padding: 18px 40px;
+    width: 169px;
+    height: 60px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
 
+  .singUp {
+    width: 135px;
+    height: 60px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
 
+@media only screen and (min-width: 1440px) {
+  .welcomesection {
+    width: 672px;
+    height: 736px;
+  }
+
+  .titleSection {
+    padding-top: 188px;
+    padding-bottom: 188px;
+    padding-left: 64px;
+    padding-right: 61px;
+  }
+
+  .title {
+    font-size: 80px;
+    line-height: 0.95;
+    margin-bottom: 32px;
+  }
+
+  .tracker {
+    padding: 18px 40px;
+    width: 169px;
+    height: 60px;
+  }
+}
