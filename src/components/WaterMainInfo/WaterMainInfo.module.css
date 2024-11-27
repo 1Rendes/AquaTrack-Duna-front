@@ -1,5 +1,72 @@
+/* mobile */
+.example {
+  margin-bottom: 78px;
+}
+.watermaininfo {
+  background-color: #9be1a0;
+  border-radius: 30px;
+  max-width: 343px;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+}
+.WaterDailyNormaContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-bottom: 49px;
+}
+.WaterProgressBarContainer {
+  margin-left: 57px;
+  margin-right: 56px;
+  margin-bottom: 42px;
+}
+.addWaterBtnContainerMainInfo {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: auto;
+  margin-bottom: 16px;
+}
 
-        .watermaininfo {
-        /* Your styles here */
-        }
-        
+/* Tablet*/
+@media (min-width: 768px) {
+  .example {
+    margin-bottom: 101px;
+  }
+  .watermaininfo {
+    max-width: 704px;
+    padding: 32px;
+  }
+
+  .WaterDailyNormaContainer {
+    margin-bottom: 91px;
+  }
+
+  .WaterProgressBarContainer {
+    margin-left: 173px;
+    margin-right: 172px;
+    margin-bottom: 22px;
+  }
+
+  .addWaterBtnContainerMainInfo {
+    margin-bottom: 32px;
+  }
+}
+
+/* Desktop */
+@media (min-width: 1440px) {
+  .watermaininfo {
+    max-width: 672px;
+  }
+
+  .WaterDailyNormaContainer {
+    margin-left: 32px;
+    margin-bottom: 215px;
+  }
+
+  .WaterProgressBarContainer {
+    margin-left: 156px;
+    margin-right: 157px;
+    margin-bottom: 56px;
+  }
+}

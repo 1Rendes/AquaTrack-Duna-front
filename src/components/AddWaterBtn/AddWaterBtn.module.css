@@ -1,5 +1,52 @@
+/* mobile */
+.main {
+  font-family: var(--font-family);
+  background: #323f47;
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.01em;
+  text-align: center;
+  padding: 0;
+  width: 140px;
+  height: 46px;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  transition: color 0.3s ease, stroke 0.3s ease;
+}
 
-        .addwaterbtn {
-        /* Your styles here */
-        }
-        
+.main:hover,
+.main:focus {
+  color: #9be1a0;
+}
+
+.main > .svgWaterBtn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 16px;
+  height: 16px;
+  stroke: white;
+  transition: stroke 0.3s ease;
+}
+
+.main:hover > .svgWaterBtn use,
+.main:focus > .svgWaterBtn use {
+  stroke: #9be1a0;
+}
+
+/* tablet && desktop */
+@media screen and (min-width: 768px) {
+  .main {
+    font-size: 16px;
+    line-height: 1.5;
+    width: 178px;
+    height: 60px;
+  }
+}
