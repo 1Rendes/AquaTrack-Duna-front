@@ -1,7 +1,4 @@
 /* mobile */
-.example {
-  margin-bottom: 78px;
-}
 .watermaininfo {
   background-color: #9be1a0;
   border-radius: 30px;
@@ -9,6 +6,9 @@
   display: flex;
   flex-direction: column;
   padding: 16px;
+}
+.logoContainer {
+  margin-bottom: 78px;
 }
 .WaterDailyNormaContainer {
   display: flex;
@@ -30,7 +30,7 @@
 
 /* Tablet*/
 @media (min-width: 768px) {
-  .example {
+  .logoContainer {
     margin-bottom: 101px;
   }
   .watermaininfo {

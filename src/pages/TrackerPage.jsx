@@ -53,12 +53,19 @@ const TrackerPage = () => {
   const handleClosingModal = () => {
     setIsModalOpen(false);
   };
+
   return (
     <div>
-      <UserBar></UserBar>
-      <WaterMainInfo onClick={handleWaterAddOrEditModal} />
-      <WaterModal values={modalType}></WaterModal>
-      <button
+      <UserBar />
+      <WaterMainInfo
+        onClick={() => {
+          handleWaterAddOrEditModal("add");
+        }}
+      />
+      {isModalOpen && (
+        <WaterModal values={modalType} onClose={handleClosingModal} />
+      )}
+      {/* <button
         onClick={() => {
           handleWaterAddOrEditModal("edit");
         }}
@@ -67,7 +74,7 @@ const TrackerPage = () => {
         onClick={() => {
           handleWaterAddOrEditModal("add");
         }}
-      ></button>
+      ></button> */}
     </div>
   );
 };
