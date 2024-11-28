@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { ErrorMessage, Form, Field, Formik } from "formik";
-import { NavLink} from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import * as Yup from "yup";
 import css from "./SignInForm.module.css";
 import sprite from "../../img/icons.svg";
@@ -25,7 +25,6 @@ const SignInForm = () => {
   const [visiblePassword, setVisiblePassword] = useState(false);
 
   const dispatch = useDispatch();
-  
 
   const handleSubmit = async (values, actions) => {
     try {
@@ -33,16 +32,18 @@ const SignInForm = () => {
         email: values.email,
         password: values.password,
       };
-  
-      await dispatch(login(userInfo)).unwrap(); 
-     
+      await dispatch(login(userInfo)).unwrap();
+
       actions.resetForm();
     } catch (err) {
-      const errorMessage = err.response?.data?.message || err.message || "Login failed. Try again.";
-      actions.setFieldError(errorMessage); 
+      const errorMessage =
+        err.response?.data?.message ||
+        err.message ||
+        "Login failed. Try again.";
+      actions.setFieldError(errorMessage);
     }
   };
-  
+
   return (
     <div className={css.wrapper}>
       <h2 className={css.title}>Sign In</h2>
@@ -51,12 +52,7 @@ const SignInForm = () => {
         initialValues={initialValues}
         onSubmit={handleSubmit}
       >
-        <Form
-          noValidate
-          autoComplete="off"
-          onSubmit={handleSubmit}
-          className={css.form}
-        >
+        <Form noValidate autoComplete="off" className={css.form}>
           <div className={css.field}>
             <label htmlFor="email" className={css.label}>
               Email
@@ -73,7 +69,6 @@ const SignInForm = () => {
               name="email"
               component="div"
             />
-  
           </div>
 
           <div className={css.field}>
@@ -106,7 +101,6 @@ const SignInForm = () => {
               component="div"
               className={css.errorMessage}
             />
-    
           </div>
           <div className={css.btnWrapper}>
             <button type="submit" className={css.btn}>
