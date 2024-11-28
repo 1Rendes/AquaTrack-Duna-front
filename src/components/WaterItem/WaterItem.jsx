@@ -5,6 +5,17 @@ import css from "./WaterItem.module.css";
 import WaterModal from "../WaterModal/WaterModal";
 import DeleteWaterModal from "../DeleteWaterModal/DeleteWaterModal";
 import { useDispatch } from "react-redux";
+import icons from "../../img/icons.svg";
+import waterGlassDesk1x from "../../img/desk_tab_mage_water-glass-fill_1x.png";
+import waterGlassDesk2x from "../../img/desk_tab_mage_water-glass-fill_2x.png";
+import waterGlassMob1x from "../../img/mob_mage_water-glass-fill_1x.png";
+import waterGlassMob2x from "../../img/mob_mage_water-glass-fill_2x.png";
+import waterWebpDesk1x from "../../img/desk_tab_mage_water-glass-fill_1x.webp";
+import waterWebpDesk2x from "../../img/desk_tab_mage_water-glass-fill_2x.webp";
+import waterWebpMob1x from "../../img/mob_mage_water-glass-fill_1x.webp";
+import waterWebpMob2x from "../../img/mob_mage_water-glass-fill_2x.webp";
+
+
 
 const WaterItem = ({ water, time, id }) => {
   const dispatch = useDispatch();
@@ -22,16 +33,28 @@ const WaterItem = ({ water, time, id }) => {
       <div>
         <picture>
           <source
-            srcSet="/img/desk_tab_mage_water-glass-fill_1x.png 1x, /img/desk_tab_mage_water-glass-fill_2x.png 2x"
+            type="image/jpeg"
+            srcSet={`${waterGlassDesk1x} 1x, ${waterGlassDesk2x} 2x`}
             media="(min-width: 768px)"
           />
           <source
-            srcSet="/img/mob_mage_water-glass-fill_1x.png 1x, /img/mob_mage_water-glass-fill_2x.png 2x"
+            type="image/webp"
+            srcSet={`${waterWebpDesk1x} 1x, ${waterWebpDesk2x} 2x`}
+            media="(min-width: 768px)"
+          />
+          <source
+            type="image/jpeg"
+            srcSet={`${waterGlassMob1x} 1x, ${waterGlassMob2x} 2x`}
+            media="(max-width: 767px)"
+          />
+          <source
+            type="image/webp"
+            srcSet={`${waterWebpMob1x} 1x, ${waterWebpMob2x} 2x`}
             media="(max-width: 767px)"
           />
           <img
             className={css.img}
-            src="/img/desk_tab_mage_water-glass-fill_1x.png"
+            src={waterGlassDesk1x}
             alt="A glass of water"
           />
         </picture>
@@ -48,7 +71,7 @@ const WaterItem = ({ water, time, id }) => {
             onClick={handleOpenEditModal}
           >
             <svg className={css.icon}>
-              <use href="../../img/icons.svg#icon-edit-2"></use>
+              <use href={`${icons}#icon-edit-2`}></use>
             </svg>
           </button>
         </li>
@@ -59,24 +82,22 @@ const WaterItem = ({ water, time, id }) => {
             onClick={handleOpenDelModal}
           >
             <svg className={css.icon} height="14">
-              <use href="../../img/icons.svg#icon-drop-down"></use>
+              <use href={`${icons}#icon-trash-04`}></use>
             </svg>
           </button>
         </li>
       </ul>
       {editModalIsOpen && (
-          <WaterModal
-            handleClose={handleCloseEditModal}
-            onEdit={(updatedData) =>
-              dispatch(editWater({ id, ...updatedData }))
-            }
-          />
+        <WaterModal
+          handleClose={handleCloseEditModal}
+          onEdit={(updatedData) => dispatch(editWater({ id, ...updatedData }))}
+        />
       )}
       {delModalIsOpen && (
-          <DeleteWaterModal
-            handleClose={handleCloseDelModal}
-            onDelete={() => dispatch(deleteWater(id))}
-          />
+        <DeleteWaterModal
+          handleClose={handleCloseDelModal}
+          onDelete={() => dispatch(deleteWater(id))}
+        />
       )}
     </div>
   );

@@ -2,23 +2,37 @@ import { useDispatch } from 'react-redux';
 import Modal from '../Modal/Modal';
 import css from './LogOutModal.module.css';
 import { logOut } from '../../redux/auth/operations';
+import CancelButton from '../CancelButton/CancelButton';
 
-const LogOutModal = ({
-  handleLogoutModalIsClose,
-  // modalType,
-  logoutModalIsOpen,
-}) => {
+const LogOutModal = ({ handleLogoutModalIsClose, logoutModalIsOpen }) => {
   const dispatch = useDispatch();
   return (
-    <Modal handleClose={handleLogoutModalIsClose} IsOpen={logoutModalIsOpen}>
-      <h1>Log out</h1>
+    <Modal
+      handleClose={handleLogoutModalIsClose}
+      isOpen={logoutModalIsOpen}
+      logOut={logoutModalIsOpen}
+      modalType="logOut"
+    >
+      <h2 className={css.titleOfModal}>Log out</h2>
       {/* <h2>{modalType}</h2> */}
-      <p>Do you really want to leave?</p>
-      <div>
-        <button type="button" onClick={() => dispatch(logOut())}>
+      <p className={css.description}>Do you really want to leave?</p>
+      <div className={css.btnsBox}>
+        <button
+          className={css.logOutBtn}
+          type="button"
+          onClick={() => dispatch(logOut())}
+        >
           Log out
         </button>
-        <button type='button' onClick={() => {handleLogoutModalIsClose()}}>Cancel</button>
+        <CancelButton handleFunc={handleLogoutModalIsClose} />
+        {/* <button className={css.cancelBtn}
+          type="button"
+          onClick={() => {
+            handleLogoutModalIsClose();
+          }}
+        >
+          Cancel
+        </button> */}
       </div>
     </Modal>
   );

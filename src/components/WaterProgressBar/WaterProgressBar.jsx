@@ -1,8 +1,18 @@
 import css from "./WaterProgressBar.module.css";
 import icons from "../../img/icons.svg";
+import { useDispatch, useSelector } from "react-redux";
+import { selectPercentage } from "../../redux/water/selectors";
+import { useEffect } from "react";
+import { getDayWater } from "../../redux/water/operations";
 
 const WaterProgressBar = () => {
-  const progress = 85;
+  const dispatch = useDispatch();
+  const progress = useSelector(selectPercentage);
+
+  const todayDate = new Date().toISOString().split("T")[0];
+  useEffect(() => {
+    dispatch(getDayWater(todayDate));
+  }, [dispatch, todayDate]);
 
   const isValidProgress = () => {
     return progress !== 0 && progress !== 50 && progress !== 100;
@@ -21,16 +31,16 @@ const WaterProgressBar = () => {
           <div
             className={css.dynamicLabel}
             style={{
-              left: `${Math.min(progress, 100)}%`,
+              left: `${progress}%`,
             }}
           >
-            {Math.round(progress)}%
+            {progress}%
           </div>
         )}
         <svg
           className={css.icon}
           style={{
-            left: `${Math.min(progress, 100)}%`,
+            left: `${progress}%`,
           }}
         >
           <use href={`${icons}#icon-circle`}></use>
