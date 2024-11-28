@@ -1,14 +1,15 @@
-import ReactModal from "react-modal";
-import css from "./Modal.module.css";
+import ReactModal from 'react-modal';
+import css from './Modal.module.css';
+import clsx from 'clsx';
 
-ReactModal.setAppElement("#root");
+ReactModal.setAppElement('#root');
 
-const Modal = ({ children, handleClose, isOpen }) => {
+const Modal = ({ children, handleClose, isOpen, modalType }) => {
   return (
     <div className={css.modal}>
       <ReactModal
         overlayClassName={css.backdrop}
-        className={css.modal}
+        className={clsx(css.modal, css[modalType])}
         isOpen={isOpen}
         onRequestClose={handleClose}
         ariaHideApp={false}
