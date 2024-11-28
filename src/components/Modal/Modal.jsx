@@ -1,13 +1,15 @@
 import ReactModal from "react-modal";
 import css from "./Modal.module.css";
 
-const Modal = ({ children, handleClose, IsOpen }) => {
+ReactModal.setAppElement("#root");
+
+const Modal = ({ children, handleClose, isOpen }) => {
   return (
     <div className={css.modal}>
       <ReactModal
         overlayClassName={css.backdrop}
         className={css.modal}
-        isOpen={IsOpen}
+        isOpen={isOpen}
         onRequestClose={handleClose}
         ariaHideApp={false}
       >
