@@ -6,10 +6,11 @@ import AddWaterBtn from "../AddWaterBtn/AddWaterBtn";
 import css from "./WaterList.module.css";
 import { useState } from "react";
 import WaterModal from "../WaterModal/WaterModal";
+// import { Scrollbar } from "react-scrollbars-custom";
 
-const WaterList = () => {
+const WaterList = ({ onClick }) => {
   const dispatch = useDispatch();
-  const dayWaterList = useSelector(selectDayWater) || []; // Защита от undefined/null
+  const dayWaterList = useSelector(selectDayWater) || [];
   const [addWaterModalIsOpen, setAddWaterIsOpen] = useState(false);
 
   const handleAddWaterClick = () => setAddWaterIsOpen(true);
@@ -23,11 +24,11 @@ const WaterList = () => {
   return (
     <div className={css.waterlist}>
       <div className={css.waterlistTitle}>
-        <p className={css.waterlistDay}>Today</p>
-
+        <div className={css.waterlistDay}>
+          <p>Today</p>
+        </div>
         <div className={css.waterlistBtn} onClick={handleAddWaterClick}>
-          <AddWaterBtn />
-          <span className={css.waterlistBtnText}>Add water</span>
+          <AddWaterBtn variant={"dailyInfo"} onClick={onClick} />
         </div>
       </div>
 
@@ -42,7 +43,7 @@ const WaterList = () => {
           ))
         )}
       </ul>
-
+      
       {addWaterModalIsOpen && (
         <WaterModal
           handleClose={handleCloseAddWaterModal}
