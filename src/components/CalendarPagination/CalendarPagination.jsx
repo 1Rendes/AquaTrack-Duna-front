@@ -2,6 +2,10 @@ import PropTypes from "prop-types";
 //import { useState, useEffect } from "react";
 
 
+//import icons from "../../img/icons.svg";
+import icons from "../Calendar/betaico.svg";
+
+//import icons from "../../img/icons.svg";
 ///////////////////import SvgIcon from "../../SvgIcon/SvgIcon";
 //import PropTypes from "prop-types";
 import css from "./CalendarPagination.module.css";
@@ -34,6 +38,8 @@ const CalendarPagination = ({
     return months[monthNumber - 1] || "Invalid month";
   };
 
+  //const [click, setClick] = useState(false)
+
   const prevMonth = () => {
     changeMonth({ prev: true });
   };
@@ -48,7 +54,20 @@ const CalendarPagination = ({
         disabled={!isActiveBtn}
         className={css["month-back"]}
         onClick={prevMonth}
-      >prevMonth</button>
+      >
+        {!isActiveBtn ? (
+          <svg className={css["btn-btn"]} width={18} height={18}>
+            <use href={`${icons}#icon-chevron-left`}></use>
+        </svg>
+        ):(
+          <svg className={css["btn-btn1"]} width={18} height={18}>
+            <use href={`${icons}#icon-chevron-left`}></use>
+        </svg>
+        )}
+
+        
+
+      </button>
       <p className={css.date}>
         {isActiveBtn
           ? getMonthName(data.month)
@@ -59,8 +78,33 @@ const CalendarPagination = ({
         disabled={!isActiveBtn}
         className={css["month-next"]}
         onClick={nextMonth}
-      >nextMonth</button>
-      <button className={css["show-stats"]} onClick={showStatistics}>Show Statistics</button>
+      >
+        {!isActiveBtn ? (
+          <svg className={css["btn-btn"]} width={18} height={18}>
+            <use href={`${icons}#icon-chevron-right`}></use>
+        </svg>
+        ):(
+          <svg className={css["btn-btn1"]} width={18} height={18}>
+            <use href={`${icons}#icon-chevron-right`}></use>
+            </svg>
+            
+        )}
+        
+      </button>
+
+      <button className={css["show-stats"]} onClick={showStatistics}>
+        {isActiveBtn ? (
+          <svg className={css["statistics"]} width={24} height={24}>
+            <use href={`${icons}#icon-pie-chart-03`}></use>
+        </svg>
+        ):(
+          <svg className={css["statistics"]} width={24} height={24}>
+            <use href={`${icons}#icon-pie-chart-03-active`}></use>
+        </svg>
+        )}
+        
+        
+      </button>
     </div>
   );
 };

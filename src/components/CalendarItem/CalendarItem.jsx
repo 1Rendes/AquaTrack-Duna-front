@@ -13,7 +13,7 @@ const CalendarItem = ({ item, isToday }) => {
   };
 
   return (
-    <th className={!item.isEmpty ? css.container : css["empty-container"]}>
+    <div className={!item.isEmpty ? css.container : css["empty-container"]}>
       <button
         className={concaniteClasses(
           css.ball,
@@ -24,7 +24,7 @@ const CalendarItem = ({ item, isToday }) => {
         {item.date}
       </button>
       <span className={css.precentage}>{item.precent}%</span>
-    </th>
+    </div>
   );
 };
 

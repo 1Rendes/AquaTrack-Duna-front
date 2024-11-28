@@ -106,6 +106,7 @@ const Statistics = ({ data }) => {
           />
         </AreaChart>
       </ResponsiveContainer>
+      
       <div className={css["close-dialog"]}>
         {activePayload && (
           <div

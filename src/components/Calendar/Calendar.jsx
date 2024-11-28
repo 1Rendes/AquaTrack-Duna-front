@@ -49,9 +49,13 @@ const addEmptyDays = (data) => {
   }
 
   // Додавання реальних порожніх днів в кінці, але без створення порожніх об'єктів
-  if (lastDayOfWeek < 6) {
+   if (lastDayOfWeek < 6) {
     emptyDaysAtEnd.push(...Array(6 - lastDayOfWeek).fill(null));
   }
+   
+   for (let i = lastDayOfWeek; i < 7; i++) {
+    emptyDaysAtEnd.push({ isEmpty: true });
+  } 
 
   return [...data.days];
 };
