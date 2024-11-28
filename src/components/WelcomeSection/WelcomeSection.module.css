@@ -1,6 +1,7 @@
 .welcomesection {
   border-radius: 30px;
   background: #f0eff4;
+  margin-bottom: 14px;
 }
 
 .buttons {
@@ -71,6 +72,7 @@
   .welcomesection {
     width: 704px;
     height: 498px;
+    margin-bottom: 16px;
   }
 
   .titleSection {
