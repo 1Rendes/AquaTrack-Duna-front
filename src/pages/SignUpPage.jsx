@@ -1,19 +1,13 @@
 import AdvantagesSection from "../components/AdvantagesSection/AdvantagesSection";
+import HomeWrapper from "../components/HomeWrapper/HomeWrapper";
 import SignUpForm from "../components/SignUpForm/SignUpForm";
-import Logo from '../components/Logo/Logo';
 
 const SignUpPage = () => {
   return (
-    <>
-      <div>
-        <Logo />
-        <SignUpForm />
-      </div>
-      <div>
-        <AdvantagesSection />
-      </div>
-    
-    </>
+    <HomeWrapper>
+      <SignUpForm />
+      <AdvantagesSection />
+    </HomeWrapper>
   );
 };
 

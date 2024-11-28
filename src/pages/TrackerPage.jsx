@@ -5,6 +5,7 @@ import UserBar from "../components/UserBar/UserBar";
 import { useDispatch } from "react-redux";
 import { getDayWater, getMonthWater } from "../redux/water/operations";
 import { addMonths, format } from "date-fns";
+import WaterDetailedInfo from "../components/WaterDetailedInfo/WaterDetailedInfo";
 
 const TrackerPage = () => {
   const dispatch = useDispatch();
@@ -56,7 +57,7 @@ const TrackerPage = () => {
 
   return (
     <div>
-      <UserBar />
+      <WaterDetailedInfo />
       <WaterMainInfo
         onClick={() => {
           handleWaterAddOrEditModal("add");
