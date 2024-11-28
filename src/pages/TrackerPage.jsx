@@ -33,7 +33,7 @@ const TrackerPage = () => {
     const [year, month] = currentMonth.split("-").map(Number);
     const date = new Date(year, month - 1, 1);
     const newDate = addMonths(date, 1);
-    return format(newDate, "yyyy-MM");
+    setCurrentMonth(format(newDate, "yyyy-MM"));
   };
 
   const handlePreviousMonth = (currentMonth) => {
@@ -41,7 +41,7 @@ const TrackerPage = () => {
     const [year, month] = currentMonth.split("-").map(Number);
     const date = new Date(year, month - 1, 1);
     const newDate = addMonths(date, -1);
-    return format(newDate, "yyyy-MM");
+    setCurrentMonth(format(newDate, "yyyy-MM"));
   };
 
   const [isModalOpen, setIsModalOpen] = useState(false);
