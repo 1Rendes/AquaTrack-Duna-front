@@ -3,10 +3,12 @@
   padding: 40px 20px;
 }
 .waterlistDay {
+  color: #323f47;
   font-weight: 700;
   font-size: 20px;
   line-height: 1.2;
   letter-spacing: -0.01em;
+  text-align: center;
 }
 .waterlistAddbtn {
   font-weight: 700;
@@ -19,6 +21,7 @@
   display: flex;
   justify-content: space-between;
   text-align: center;
+  align-items: center;
   flex-direction: row;
   gap: 80px;
 }
@@ -51,3 +54,4 @@
   justify-content: center;
   gap: 10px;
 }
+
