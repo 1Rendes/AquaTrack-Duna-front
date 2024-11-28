@@ -25,6 +25,7 @@
   .greeting {
     font-size: 36px;
     line-height: 1.05556;
+    margin-bottom: 0;
   }
 }
 

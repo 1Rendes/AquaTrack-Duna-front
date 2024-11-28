@@ -2,6 +2,10 @@
   border-radius: 30px;
   background: #f0eff4;
   margin-bottom: 14px;
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  height: 411px;
 }
 
 .buttons {
@@ -9,14 +13,14 @@
 }
 
 .titleSection {
-  padding-top: 118px;
-  padding-bottom: 67px;
-  padding-left: 16px;
-  padding-right: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: auto;
 }
 
 .subtitle {
-  font-family: "Poppins", sans-serif;
+  display: flex;
   font-weight: 400;
   font-size: 14px;
   line-height: 1.28571;
@@ -26,7 +30,6 @@
 }
 
 .title {
-  font-family: "Poppins", sans-serif;
   font-weight: 700;
   font-size: 38px;
   line-height: 1;
@@ -68,18 +71,14 @@
   color: #323f47;
 }
 
-@media only screen and (min-width: 768px) {
+@media (min-width: 768px) {
   .welcomesection {
-    width: 704px;
+    padding: 32px;
     height: 498px;
-    margin-bottom: 16px;
   }
 
   .titleSection {
-    padding-top: 106px;
-    padding-bottom: 50px;
-    padding-left: 64px;
-    padding-right: 93px;
+    margin: 46px 32px 18px;
   }
 
   .subtitle {
@@ -116,10 +115,7 @@
   }
 
   .titleSection {
-    padding-top: 188px;
-    padding-bottom: 188px;
-    padding-left: 64px;
-    padding-right: 61px;
+    margin: auto 32px;
   }
 
   .title {

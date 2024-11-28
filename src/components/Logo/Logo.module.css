@@ -1,32 +1,16 @@
-
-.logo {
-position: absolute;
-padding-left: 16px;
-padding-top: 24px;
+.titleLogo {
+  font-family: "Poppins", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1.11111;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: #323f47;
 }
 
-.titleLogo{
-font-family: "Poppins", sans-serif;
-font-weight: 700;
-font-size: 18px;
-line-height: 1.11111;
-letter-spacing: -0.01em;
-text-transform: uppercase;
-text-align: center;
-color: #323f47;
+@media only screen and (min-width: 768px) {
+  .titleLogo {
+    font-size: 24px;
+    line-height: 1;
+  }
 }
-
-
-
-
-@media only screen and (min-width:768px){
-.logo{
-padding: 32px;
-}
-.titleLogo{
-font-size: 24px;
-line-height: 1;
-}
-}
-
-        
