@@ -10,6 +10,12 @@ import waterGlassDesk1x from "../../img/desk_tab_mage_water-glass-fill_1x.png";
 import waterGlassDesk2x from "../../img/desk_tab_mage_water-glass-fill_2x.png";
 import waterGlassMob1x from "../../img/mob_mage_water-glass-fill_1x.png";
 import waterGlassMob2x from "../../img/mob_mage_water-glass-fill_2x.png";
+import waterWebpDesk1x from "../../img/desk_tab_mage_water-glass-fill_1x.webp";
+import waterWebpDesk2x from "../../img/desk_tab_mage_water-glass-fill_2x.webp";
+import waterWebpMob1x from "../../img/mob_mage_water-glass-fill_1x.webp";
+import waterWebpMob2x from "../../img/mob_mage_water-glass-fill_2x.webp";
+
+
 
 const WaterItem = ({ water, time, id }) => {
   const dispatch = useDispatch();
@@ -27,11 +33,23 @@ const WaterItem = ({ water, time, id }) => {
       <div>
         <picture>
           <source
+            type="image/jpeg"
             srcSet={`${waterGlassDesk1x} 1x, ${waterGlassDesk2x} 2x`}
             media="(min-width: 768px)"
           />
           <source
+            type="image/webp"
+            srcSet={`${waterWebpDesk1x} 1x, ${waterWebpDesk2x} 2x`}
+            media="(min-width: 768px)"
+          />
+          <source
+            type="image/jpeg"
             srcSet={`${waterGlassMob1x} 1x, ${waterGlassMob2x} 2x`}
+            media="(max-width: 767px)"
+          />
+          <source
+            type="image/webp"
+            srcSet={`${waterWebpMob1x} 1x, ${waterWebpMob2x} 2x`}
             media="(max-width: 767px)"
           />
           <img
