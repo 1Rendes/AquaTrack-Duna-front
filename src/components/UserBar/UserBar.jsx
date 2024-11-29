@@ -2,8 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import UserBarPopover from "../UserBarPopover/UserBarPopover";
 import icons from "../../img/icons.svg";
 import css from "./UserBar.module.css";
-import UserSettingsModal from "../UserSettingsModal/UserSettingsModal";
-import LogOutModal from "../LogOutModal/LogOutModal";
+import UserSettingsModal from "../UserSettingsModal/UserSettingsModal.jsx";
+import LogOutModal from "../LogOutModal/LogOutModal.jsx";
 
 const UserBar = ({ userName, userPhoto }) => {
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
@@ -91,7 +91,10 @@ const UserBar = ({ userName, userPhoto }) => {
         </div>
       )}
       {settingsModalIsOpen && (
-        <UserSettingsModal handleModalClose={handleSettingsModalIsClosed} />
+        <UserSettingsModal
+          isOpen={settingsModalIsOpen}
+          handleClose={handleSettingsModalIsClosed}
+        />
       )}
       {logoutModalIsOpen && (
         <LogOutModal

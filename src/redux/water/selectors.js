@@ -16,6 +16,7 @@ export const selectWaterIsLoading = (state) => state.water.isLoading;
 export const selectPercentage = createSelector(
   [selectUser, selectDayWater],
   (user, waterPortions) => {
+    if (waterPortions.length === 0) return 0;
     const percentage = Math.round(
       (waterPortions.reduce((acc, item) => acc + item.amount, 0) * 100) /
         user.dailyRequirement
