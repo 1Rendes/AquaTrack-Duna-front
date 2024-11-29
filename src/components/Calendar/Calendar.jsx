@@ -115,7 +115,7 @@ const Calendar = () => {
   };
 
   return (
-    <div>
+    <div className={css.thecontainer}>
       <div className={css["pagination-container"]}>
         <h3 className={css.header}>Month</h3>
         <CalendarPagination

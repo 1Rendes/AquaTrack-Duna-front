@@ -1,15 +1,15 @@
 
 import Calendar from "../components/Calendar/Calendar";
 
-const TrackerPage = () => {
+/* const TrackerPage = () => {
   return <>TrackerPage
-    <Calendar />
+    
   </>;
 }
 
 export default TrackerPage;
+ */
 
-/* 
 import { useState } from "react";
 import WaterModal from "../components/WaterModal/WaterModal";
 import WaterMainInfo from "../components/WaterMainInfo/WaterMainInfo";
@@ -25,25 +25,29 @@ const TrackerPage = () => {
   const handleClosingModal = () => {
     setIsModalOpen(false);
   };
+  
   return (
     <div>
       <UserBar></UserBar>
-      <WaterMainInfo onClick={handleWaterAddOrEditModal} />
-      <WaterModal values={modalType}></WaterModal>
-      <button
-        onClick={() => {
-          handleWaterAddOrEditModal("edit");
-        }}
-      ></button>
-      <button
-        onClick={() => {
-          handleWaterAddOrEditModal("add");
-        }}
-      ></button>
+      <div className="">
+        <WaterMainInfo onClick={handleWaterAddOrEditModal} />
+        <WaterModal values={modalType}></WaterModal>
+        <button
+          onClick={() => {
+            handleWaterAddOrEditModal("edit");
+          }}
+        ></button>
+        <button
+          onClick={() => {
+            handleWaterAddOrEditModal("add");
+          }}
+        ></button>
+        <Calendar />
+      </div>
     </div>
   );
 
 };
 
 export default TrackerPage;
- */
+ 
