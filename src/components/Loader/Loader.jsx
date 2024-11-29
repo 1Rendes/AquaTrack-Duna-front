@@ -1,4 +1,4 @@
-import { TailSpin } from 'react-loader-spinner';
+import { TailSpin } from "react-loader-spinner";
 
 const Loader = () => {
   return (
@@ -9,8 +9,7 @@ const Loader = () => {
       color="#9be1a0"
       ariaLabel="tail-spin-loading"
       radius="1"
-      wrapperStyle={{}}
-      wrapperClass=""
+      strokeWidth="7"
     />
   );
 };

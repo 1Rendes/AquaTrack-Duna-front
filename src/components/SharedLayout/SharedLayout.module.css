@@ -3,13 +3,19 @@
   margin: 0 auto;
   max-width: 375px;
   padding: 16px;
-
-  @media screen and (min-width: 768px) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media (min-width: 768px) {
+  .sharedlayout {
     max-width: 768px;
     padding: 32px;
   }
+}
 
-  @media screen and (min-width: 1440px) {
+@media (min-width: 1440px) {
+  .sharedlayout {
     max-width: 1440px;
   }
 }

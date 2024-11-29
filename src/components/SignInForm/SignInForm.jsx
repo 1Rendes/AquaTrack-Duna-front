@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import * as Yup from "yup";
 import css from "./SignInForm.module.css";
 import sprite from "../../img/icons.svg";
-import { login } from "../../redux/auth/operations";
+import { login, refreshUser } from "../../redux/auth/operations";
 import { useDispatch } from "react-redux";
 import Logo from "../Logo/Logo";
 import clsx from "clsx";
@@ -34,7 +34,15 @@ const SignInForm = () => {
         email: values.email,
         password: values.password,
       };
-      await dispatch(login(userInfo)).unwrap();
+      await dispatch(login(userInfo))
+        .unwrap()
+        .catch((e) => {
+          if (e.message === "Access token expired") {
+            dispatch(refreshUser()).then(() => {
+              dispatch(login(userInfo));
+            });
+          }
+        });
 
       actions.resetForm();
     } catch (err) {

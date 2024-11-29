@@ -4,8 +4,8 @@ import {
   editUser,
   login,
   logOut,
-  refreshUser,
   register,
+  refreshUser,
 } from "./operations";
 import { createSlice } from "@reduxjs/toolkit";
 
@@ -24,13 +24,13 @@ const INITIAL_STATE = {
   accessToken: null,
   isLoading: false,
   isLoggedIn: false,
-  isRefreshing: false,
 };
 
 const handlePending = (state) => {
   state.error = null;
   state.isLoading = true;
 };
+
 export const showSuccessToast = (message) => {
   toast.success(message, {
     style: {
@@ -88,18 +88,15 @@ const authSlice = createSlice({
         showSuccessToast("User successfully logged out!");
         return INITIAL_STATE;
       })
-      .addCase(refreshUser.pending, (state) => {
-        state.isRefreshing = true;
-        state.error = null;
-      })
+      .addCase(refreshUser.pending, handlePending)
       .addCase(refreshUser.fulfilled, (state, { payload }) => {
         state.accessToken = payload.data.accessToken;
         state.isLoggedIn = true;
-        state.isRefreshing = false;
+        state.isLoading = false;
       })
       .addCase(refreshUser.rejected, (state, { payload }) => {
-        state.isRefreshing = false;
         state.accessToken = null;
+        state.isLoading = false;
         state.error = payload;
         showErrorToast(`Sorry, ${payload}`);
       })
