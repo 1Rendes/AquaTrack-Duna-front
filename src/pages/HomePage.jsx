@@ -1,19 +1,13 @@
-// import { Link } from "react-router-dom";
 import WelcomeSection from "/src/components/WelcomeSection/WelcomeSection.jsx";
 import AdvantagesSection from "../components/AdvantagesSection/AdvantagesSection";
- 
+import HomeWrapper from "../components/HomeWrapper/HomeWrapper";
 
 const HomePage = () => {
-
   return (
-    <div >
-      <div>
-        <WelcomeSection />
-      </div>
-      <div>
-        <AdvantagesSection />
-      </div>
-    </div>
+    <HomeWrapper>
+      <WelcomeSection />
+      <AdvantagesSection />
+    </HomeWrapper>
   );
 };
 

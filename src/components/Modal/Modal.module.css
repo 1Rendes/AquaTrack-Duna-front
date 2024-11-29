@@ -19,3 +19,17 @@
   align-items: center;
   background-color: white;
 }
+
+.logOut {
+  max-width: 344px;
+  max-height: 267px;
+  padding: 40px 14px;
+  border-radius: 15px;
+  box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.1);
+  background: var(--main-white);
+  @media screen and (min-width: 768px) {
+    max-width: 516px;
+    max-height: 244px;
+    padding: 40px;
+  }
+}

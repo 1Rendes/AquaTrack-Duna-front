@@ -2,11 +2,18 @@ import AddWaterBtn from "../AddWaterBtn/AddWaterBtn";
 import WaterDailyNorma from "../WaterDailyNorma/WaterDailyNorma";
 import WaterProgressBar from "../WaterProgressBar/WaterProgressBar";
 import css from "./WaterMainInfo.module.css";
+import Logo from "../Logo/Logo";
 
 const WaterMainInfo = ({ onClick }) => {
+  //перенести логику в этот компонент из страницы trackerPage.jsx
+  //отсюда убрать пропс
+  //сменить имя пропса на 26 строке
+  //
   return (
     <div className={css.watermaininfo}>
-      <p className={css.example}>WaterMainInfo</p>
+      <div className={css.logoContainer}>
+        <Logo />
+      </div>
 
       <div className={css.WaterDailyNormaContainer}>
         <WaterDailyNorma />
