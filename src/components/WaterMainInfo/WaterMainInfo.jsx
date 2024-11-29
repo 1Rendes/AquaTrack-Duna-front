@@ -3,12 +3,19 @@ import WaterDailyNorma from "../WaterDailyNorma/WaterDailyNorma";
 import WaterProgressBar from "../WaterProgressBar/WaterProgressBar";
 import css from "./WaterMainInfo.module.css";
 import Logo from "../Logo/Logo";
+import WaterModal from "../WaterModal/WaterModal";
+import { useState } from "react";
 
-const WaterMainInfo = ({ onClick }) => {
-  //перенести логику в этот компонент из страницы trackerPage.jsx
-  //отсюда убрать пропс
-  //сменить имя пропса на 26 строке
-  //
+const WaterMainInfo = () => {
+  const [isAddWaterModalOpen, setAddWaterModalOpen] = useState(false);
+
+  const handleOpenAddWaterModal = () => {
+    setAddWaterModalOpen(true);
+  };
+
+  const handleCloseAddWaterModal = () => {
+    setAddWaterModalOpen(false);
+  };
   return (
     <div className={css.watermaininfo}>
       <div className={css.logoContainer}>
@@ -22,7 +29,16 @@ const WaterMainInfo = ({ onClick }) => {
         <WaterProgressBar />
       </div>
       <div className={css.addWaterBtnContainerMainInfo}>
-        <AddWaterBtn variant={"mainInfo"} onClick={onClick} />
+        <AddWaterBtn variant="mainInfo" onClick={handleOpenAddWaterModal} />
+      </div>
+      <div>
+        {isAddWaterModalOpen && (
+          <WaterModal
+            modalType="add"
+            isOpen={isAddWaterModalOpen}
+            handleClose={handleCloseAddWaterModal}
+          ></WaterModal>
+        )}
       </div>
     </div>
   );
