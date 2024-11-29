@@ -6,6 +6,7 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import { useState } from "react";
 import clsx from "clsx";
+import { selectUser } from "../../redux/auth/selectors";
 
 const validationSchema = Yup.object({
   amount: Yup.number()
@@ -22,6 +23,8 @@ const validationSchema = Yup.object({
 const WaterForm = ({ type, id, handleClose }) => {
   const dispatch = useDispatch();
   const selectedPercentage = useSelector(selectPercentage);
+  const user = useSelector(selectUser);
+  const dailyRequirement = user?.dailyRequirement;
   const dayWaterArray = useSelector(selectDayWater);
 
   const waterPortion = dayWaterArray.find(({ _id }) => _id === id);
@@ -65,14 +68,14 @@ const WaterForm = ({ type, id, handleClose }) => {
       // Якщо в полі вводу мл, так їх і передаємо, якщо літри, переводимо в мл
       amount: Number(values.manualAmount), //Збираємо саме мануал, бо він в мл
       time: convertTimestampToIso(values.time),
-      percentage: selectedPercentage || 0,
     };
-    console.log(data);
-
-    if (type == "add") {
+    if (type === "add") {
+      data.percentage =
+        selectedPercentage + (data.amount * 100) / dailyRequirement;
       dispatch(addWater(data)).unwrap().then(handleClose);
       return;
     }
+
     dispatch(editWater({ _id: id, ...data }))
       .unwrap()
       .then(handleClose);
