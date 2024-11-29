@@ -88,27 +88,24 @@ const TrackerPage = () => {
     setCurrentMonth(format(newDate, "yyyy-MM"));
   };
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [modalType, setModalType] = useState("");
-  const handleWaterAddOrEditModal = (modalType) => {
-    setModalType(modalType);
-    setIsModalOpen(true);
-  };
-  const handleClosingModal = () => {
-    setIsModalOpen(false);
-  };
+  // const [isModalOpen, setIsModalOpen] = useState(false);
+  // const [modalType, setModalType] = useState("");
+  // const handleWaterAddOrEditModal = (modalType) => {
+  //   setModalType(modalType);
+  //   setIsModalOpen(true);
+  // };
+  // const handleClosingModal = () => {
+  //   setIsModalOpen(false);
+  // };
 
   return (
     <div>
       <WaterDetailedInfo />
-      <WaterMainInfo
-        onClick={() => {
-          handleWaterAddOrEditModal("add");
-        }}
-      />
-      {isModalOpen && (
+      <WaterMainInfo />
+
+      {/* {isModalOpen && (
         <WaterModal values={modalType} onClose={handleClosingModal} />
-      )}
+      )} */}
       {/* <button
         onClick={() => {
           handleWaterAddOrEditModal("edit");

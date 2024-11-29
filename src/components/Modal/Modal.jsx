@@ -1,8 +1,8 @@
-import ReactModal from 'react-modal';
-import css from './Modal.module.css';
-import clsx from 'clsx';
+import ReactModal from "react-modal";
+import css from "./Modal.module.css";
+import clsx from "clsx";
 
-ReactModal.setAppElement('#root');
+ReactModal.setAppElement("#root");
 
 const Modal = ({ children, handleClose, isOpen, modalType }) => {
   return (

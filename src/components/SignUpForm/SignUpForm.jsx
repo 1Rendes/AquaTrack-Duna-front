@@ -7,6 +7,7 @@ import { useDispatch } from "react-redux";
 import { register, login } from "../../redux/auth/operations";
 import { ErrorMessage, Form, Field, Formik } from "formik";
 import Logo from "../Logo/Logo";
+import clsx from "clsx";
 
 const initialValues = {
   email: "",
@@ -61,19 +62,25 @@ const SignUpForm = () => {
           initialValues={initialValues}
           onSubmit={handleSubmit}
         >
-          {({ values }) => (
+          {({ values, isValid, dirty }) => (
             <Form noValidate autoComplete="off" className={css.form}>
               <div>
                 <label htmlFor="email" className={css.label}>
                   Email
                 </label>
-                <Field
-                  type="text"
-                  id="email"
-                  name="email"
-                  placeholder="Enter your email"
-                  className={css.input}
-                />
+                <Field name="email">
+                  {({ field, meta }) => (
+                    <input
+                      {...field}
+                      type="text"
+                      id="email"
+                      placeholder="Enter your email"
+                      className={clsx(css.input, {
+                        [css.inputError]: meta.touched && meta.error,
+                      })}
+                    />
+                  )}
+                </Field>
                 <ErrorMessage
                   name="email"
                   component="div"
@@ -85,25 +92,33 @@ const SignUpForm = () => {
                   Password
                 </label>
                 <div className={css.iconWrapper}>
-                  <Field
-                    type={visiblePassword ? "text" : "password"}
-                    id="password"
-                    name="password"
-                    placeholder="Enter your password"
-                    className={css.input}
-                  />
-                  <svg
-                    className={css.icon}
-                    width={22}
-                    height={22}
-                    onClick={() => setVisiblePassword(!visiblePassword)}
-                  >
-                    <use
-                      href={`${sprite}#${
-                        visiblePassword ? "icon-eye" : "icon-eye-off"
-                      }`}
-                    />
-                  </svg>
+                  <Field name="password">
+                    {({ field, meta }) => (
+                      <div className={css.iconWrapper}>
+                        <input
+                          {...field}
+                          type={visiblePassword ? "text" : "password"}
+                          id="password"
+                          placeholder="Enter your password"
+                          className={clsx(css.input, {
+                            [css.inputError]: meta.touched && meta.error,
+                          })}
+                        />
+                        <svg
+                          className={css.icon}
+                          width={22}
+                          height={22}
+                          onClick={() => setVisiblePassword(!visiblePassword)}
+                        >
+                          <use
+                            href={`${sprite}#${
+                              visiblePassword ? "icon-eye" : "icon-eye-off"
+                            }`}
+                          />
+                        </svg>
+                      </div>
+                    )}
+                  </Field>
                 </div>
                 <ErrorMessage
                   name="password"
@@ -116,27 +131,37 @@ const SignUpForm = () => {
                   Repeat password
                 </label>
                 <div className={css.iconWrapper}>
-                  <Field
-                    type={visibleRepeatPassword ? "text" : "password"}
-                    id="repeatPassword"
-                    name="repeatPassword"
-                    placeholder="Repeat password"
-                    className={css.input}
-                  />
-                  <svg
-                    className={css.icon}
-                    width={22}
-                    height={22}
-                    onClick={() =>
-                      setVisibleRepeatPassword(!visibleRepeatPassword)
-                    }
-                  >
-                    <use
-                      href={`${sprite}#${
-                        visibleRepeatPassword ? "icon-eye" : "icon-eye-off"
-                      }`}
-                    />
-                  </svg>
+                  <Field name="repeatPassword">
+                    {({ field, meta }) => (
+                      <div className={css.iconWrapper}>
+                        <input
+                          {...field}
+                          type={visibleRepeatPassword ? "text" : "password"}
+                          id="repeatPassword"
+                          placeholder="Repeat password"
+                          className={clsx(css.input, {
+                            [css.inputError]: meta.touched && meta.error,
+                          })}
+                        />
+                        <svg
+                          className={css.icon}
+                          width={22}
+                          height={22}
+                          onClick={() =>
+                            setVisibleRepeatPassword(!visibleRepeatPassword)
+                          }
+                        >
+                          <use
+                            href={`${sprite}#${
+                              visibleRepeatPassword
+                                ? "icon-eye"
+                                : "icon-eye-off"
+                            }`}
+                          />
+                        </svg>
+                      </div>
+                    )}
+                  </Field>
                 </div>
                 {values.password !== values.repeatPassword && (
                   <ErrorMessage
@@ -148,7 +173,13 @@ const SignUpForm = () => {
               </div>
 
               <div className={css.buttonWrapper}>
-                <button type="submit" className={css.btn}>
+                <button
+                  type="submit"
+                  className={clsx(css.btn, {
+                    [css.btnDisabled]: !isValid || !dirty,
+                  })}
+                  disabled={!isValid || !dirty}
+                >
                   Sign Up
                 </button>
               </div>
