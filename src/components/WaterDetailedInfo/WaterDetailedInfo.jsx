@@ -1,5 +1,5 @@
 import UserPanel from "../UserPanel/UserPanel";
-import Calendar from "../components/Calendar/Calendar";
+import Calendar from "../Calendar/Calendar.jsx";
 import css from "./WaterDetailedInfo.module.css";
 
 const WaterDetailedInfo = () => {

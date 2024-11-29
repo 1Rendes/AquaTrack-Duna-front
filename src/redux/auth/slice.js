@@ -23,7 +23,7 @@ const INITIAL_STATE = {
   error: null,
   accessToken: null,
   isLoading: false,
-  isLoggedIn: true,
+  isLoggedIn: false,
   isRefreshing: false,
 };
 

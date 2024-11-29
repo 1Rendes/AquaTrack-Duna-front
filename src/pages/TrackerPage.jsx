@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
+import WaterModal from "../components/WaterModal/WaterModal";
 import WaterMainInfo from "../components/WaterMainInfo/WaterMainInfo";
+import UserBar from "../components/UserBar/UserBar";
 import { useDispatch } from "react-redux";
 import { getDayWater, getMonthWater } from "../redux/water/operations";
 import { addMonths, format } from "date-fns";
