@@ -14,9 +14,8 @@ const TrackerPage = () => {
     () => new Date().toISOString().split("T")[0]
   );
   const [currentMonth, setCurrentMonth] = useState(() => {
-    const currentDate = new Date();
-
-    const month = String(currentDate.getMonth() + 1).padStart(2, "0");
+    const currentDate = new Date().toISOString().split("T")[0].split("-");
+    const month = currentDate[0] + "-" + currentDate[1];
 
     return month;
   });
@@ -34,45 +33,23 @@ const TrackerPage = () => {
     const [year, month] = currentMonth.split("-").map(Number);
     const date = new Date(year, month - 1, 1);
     const newDate = addMonths(date, 1);
+    console.log(format(newDate, "yyyy-MM"));
+
     setCurrentMonth(format(newDate, "yyyy-MM"));
   };
-
   const handlePreviousMonth = (currentMonth) => {
     //Формат у місяця в currentMonth YYYY-MM
     const [year, month] = currentMonth.split("-").map(Number);
     const date = new Date(year, month - 1, 1);
     const newDate = addMonths(date, -1);
+    console.log(format(newDate, "yyyy-MM"));
     setCurrentMonth(format(newDate, "yyyy-MM"));
   };
-
-  // const [isModalOpen, setIsModalOpen] = useState(false);
-  // const [modalType, setModalType] = useState("");
-  // const handleWaterAddOrEditModal = (modalType) => {
-  //   setModalType(modalType);
-  //   setIsModalOpen(true);
-  // };
-  // const handleClosingModal = () => {
-  //   setIsModalOpen(false);
-  // };
 
   return (
     <div>
       <WaterDetailedInfo />
       <WaterMainInfo />
-
-      {/* {isModalOpen && (
-        <WaterModal values={modalType} onClose={handleClosingModal} />
-      )} */}
-      {/* <button
-        onClick={() => {
-          handleWaterAddOrEditModal("edit");
-        }}
-      ></button>
-      <button
-        onClick={() => {
-          handleWaterAddOrEditModal("add");
-        }}
-      ></button> */}
     </div>
   );
 };
