@@ -169,7 +169,7 @@ const WaterForm = ({ type, id, handleClose }) => {
           </div>
 
           <div className={css["field-group"]}>
-            <label htmlFor="manualAmount" className={css["water-label"]}>
+            <label htmlFor="manualAmount" className={css["water-label-group"]}>
               Enter the value of water used:
             </label>
             <Field

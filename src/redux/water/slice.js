@@ -52,8 +52,6 @@ const waterSlice = createSlice({
       .addCase(addWater.rejected, (state, { payload }) => {
         state.isLoading = false;
         state.error = payload;
-        console.log(payload);
-
         showErrorToast("Oops, failed to add water");
       })
       .addCase(editWater.pending, handlePending)
@@ -73,9 +71,10 @@ const waterSlice = createSlice({
       .addCase(deleteWater.pending, handlePending)
       .addCase(deleteWater.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        state.dayWater = state.dayWater.filter(
-          (item) => item._id !== payload.data._id
+        const searchIndex = state.dayWater.findIndex(
+          (item) => item._id === payload
         );
+        state.dayWater.splice(searchIndex, 1);
         showSuccessToast("Water removed successfully!");
       })
       .addCase(deleteWater.rejected, (state, { payload }) => {

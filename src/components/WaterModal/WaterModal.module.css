@@ -1,6 +1,54 @@
-.waterModal {
-  padding: 40px 40px;
-  display: flex;
+.waterModalContainer {
+  /* display: flex;
   flex-direction: column;
   align-items: flex-start;
+  padding-right: 20px; */
+  gap: 24px;
+  margin-top: 40px;
+  width: 600px;
+    
 }
+
+.waterModalTitle {
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: -0.01em;
+  text-align: left;
+  color: #323f47;
+  margin-bottom: 24px;
+}
+.waterModalSubtitle {
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20px;
+  letter-spacing: -0.01em;
+  text-align: left;
+  color: #323f47;
+  margin-bottom: 20px;
+}
+@media screen and (min-width: 375px) {
+  .waterModalContainer {
+    min-width: 323px;
+  } 
+}
+
+@media screen and (min-width: 768px) {
+   .waterModalTitle {
+    font-size: 28px;
+    line-height: 32px;
+  }
+
+  .waterModalSubtitle {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .waterModalContainer {
+    padding-right: 40px;
+  }
+ }
+
+
+
+
