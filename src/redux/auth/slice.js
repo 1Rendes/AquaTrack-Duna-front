@@ -1,4 +1,5 @@
 import toast from "react-hot-toast";
+import { createSlice } from "@reduxjs/toolkit";
 import {
   currentUser,
   editUser,
@@ -7,7 +8,6 @@ import {
   register,
   refreshUser,
 } from "./operations";
-import { createSlice } from "@reduxjs/toolkit";
 
 const INITIAL_STATE = {
   user: {

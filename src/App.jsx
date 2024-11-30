@@ -1,10 +1,17 @@
-import "./styles/common.css";
+import { lazy, useEffect } from "react";
+import { Toaster } from "react-hot-toast";
+import { useDispatch, useSelector } from "react-redux";
 import { Routes, Route } from "react-router-dom";
 import PrivateRoute from "./components/PrivateRoute.jsx";
 import RestrictedRoute from "./components/RestrictedRoute.jsx";
 import SharedLayout from "./components/SharedLayout/SharedLayout.jsx";
-import { lazy } from "react";
-import { Toaster } from "react-hot-toast";
+import { currentUser } from "./redux/auth/operations.js";
+import {
+  selectAuthIsLoading,
+  selectIsLoggedIn,
+} from "./redux/auth/selectors.js";
+import "./styles/common.css";
+import Loader from "./components/Loader/Loader.jsx";
 
 const HomePage = lazy(() => import("./pages/HomePage.jsx"));
 const SignInPage = lazy(() => import("./pages/SignInPage.jsx"));
@@ -13,43 +20,64 @@ const TrackerPage = lazy(() => import("./pages/TrackerPage.jsx"));
 const NotFoundPage = lazy(() => import("./pages/NotFoundPage.jsx"));
 
 const App = () => {
+  const dispatch = useDispatch();
+
+  const isLoggedIn = useSelector(selectIsLoggedIn);
+  const isLoading = useSelector(selectAuthIsLoading);
+
+  useEffect(() => {
+    if (!isLoggedIn) dispatch(currentUser());
+  }, []);
+
   return (
     <>
       <SharedLayout>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route
-            path="/signup"
-            element={
-              <RestrictedRoute
-                redirectTo="/tracker"
-                component={<SignUpPage />}
+        {isLoading ? (
+          <Loader />
+        ) : (
+          <>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route
+                path="/signup"
+                element={
+                  <RestrictedRoute
+                    redirectTo="/tracker"
+                    component={<SignUpPage />}
+                  />
+                }
               />
-            }
-          />
-          <Route
-            path="/signin"
-            element={
-              <RestrictedRoute
-                redirectTo="/tracker"
-                component={<SignInPage />}
+              <Route
+                path="/signin"
+                element={
+                  <RestrictedRoute
+                    redirectTo="/tracker"
+                    component={<SignInPage />}
+                  />
+                }
               />
-            }
-          />
-          <Route
-            path="/tracker"
-            element={
-              <PrivateRoute redirectTo="/signin" component={<TrackerPage />} />
-            }
-          />
-          <Route
-            path="*"
-            element={
-              <RestrictedRoute redirectTo="*" component={<NotFoundPage />} />
-            }
-          />
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
+              <Route
+                path="/tracker"
+                element={
+                  <PrivateRoute
+                    redirectTo="/signin"
+                    component={<TrackerPage />}
+                  />
+                }
+              />
+              <Route
+                path="*"
+                element={
+                  <RestrictedRoute
+                    redirectTo="*"
+                    component={<NotFoundPage />}
+                  />
+                }
+              />
+              <Route path="*" element={<NotFoundPage />} />
+            </Routes>
+          </>
+        )}
       </SharedLayout>
       <Toaster
         toastOptions={{
