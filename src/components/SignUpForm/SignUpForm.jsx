@@ -64,7 +64,7 @@ const SignUpForm = () => {
         >
           {({ values, isValid, dirty }) => (
             <Form noValidate autoComplete="off" className={css.form}>
-              <div>
+              <div className={css.field}>
                 <label htmlFor="email" className={css.label}>
                   Email
                 </label>
@@ -87,7 +87,7 @@ const SignUpForm = () => {
                   className={css.errorMessage}
                 />
               </div>
-              <div className={css.inputWrapper}>
+              <div className={`${css.inputWrapper}  ${css.field}`}>
                 <label htmlFor="password" className={css.label}>
                   Password
                 </label>
@@ -126,7 +126,7 @@ const SignUpForm = () => {
                   className={css.errorMessage}
                 />
               </div>
-              <div className={css.inputWrapper}>
+              <div className={`${css.inputWrapper}  ${css.field}`}>
                 <label htmlFor="repeatPassword" className={css.label}>
                   Repeat password
                 </label>
