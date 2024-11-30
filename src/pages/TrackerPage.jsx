@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import WaterMainInfo from "../components/WaterMainInfo/WaterMainInfo";
-import UserBar from "../components/UserBar/UserBar";
 import { useDispatch } from "react-redux";
 import { getDayWater, getMonthWater } from "../redux/water/operations";
 import { addMonths, format } from "date-fns";
 import WaterDetailedInfo from "../components/WaterDetailedInfo/WaterDetailedInfo";
+import Container from "../components/Container/Container";
 
 const TrackerPage = () => {
   const dispatch = useDispatch();
@@ -46,7 +46,8 @@ const TrackerPage = () => {
   };
 
   return (
-    <div>
+    <Container>
+      <WaterMainInfo />
       <WaterDetailedInfo
         currentDay={currentDay}
         setCurrentDay={setCurrentDay}
@@ -54,8 +55,7 @@ const TrackerPage = () => {
         handleNextMonth={handleNextMonth}
         handlePreviousMonth={handlePreviousMonth}
       />
-      <WaterMainInfo />
-    </div>
+    </Container>
   );
 };
 
