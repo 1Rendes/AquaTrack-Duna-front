@@ -3,6 +3,7 @@ import WaterForm from "../WaterForm/WaterForm.jsx";
 import css from "./WaterModal.module.css";
 
 const WaterModal = ({ modalType, id, isOpen, handleClose }) => {
+  //id опціонально (тільки для edit)
   return (
     <Modal isOpen={isOpen} handleClose={handleClose} modalType="water">
       <>
@@ -12,7 +13,7 @@ const WaterModal = ({ modalType, id, isOpen, handleClose }) => {
               <h2> Add water</h2>
               <h3>Choose a value</h3>
             </div>
-            <WaterForm type="add" />
+            <WaterForm type="add" handleClose={handleClose} />
           </>
         )}
 
