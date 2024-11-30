@@ -36,7 +36,6 @@ const UserBar = ({ userName, userPhoto }) => {
   const handleSettingsModalIsOpen = () => {
     setSettingsModalIsOpen(true);
     setIsPopoverOpen(false);
-    console.log("Open settings modal");
   };
 
   const handleSettingsModalIsClosed = () => {
