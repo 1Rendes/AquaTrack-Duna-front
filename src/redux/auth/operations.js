@@ -1,6 +1,5 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { persistor } from "../store";
 
 export const instance = axios.create({
   baseURL: "https://aquatrack-duna-server.onrender.com/",
@@ -47,7 +46,6 @@ export const logOut = createAsyncThunk("/auth/logout", async (_, thunkAPI) => {
   try {
     const { data } = await instance.post("/auth/logout");
     clearAuthHeader();
-    await persistor.purge();
     return data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.message);
