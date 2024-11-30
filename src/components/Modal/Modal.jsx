@@ -1,6 +1,7 @@
 import ReactModal from "react-modal";
 import css from "./Modal.module.css";
 import clsx from "clsx";
+import icons from "../../img/icons.svg";
 
 ReactModal.setAppElement("#root");
 
@@ -14,7 +15,11 @@ const Modal = ({ children, handleClose, isOpen, modalType }) => {
         onRequestClose={handleClose}
         ariaHideApp={false}
       >
-        <button onClick={handleClose}>Х</button>
+        <button onClick={handleClose}>
+        <svg className={css.closeIcon} width={28} height={28}>
+            <use href={`${icons}#icon-x`}></use>
+          </svg>
+        </button>
         {children}
       </ReactModal>
     </div>

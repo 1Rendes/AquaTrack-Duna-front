@@ -60,7 +60,9 @@ const WaterForm = ({ type, id, handleClose }) => {
   };
 
   if (type === "edit") {
-    INITIAL_VALUES.time = selectedTime;
+    const [minutes, hours, seconds] = selectedTime.split("T")[1].split(":");
+    const formattedTime = [minutes, hours].join(":");
+    INITIAL_VALUES.time = formattedTime;
   }
 
   const handleSubmit = (values) => {
@@ -72,6 +74,7 @@ const WaterForm = ({ type, id, handleClose }) => {
     if (type === "add") {
       data.percentage =
         selectedPercentage + (data.amount * 100) / dailyRequirement;
+      data.percentage = data.percentage > 100 ? 100 : data.percentage;
       dispatch(addWater(data)).unwrap().then(handleClose);
       return;
     }

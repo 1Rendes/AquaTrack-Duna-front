@@ -1,3 +1,4 @@
+
 import { useDispatch } from 'react-redux';
 import Modal from '../Modal/Modal';
 import css from './DeleteWaterModal.module.css';
@@ -37,3 +38,5 @@ const DeleteWaterModal = ({ handleCloseDelModal, delModalIsOpen }) => {
 
 export default DeleteWaterModal;
         
+
+

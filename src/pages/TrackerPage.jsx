@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
-import WaterModal from "../components/WaterModal/WaterModal";
 import WaterMainInfo from "../components/WaterMainInfo/WaterMainInfo";
-import UserBar from "../components/UserBar/UserBar";
 import { useDispatch } from "react-redux";
 import { getDayWater, getMonthWater } from "../redux/water/operations";
 import { addMonths, format } from "date-fns";
 import WaterDetailedInfo from "../components/WaterDetailedInfo/WaterDetailedInfo";
+import Container from "../components/Container/Container";
 
 const TrackerPage = () => {
   const dispatch = useDispatch();
@@ -14,9 +13,8 @@ const TrackerPage = () => {
     () => new Date().toISOString().split("T")[0]
   );
   const [currentMonth, setCurrentMonth] = useState(() => {
-    const currentDate = new Date();
-
-    const month = String(currentDate.getMonth() + 1).padStart(2, "0");
+    const currentDate = new Date().toISOString().split("T")[0].split("-");
+    const month = currentDate[0] + "-" + currentDate[1];
 
     return month;
   });
@@ -34,46 +32,30 @@ const TrackerPage = () => {
     const [year, month] = currentMonth.split("-").map(Number);
     const date = new Date(year, month - 1, 1);
     const newDate = addMonths(date, 1);
+    console.log(format(newDate, "yyyy-MM"));
+
     setCurrentMonth(format(newDate, "yyyy-MM"));
   };
-
   const handlePreviousMonth = (currentMonth) => {
     //Формат у місяця в currentMonth YYYY-MM
     const [year, month] = currentMonth.split("-").map(Number);
     const date = new Date(year, month - 1, 1);
     const newDate = addMonths(date, -1);
+    console.log(format(newDate, "yyyy-MM"));
     setCurrentMonth(format(newDate, "yyyy-MM"));
   };
 
-  // const [isModalOpen, setIsModalOpen] = useState(false);
-  // const [modalType, setModalType] = useState("");
-  // const handleWaterAddOrEditModal = (modalType) => {
-  //   setModalType(modalType);
-  //   setIsModalOpen(true);
-  // };
-  // const handleClosingModal = () => {
-  //   setIsModalOpen(false);
-  // };
-
   return (
-    <div>
-      <WaterDetailedInfo />
+    <Container>
       <WaterMainInfo />
-
-      {/* {isModalOpen && (
-        <WaterModal values={modalType} onClose={handleClosingModal} />
-      )} */}
-      {/* <button
-        onClick={() => {
-          handleWaterAddOrEditModal("edit");
-        }}
-      ></button>
-      <button
-        onClick={() => {
-          handleWaterAddOrEditModal("add");
-        }}
-      ></button> */}
-    </div>
+      <WaterDetailedInfo
+        currentDay={currentDay}
+        setCurrentDay={setCurrentDay}
+        currentMonth={currentMonth}
+        handleNextMonth={handleNextMonth}
+        handlePreviousMonth={handlePreviousMonth}
+      />
+    </Container>
   );
 };
 

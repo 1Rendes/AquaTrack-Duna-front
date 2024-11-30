@@ -56,10 +56,21 @@ picture {
   border: 1px solid rgba(47, 47, 47, 0.2);
   background-color: transparent;
   border-radius: 15px;
+
+  transition: border-color 0.3s ease, color 0.3s ease;
 }
 
 input:focus {
   border: 1px solid rgba(47, 47, 47, 0.4);
+}
+
+.inputError {
+  border: 1px solid var(--error);
+  color: var(--error);
+}
+.inputError:focus {
+  border: 1px solid var(--error);
+  color: var(--error);
 }
 
 .btn {
@@ -81,6 +92,16 @@ input:focus {
 
 .btn:hover {
   background-color: var(--hover-green);
+}
+
+.btnDisabled {
+  background-color: rgba(47, 47, 47, 0.2);
+  color: rgba(47, 47, 47, 0.5);
+  cursor: not-allowed;
+}
+.btnDisabled:hover {
+  background-color: rgba(47, 47, 47, 0.2);
+  color: rgba(47, 47, 47, 0.5);
 }
 
 .textSignIn {
@@ -118,12 +139,18 @@ input:focus {
   cursor: pointer;
 }
 
+.field {
+  position: relative;
+}
+
 .errorMessage {
+  position: absolute;
+  top: 80%;
+  left: 0;
   text-align: center;
   color: var(--error);
   font-weight: 400;
   font-size: 13px;
-  margin-bottom: 12px;
 }
 
 @media (min-width: 768px) {
