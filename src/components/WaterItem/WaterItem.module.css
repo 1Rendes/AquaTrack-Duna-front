@@ -1,56 +1,118 @@
-.wateritem {
+.waterItemActions {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
-  padding: 18px 14px;
-  min-width: 149px;
-  /* height: 74px; */
-  border-radius: 15px;
-  background-color: #fff;
-  backdrop-filter: blur(33.599998474121094px);
-}
-.infoList {
-  list-style: none;
-  display: flex;
-  text-align: center;
   flex-direction: column;
-  /* padding-inline-start: 0px; */
-  line-height: 1;
   gap: 6px;
 }
-.waterVolume {
-  font-weight: 700;
+
+.waterAmount {
+  color: var(--main);
+  font-family: "Poppins", sans-serif;
   font-size: 14px;
-  color: #323f47;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1;
 }
-.infoListTime {
-  font-weight: 400;
-  font-size: 12px;
+
+.waterTime {
   color: rgba(47, 47, 47, 0.6);
+  font-family: "Poppins", sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
 }
 
-.btn {
-  size: 14px;
-  border: none;
-  background-color: #fff;
-}
-
-.listItem {
+.waterItemContent {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.btnList {
-  display: flex;
-  text-align: left;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 8px;
 }
 
-.icon {
-  width: 14px;
-  height: 14px;
-  fill: #fff;
-  stroke: #323F47;
+.waterItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: white;
+  white-space: nowrap;
+  border-radius: 15px;
+  padding: 18px 14px;
+  width: 149px;
+  height: 74px;
+
+  backdrop-filter: blur(16.799999237060547px);
+}
+
+.glass {
+  white-space: nowrap;
+  stroke: var(--accent);
+}
+
+.deleteBtn {
+  border: none;
+  background-color: inherit;
+}
+
+.editBtn {
+  border: none;
+  background-color: inherit;
+}
+
+.pencil,
+.trash {
+  fill: white;
+  stroke: #323f47;
+}
+
+.editBtn:active,
+.editBtn:hover .pencil {
+  stroke: var(--accent);
+}
+
+.deleteBtn:active,
+.deleteBtn:hover .trash {
+  stroke: var(--hover-green);
+}
+
+@media screen and (min-width: 768px) {
+  .waterItemActions {
+    gap: 14px;
+  }
+  .waterItem {
+    gap: 20px;
+    width: 192px;
+    height: 86px;
+    padding: 20px;
+  }
+  .glass {
+    width: 44px;
+    height: 45px;
+  }
+  .pencil {
+    width: 16px;
+    height: 16px;
+  }
+  .trash {
+    width: 16px;
+    height: 16px;
+  }
+  .waterAmount {
+    line-height: 149%;
+  }
+  .waterTime {
+    line-height: 187%;
+  }
+}
+
+:root {
+  --main: #323f47;
+  --main-text: #2f2f2f;
+  --accent: #9be1a0;
+  --background: #f0eff4;
+  --main-white: #fff;
+  --font-family: "Poppins", sans-serif;
+  --error: #ef5050;
+  --hover-green: #87d28d;
 }

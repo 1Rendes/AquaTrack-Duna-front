@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import WaterModal from "../components/WaterModal/WaterModal";
 import WaterMainInfo from "../components/WaterMainInfo/WaterMainInfo";
 import UserBar from "../components/UserBar/UserBar";
 import { useDispatch } from "react-redux";
@@ -48,7 +47,13 @@ const TrackerPage = () => {
 
   return (
     <div>
-      <WaterDetailedInfo />
+      <WaterDetailedInfo
+        currentDay={currentDay}
+        setCurrentDay={setCurrentDay}
+        currentMonth={currentMonth}
+        handleNextMonth={handleNextMonth}
+        handlePreviousMonth={handlePreviousMonth}
+      />
       <WaterMainInfo />
     </div>
   );
