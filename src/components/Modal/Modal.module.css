@@ -11,13 +11,16 @@
   z-index: 2;
 }
 .modal {
+  position: relative;
   box-sizing: border-box;
   height: 90%;
   max-width: 95%;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: white;
+
 }
 
 .logOut {
@@ -46,4 +49,18 @@
     box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.1);
     background: var(--main-white);
   }
+}
+.closeIcon{
+  position: absolute;
+  top: 20px;
+  right: 16px;
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+  stroke:var(--main-text);
+  @media screen and (min-width: 768px) {
+    top: 27px;
+    right: 27px;
+  }
+
 }
