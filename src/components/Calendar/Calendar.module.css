@@ -1,5 +1,14 @@
+.calendar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 43px;
+  row-gap: 15px;
+}
 
-        .calendar {
-        /* Your styles here */
-        }
-        
+.calendarItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4px;
+}

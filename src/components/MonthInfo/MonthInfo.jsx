@@ -1,13 +1,27 @@
+import Calendar from "../Calendar/Calendar";
+import CalendarPagination from "../CalendarPagination/CalendarPagination";
+import css from "./MonthInfo.module.css";
 
-        import css from './MonthInfo.module.css';
+const MonthInfo = ({
+  currentDay,
+  setCurrentDay,
+  currentMonth,
+  handleNextMonth,
+  handlePreviousMonth,
+}) => {
+  return (
+    <div className={css.monthinfo}>
+      <CalendarPagination
+        handleNextMonth={handleNextMonth}
+        handlePreviousMonth={handlePreviousMonth}
+        currentMonth={currentMonth}
+      ></CalendarPagination>
+      <Calendar
+        currentDay={currentDay}
+        setCurrentDay={setCurrentDay}
+      ></Calendar>
+    </div>
+  );
+};
 
-        const MonthInfo = () => {
-        return (
-                <div className={css.monthinfo}>
-                {/* Your component code here */}
-                </div>
-                );
-        };
-
-        export default MonthInfo;
-        
+export default MonthInfo;

@@ -1,5 +1,30 @@
+.calendaritem {
+  font-family: inherit;
+  font-weight: 700;
+  border: none;
+  overlay: none;
+  border-radius: 50%;
+  height: 38px;
+  width: 38px;
+  background-color: #323f4733;
+  color: #323f47;
+}
+.filled {
+  background-color: white;
+  color: #323f47;
+}
 
-        .calendaritem {
-        /* Your styles here */
-        }
-        
+.choosenDay {
+  background-color: #323f47;
+  color: #9be1a0;
+}
+
+.currentDay {
+  border: 1px solid #323f47;
+  color: #323f47;
+}
+
+.percentage {
+  font-size: 12px;
+  color: #2f2f2f99;
+}

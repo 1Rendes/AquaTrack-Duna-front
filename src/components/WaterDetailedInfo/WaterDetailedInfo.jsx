@@ -16,6 +16,7 @@ const WaterDetailedInfo = ({
       <UserPanel />
       <DailyInfo currentDay={currentDay} />
       <MonthInfo
+        currentDay={currentDay}
         setCurrentDay={setCurrentDay}
         currentMonth={currentMonth}
         handleNextMonth={handleNextMonth}
