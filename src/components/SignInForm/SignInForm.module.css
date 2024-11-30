@@ -139,12 +139,18 @@ input:focus {
   cursor: pointer;
 }
 
+.field {
+  position: relative;
+}
+
 .errorMessage {
+  position: absolute;
+  top: 80%;
+  left: 0;
   text-align: center;
   color: var(--error);
   font-weight: 400;
   font-size: 13px;
-  margin-bottom: 12px;
 }
 
 @media (min-width: 768px) {
