@@ -74,8 +74,8 @@ const WaterForm = ({ type, id, handleClose }) => {
     if (type === "add") {
       data.percentage =
         selectedPercentage + (data.amount * 100) / dailyRequirement;
-      dispatch(addWater(data)).unwrap().then(handleClose);
       data.percentage = data.percentage > 100 ? 100 : data.percentage;
+      dispatch(addWater(data)).unwrap().then(handleClose);
       return;
     }
 
