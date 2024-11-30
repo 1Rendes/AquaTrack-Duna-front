@@ -73,9 +73,11 @@ const waterSlice = createSlice({
       .addCase(deleteWater.pending, handlePending)
       .addCase(deleteWater.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        state.dayWater = state.dayWater.filter(
-          (item) => item._id !== payload.data._id
-        );
+        const searchIndex = state.dayWater.findIndex(item => item._id === payload.data._id);
+        state.dayWater.splice(searchIndex, 1);
+        // state.dayWater = state.dayWater.filter(
+        //   (item) => item._id !== payload.data._id
+        // );
         showSuccessToast("Water removed successfully!");
       })
       .addCase(deleteWater.rejected, (state, { payload }) => {
