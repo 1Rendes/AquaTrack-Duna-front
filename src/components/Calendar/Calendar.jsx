@@ -1,13 +1,26 @@
+import { useSelector } from "react-redux";
+import { selectMonthWater } from "../../redux/water/selectors";
+import css from "./Calendar.module.css";
+import CalendarItem from "../CalendarItem/CalendarItem";
 
-        import css from './Calendar.module.css';
-
-        const Calendar = () => {
+const Calendar = ({ currentDay, setCurrentDay }) => {
+  const choosenMonth = useSelector(selectMonthWater);
+  return (
+    <ul className={css.calendar}>
+      {choosenMonth.map((day) => {
         return (
-                <div className={css.calendar}>
-                {/* Your component code here */}
-                </div>
-                );
-        };
+          <li key={day.day} className={css.calendarItem}>
+            <CalendarItem
+              day={day.day}
+              percentage={day.percentage}
+              choosenDay={currentDay}
+              setChoosenDay={setCurrentDay}
+            ></CalendarItem>
+          </li>
+        );
+      })}
+    </ul>
+  );
+};
 
-        export default Calendar;
-        
+export default Calendar;

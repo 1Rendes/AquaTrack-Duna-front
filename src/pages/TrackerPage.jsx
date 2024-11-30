@@ -8,7 +8,6 @@ import Container from "../components/Container/Container";
 
 const TrackerPage = () => {
   const dispatch = useDispatch();
-
   const [currentDay, setCurrentDay] = useState(
     () => new Date().toISOString().split("T")[0]
   );
@@ -21,11 +20,8 @@ const TrackerPage = () => {
 
   useEffect(() => {
     dispatch(getMonthWater(currentMonth));
-  }, [currentMonth, dispatch]);
-
-  useEffect(() => {
     dispatch(getDayWater(currentDay));
-  }, [currentDay, dispatch]);
+  }, [currentDay, currentMonth, dispatch]);
 
   const handleNextMonth = (currentMonth) => {
     //Формат у місяця в currentMonth YYYY-MM
