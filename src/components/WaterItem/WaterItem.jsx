@@ -5,7 +5,6 @@ import DeleteWaterModal from "../DeleteWaterModal/DeleteWaterModal";
 import icons from "../../img/icons.svg";
 
 const WaterItem = ({ item: { _id, time, amount } }) => {
-  console.log({ _id, time, amount });
   const [isEditModalOpen, setEditModalIsOpen] = useState(false);
   const [isDeleteModalOpen, setDeleteModalIsOpen] = useState(false);
 

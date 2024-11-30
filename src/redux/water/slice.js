@@ -52,6 +52,8 @@ const waterSlice = createSlice({
       .addCase(addWater.rejected, (state, { payload }) => {
         state.isLoading = false;
         state.error = payload;
+        console.log(payload);
+
         showErrorToast("Oops, failed to add water");
       })
       .addCase(editWater.pending, handlePending)
