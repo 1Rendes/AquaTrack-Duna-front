@@ -13,6 +13,7 @@ const LogOutModal = ({ handleLogoutModalIsClose, logoutModalIsOpen }) => {
       logOut={logoutModalIsOpen}
       modalType="logOut"
     >
+      <div className={css.logOutModal}>
       <h2 className={css.titleOfModal}>Log out</h2>
       {/* <h2>{modalType}</h2> */}
       <p className={css.description}>Do you really want to leave?</p>
@@ -33,6 +34,7 @@ const LogOutModal = ({ handleLogoutModalIsClose, logoutModalIsOpen }) => {
         >
           Cancel
         </button> */}
+        </div>
       </div>
     </Modal>
   );

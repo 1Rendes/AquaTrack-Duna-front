@@ -1,17 +1,22 @@
+.logOutModal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+}
 .titleOfModal {
   font-weight: 700;
   font-size: 20px;
-
   line-height: 120%;
   letter-spacing: -0.01em;
   text-align: center;
-
+  
   margin-bottom: 16px;
   @media screen and (min-width: 768px) {
     font-size: 28px;
-
     line-height: 114%;
-
+    margin-top: 0;
     margin-bottom: 24px;
 
     @media screen and(min-width: 1440px) {
@@ -21,14 +26,12 @@
 
 .description {
   font-size: 14px;
-
   line-height: 129%;
   letter-spacing: -0.01em;
   text-align: center;
   margin-bottom: 28px;
   @media screen and (min-width: 768px) {
     font-size: 18px;
-
     line-height: 133%;
     margin-bottom: 24px;
   }
@@ -36,8 +39,11 @@
 
 .btnsBox {
   padding: 0px 6px;
+  margin-top: 0;
+ 
+  gap: 9px;
   @media screen and (min-width: 768px) {
-    padding: 0px;
+    
     display: flex;
     gap: 10px;
   }
@@ -46,15 +52,11 @@
 .logOutBtn {
   border-radius: 30px;
   padding: 14px 126px;
-  width: 304px;
-  height: 46px;
-
+  
   background: var(--accent);
-
   font-family: var(--font-family);
   font-weight: 700;
   font-size: 14px;
-
   line-height: 129%;
   letter-spacing: -0.01em;
   text-align: center;
@@ -66,14 +68,13 @@
     background-color: var(--hover-green);
   }
   @media screen and (min-width: 768px) {
-    padding: 18px 57px;
-    width: 173px;
-    height: 60px;
+    padding: 18px 59px;
+    
 
     background: var(--accent);
 
     font-size: 16px;
-
+    white-space: nowrap;
     line-height: 150%;
     letter-spacing: -0.01em;
     margin-bottom: 0px;
