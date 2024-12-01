@@ -15,6 +15,13 @@
   }
 }
 
-.forget {
-  margin-bottom: 100px;
+.forgot {
+  margin-bottom: 172px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 225px;
+    @media screen and (min-width: 1440px) {
+      margin-bottom: 113px;
+      
+    }
+  }
 }
