@@ -10,13 +10,14 @@ import { selectUser } from "../../redux/auth/selectors";
 
 const validationSchema = Yup.object({
   amount: Yup.number()
-    .min(50, "Amount must be at least 50 ml")
+    .min(0, "Amount shouldn't be negative")
     .required("Amount is required"),
   time: Yup.string()
     .matches(/^([01]\d|2[0-3]):([0-5]\d)$/, "Time must be in HH:MM format")
     .required("Time is required"),
   manualAmount: Yup.number()
-    .min(50, "Amount must be at least 50 ml")
+    .min(0, "Amount must be at least 50 ml")
+    .integer("Manual amount should be an integer")
     .required("Manual amount is required"),
 });
 
@@ -72,8 +73,9 @@ const WaterForm = ({ type, id, handleClose }) => {
       time: convertTimestampToIso(values.time),
     };
     if (type === "add") {
-      data.percentage =
-        selectedPercentage + (data.amount * 100) / dailyRequirement;
+      data.percentage = Math.round(
+        selectedPercentage + (data.amount * 100) / dailyRequirement
+      );
       data.percentage = data.percentage > 100 ? 100 : data.percentage;
       dispatch(addWater(data)).unwrap().then(handleClose);
       return;
@@ -86,7 +88,7 @@ const WaterForm = ({ type, id, handleClose }) => {
 
   const handleCounterChange = (increment, setFieldValue) => {
     let newValue = counterValue + increment;
-    if (newValue < 50) newValue = 50; // Мінімум
+    if (newValue < 0) newValue = 0; // Мінімум
     setCounterValue(newValue);
     setFieldValue("amount", newValue);
     setFieldValue("manualAmount", newValue);
