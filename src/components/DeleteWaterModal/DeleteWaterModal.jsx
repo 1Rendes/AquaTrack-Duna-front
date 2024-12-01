@@ -11,8 +11,7 @@ const DeleteWaterModal = ({ isOpen, handleClose, id }) => {
     dispatch(deleteWater(id)).unwrap().then(handleClose);
   }
   const handleClickRejectBtn = handleClose;
-  console.log(id);
-
+  
   return (
     <Modal
       handleClose={handleClose}
