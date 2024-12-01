@@ -1,5 +1,297 @@
+.usersettingsform {
+  font-family: inherit;
+}
+.settings {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 303px;
+  height: 147px;
+  margin-bottom: 40px;
+}
+.userPhotoInitial {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  width: 75px;
+  height: 75px;
+  background: gray;
+}
+.userPhoto {
+  width: 75px;
+  height: 75px;
+  border-radius: 100%;
+}
+.fileInputPhoto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+.fileInputPhoto input[type="file"] {
+  opacity: 0;
+}
+.iconUpload {
+  fill: none;
+  stroke: #2f2f2f;
+}
+.fileInputPhotoLabel {
+  display: flex;
+  gap: 8px;
+  padding: 10px 20px;
+  cursor: pointer;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: -0.01em;
+  color: #2f2f2f;
+}
+/* .settingsForm {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+} */
+.radioBtnContainer {
+  display: flex;
+  gap: 20px;
+}
+.btn[type="radio"] {
+  display: none;
+}
+.radioBtnLabel {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+.radioBtn {
+  width: 20px;
+  height: 20px;
+  border: 3px solid #8fdcae;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+.radioBtn::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
+}
+.btn:checked + .radioBtn::before {
+  background-color: #8fdcae;
+}
+.settingsTitleText {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  text-align: start;
+  color: #323f47;
+}
+.textInput {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: -0.01em;
+  color: #2f2f2f;
+}
+.blokInputNameEmail {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 14px;
+  margin-bottom: 24px;
+}
+.blokNameEmail {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 8px;
+}
+.inputStyle {
+  border: 1px solid rgba(47, 47, 47, 0.15);
+  border-radius: 15px;
+  padding: 16px;
+  width: 303px;
+  height: 46px;
+}
+.containerInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 14px;
+}
+.infoFormulaContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.infoFormula {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  align-items: start;
+}
+.formulaText {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: -0.01em;
+  color: #9be1a0;
+}
+.infoText {
+  border: 1px solid rgba(47, 47, 47, 0.15);
+  border-radius: 15px;
+  padding: 16px;
+  width: 303px;
+  height: 140px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: -0.01em;
+  color: rgba(47, 47, 47, 0.6);
+}
+.infoSimbol {
+  color: #9be1a0;
+}
+.kilogramContainer {
+  padding-top: 0;
+}
+.containerWater {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 14px;
+}
+.BtnSave {
+  border-radius: 30px;
+  padding: 14px 40px;
+  width: 116px;
+  height: 46px;
+  background: #9be1a0;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.28571;
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: #323f47;
+  margin-top: 40px;
+}
+.required {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 5px;
+  width: 303px;
+}
+.requirement {
+}
 
-        .usersettingsform {
-        /* Your styles here */
-        }
-        
+@media (min-width: 768px) {
+  .settings {
+    width: 568px;
+    height: 186px;
+  }
+  .userPhotoInitial {
+    width: 100px;
+    height: 100px;
+  }
+  .userPhoto {
+    width: 100px;
+    height: 100px;
+  }
+  .fileInputPhoto {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  .fileInputPhotoLabel {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .settingsTitleText {
+    font-size: 18px;
+    line-height: 1.33333;
+  }
+  .textInput {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .inputStyle {
+    width: 568px;
+    height: 56px;
+  }
+
+  .containerInfo {
+    margin-bottom: 24px;
+  }
+  .infoFormulaContainer {
+    flex-direction: row;
+    gap: 28px;
+  }
+  .formulaText {
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .infoText {
+    width: 568px;
+    height: 128px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .BtnSave {
+    padding: 16px 50px;
+    width: 141px;
+    height: 56px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  .required {
+    display: block;
+    width: 397px;
+  }
+}
+
+@media (min-width: 1440px) {
+  .settings {
+    width: 840px;
+  }
+  .settingsForm {
+    display: flex;
+    gap: 40px;
+  }
+  .inputStyle {
+    width: 400px;
+  }
+
+  .containerInfo {
+    margin-bottom: 40px;
+  }
+  .infoText {
+    padding: 16px;
+    width: 400px;
+    height: 152px;
+  }
+  .kilogramContainer {
+    padding-top: 86px;
+  }
+  .waterDrink {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 8px;
+  }
+  .required {
+    width: 400px;
+  }
+  .BtnSave {
+    margin-top: 0;
+  }
+}
