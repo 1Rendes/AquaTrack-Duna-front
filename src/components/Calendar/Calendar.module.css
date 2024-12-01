@@ -11,6 +11,7 @@
     flex-wrap: wrap;
     gap: 48px;
     row-gap: 15px;
+    overflow-y: scroll;
   }
 }
 @media (min-width: 1440px) {
