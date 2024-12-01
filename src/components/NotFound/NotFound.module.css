@@ -1,0 +1,117 @@
+.notFoundPageBox {
+  background-color: var(--background);
+  border-radius: 30px;
+  padding: 24px 16px;
+  @media screen and (min-width: 1440px) {
+    display: grid;
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.logoWrapper {
+  @media screen and (min-width: 1440px) {
+    grid-column: 1 / -1;
+    margin-bottom: 171px;
+  }
+}
+
+.notFound404Box {
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 110px;
+  letter-spacing: 0em;
+  text-align: center;
+  color: var(--main);
+  @media screen and (min-width: 768px) {
+    font-size: 200px;
+    @media screen and (min-width: 1440px) {
+      font-size: 250px;
+      grid-column: 2;
+      grid-row: 2;
+    }
+  }
+}
+
+.notFoundTextBox {
+  text-align: center;
+  @media screen and (min-width: 768px) {
+    max-width: 450px;
+    padding: 0px 7px;
+    @media screen and (min-width: 1440px) {
+      text-align: start;
+    }
+  }
+}
+
+.notFoundTitle {
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 140%;
+  color: var(--main);
+  margin-bottom: 16px;
+  @media screen and (min-width: 768px) {
+    font-size: 20px;
+    @media screen and (min-width: 1440px) {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+  }
+}
+
+.notFoundLooks {
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 125%;
+  margin-bottom: 10px;
+  @media screen and (min-width: 768px) {
+    font-size: 30px;
+    line-height: 120%;
+    @media screen and (min-width: 1440px) {
+      font-size: 46px;
+    }
+  }
+}
+
+.notFoundSorry {
+  font-size: 18px;
+  line-height: 125%;
+  margin-bottom: 24px;
+  @media screen and (min-width: 768px) {
+    font-size: 20px;
+    line-height: 120%;
+    margin-bottom: 32px;
+    @media screen and (min-width: 1440px) {
+      font-size: 24px;
+    }
+  }
+}
+
+.notFoundLink {
+  outline: transparent;
+  display: block;
+  border-radius: 30px;
+  padding: 16px 0px;
+  text-align: center;
+  background-color: var(--accent);
+
+  font-family: var(--font-family);
+  font-weight: 700;
+  font-size: 14px;
+
+  line-height: 129%;
+  letter-spacing: -0.01em;
+  text-align: center;
+  color: var(--main);
+
+  &:hover,
+  &:focus {
+    background-color: var(--hover-green);
+  }
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 150%;
+    padding: 18px 0px;
+  }
+}
