@@ -11,3 +11,46 @@
   display: flex;
   gap: 10px;
 }
+
+.iconCalendarLeft {
+  transform: rotate(90deg);
+}
+
+.iconCalendarRight {
+  transform: rotate(-90deg);
+}
+
+.iconCalendarRight,
+.iconCalendarLeft {
+  fill: var(--main-text);
+  stroke: var(--main-text);
+  padding: 0;
+  margin: 0;
+
+  width: 40px;
+  height: 20px;
+  transition: fill var(--Animation_cubic), stroke var(--Animation_cubic);
+}
+
+.buttonBackMonth,
+.buttonNextMonth {
+  border: none;
+  background: none;
+  padding: 0;
+  width: 21px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.showStatisticsButton {
+  background: none;
+  padding: 0;
+  margin-left: 0px;
+}
+
+.iconPieChart {
+  width: 20px;
+  height: 20px;
+}
