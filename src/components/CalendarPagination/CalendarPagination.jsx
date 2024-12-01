@@ -1,13 +1,7 @@
+import css from "./CalendarPagination.module.css";
 
-        import css from './CalendarPagination.module.css';
+const CalendarPagination = () => {
+  return <div className={css.calendarpagination}></div>;
+};
 
-        const CalendarPagination = () => {
-        return (
-                <div className={css.calendarpagination}>
-                {/* Your component code here */}
-                </div>
-                );
-        };
-
-        export default CalendarPagination;
-        
+export default CalendarPagination;
