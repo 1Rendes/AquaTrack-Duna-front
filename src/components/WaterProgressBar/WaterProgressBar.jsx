@@ -6,13 +6,7 @@ import { useEffect } from "react";
 import { getDayWater } from "../../redux/water/operations";
 
 const WaterProgressBar = () => {
-  const dispatch = useDispatch();
   const progress = useSelector(selectPercentage);
-
-  const todayDate = new Date().toISOString().split("T")[0];
-  useEffect(() => {
-    dispatch(getDayWater(todayDate));
-  }, [dispatch, todayDate]);
 
   const isValidProgress = () => {
     return progress !== 0 && progress !== 50 && progress !== 100;

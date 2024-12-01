@@ -17,6 +17,7 @@ const validationSchema = Yup.object({
     .required("Time is required"),
   manualAmount: Yup.number()
     .min(50, "Amount must be at least 50 ml")
+    .integer("Manual amount should be an integer")
     .required("Manual amount is required"),
 });
 
@@ -72,8 +73,9 @@ const WaterForm = ({ type, id, handleClose }) => {
       time: convertTimestampToIso(values.time),
     };
     if (type === "add") {
-      data.percentage =
-        selectedPercentage + (data.amount * 100) / dailyRequirement;
+      data.percentage = Math.round(
+        selectedPercentage + (data.amount * 100) / dailyRequirement
+      );
       data.percentage = data.percentage > 100 ? 100 : data.percentage;
       dispatch(addWater(data)).unwrap().then(handleClose);
       return;

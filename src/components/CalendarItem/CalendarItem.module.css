@@ -2,12 +2,18 @@
   font-family: inherit;
   font-weight: 700;
   border: none;
-  overlay: none;
+  outline: none;
   border-radius: 50%;
-  height: 38px;
-  width: 38px;
+  height: 28px;
+  width: 28px;
   background-color: #323f4733;
   color: #323f47;
+}
+@media (min-width: 768px) {
+  .calendaritem {
+    height: 38px;
+    width: 38px;
+  }
 }
 .filled {
   background-color: white;
@@ -25,6 +31,14 @@
 }
 
 .percentage {
-  font-size: 12px;
+  font-size: 10px;
+  line-height: 10px;
   color: #2f2f2f99;
+}
+@media (min-width: 768px) {
+  .percentage {
+    font-size: 12px;
+    line-height: 22px;
+    color: #2f2f2f99;
+  }
 }
