@@ -15,8 +15,8 @@ const Modal = ({ children, handleClose, isOpen, modalType }) => {
         onRequestClose={handleClose}
         ariaHideApp={false}
       >
-        <button onClick={handleClose}>
-        <svg className={css.closeIcon} width={28} height={28}>
+        <button onClick={handleClose} className={css.button}>
+          <svg className={css.closeIcon} width={28} height={28}>
             <use href={`${icons}#icon-x`}></use>
           </svg>
         </button>
