@@ -7,6 +7,8 @@ import {
   logOut,
   register,
   refreshUser,
+  sendResetEmail,
+  resetPwd,
 } from "./operations";
 
 const INITIAL_STATE = {
@@ -17,7 +19,7 @@ const INITIAL_STATE = {
     weight: null,
     activityLevel: null,
     gender: "female",
-    dailyRequirement: 1500,
+    dailyRequirement: 1800,
     photo: null,
   },
   error: null,
@@ -72,7 +74,6 @@ const authSlice = createSlice({
         state.user = payload.data.user;
         state.accessToken = payload.data.accessToken;
         state.isLoggedIn = true;
-        showSuccessToast("User successfully logged in!");
       })
       .addCase(login.rejected, (state, { payload }) => {
         state.isLoading = false;
@@ -119,6 +120,25 @@ const authSlice = createSlice({
       .addCase(editUser.rejected, (state, { payload }) => {
         state.isLoading = false;
         state.error = payload;
+        showErrorToast(`Sorry, ${payload}`);
+      })
+      .addCase(sendResetEmail.pending, handlePending)
+      .addCase(sendResetEmail.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        showSuccessToast(payload.message); //payload.message - те повідомлення, яке повертає сервер в разі успішн запиту
+      })
+      .addCase(sendResetEmail.rejected, (state, { payload }) => {
+        state.isLoading = false;
+        showErrorToast(`Sorry, ${payload}`);
+      })
+      .addCase(resetPwd.pending, handlePending)
+      .addCase(resetPwd.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        showSuccessToast(payload.message);
+        //На стр /reset-pwd  має бути dispatch(sendResetEmail({token, password})).unwrap().then(()=> navigate('/signIn', {replace: true}))
+      })
+      .addCase(resetPwd.rejected, (state, { payload }) => {
+        state.isLoading = false;
         showErrorToast(`Sorry, ${payload}`);
       });
   },

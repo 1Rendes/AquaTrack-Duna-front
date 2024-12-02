@@ -23,7 +23,8 @@ export const register = createAsyncThunk(
       setAuthHeader(data.data.accessToken);
       return data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      console.log(error);
+      return thunkAPI.rejectWithValue(error.response.data.data.message);
     }
   }
 );
@@ -48,7 +49,7 @@ export const logOut = createAsyncThunk("/auth/logout", async (_, thunkAPI) => {
     clearAuthHeader();
     return data;
   } catch (error) {
-    return thunkAPI.rejectWithValue(error.message);
+    return thunkAPI.rejectWithValue(error.response.data.data.message);
   }
 });
 
@@ -61,7 +62,7 @@ export const refreshUser = createAsyncThunk(
       return data;
     } catch (error) {
       clearAuthHeader();
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.response.data.data.message);
     }
   }
 );
@@ -73,7 +74,7 @@ export const editUser = createAsyncThunk(
       const { data } = await instance.patch("/users/current", editData);
       return data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.response.data.data.message);
     }
   }
 );
@@ -88,7 +89,7 @@ export const currentUser = createAsyncThunk(
       const response = await instance.get("/users/current");
       return response.data;
     } catch (error) {
-      return rejectWithValue(error.message);
+      return rejectWithValue(error.response.data.data.message);
     }
   },
   {
@@ -97,6 +98,33 @@ export const currentUser = createAsyncThunk(
       if (!token) return false;
       return true;
     },
+  }
+);
+
+export const sendResetEmail = createAsyncThunk(
+  "auth/sendResetEmail",
+  async ({ email }, thunkAPI) => {
+    try {
+      const { data } = await instance.post("/auth/send-reset-email", { email });
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data.data.message);
+    }
+  }
+);
+
+export const resetPwd = createAsyncThunk(
+  "auth/resetPwd",
+  async ({ token, password }, thunkAPI) => {
+    try {
+      const { data } = await instance.post("/auth/reset-pwd", {
+        token,
+        password,
+      });
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data.data.message);
+    }
   }
 );
 

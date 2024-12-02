@@ -10,7 +10,6 @@
   text-align: center;
   padding: 0;
   width: 140px;
-  height: 46px;
   border: none;
   border-radius: 30px;
   cursor: pointer;
@@ -51,7 +50,6 @@
   color: #323f47;
   border: none;
   width: 140px;
-  height: 46px;
   background-color: transparent;
   cursor: pointer;
   display: inline-flex;
@@ -88,6 +86,5 @@
     font-size: 16px;
     line-height: 1.5;
     width: 178px;
-    height: 60px;
   }
 }

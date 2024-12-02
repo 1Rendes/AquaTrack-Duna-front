@@ -1,23 +1,24 @@
-import { lazy, useEffect } from "react";
-import { Toaster } from "react-hot-toast";
-import { useDispatch, useSelector } from "react-redux";
-import { Routes, Route } from "react-router-dom";
-import PrivateRoute from "./components/PrivateRoute.jsx";
-import RestrictedRoute from "./components/RestrictedRoute.jsx";
-import SharedLayout from "./components/SharedLayout/SharedLayout.jsx";
-import { currentUser } from "./redux/auth/operations.js";
+import { lazy, useEffect } from 'react';
+import { Toaster } from 'react-hot-toast';
+import { useDispatch, useSelector } from 'react-redux';
+import { Routes, Route } from 'react-router-dom';
+import PrivateRoute from './components/PrivateRoute.jsx';
+import RestrictedRoute from './components/RestrictedRoute.jsx';
+import SharedLayout from './components/SharedLayout/SharedLayout.jsx';
+import { currentUser } from './redux/auth/operations.js';
 import {
   selectAuthIsLoading,
   selectIsLoggedIn,
-} from "./redux/auth/selectors.js";
-import "./styles/common.css";
-import Loader from "./components/Loader/Loader.jsx";
+} from './redux/auth/selectors.js';
+import './styles/common.css';
+import Loader from './components/Loader/Loader.jsx';
 
-const HomePage = lazy(() => import("./pages/HomePage.jsx"));
-const SignInPage = lazy(() => import("./pages/SignInPage.jsx"));
-const SignUpPage = lazy(() => import("./pages/SignUpPage.jsx"));
-const TrackerPage = lazy(() => import("./pages/TrackerPage.jsx"));
-const NotFoundPage = lazy(() => import("./pages/NotFoundPage.jsx"));
+const HomePage = lazy(() => import('./pages/HomePage.jsx'));
+const SignInPage = lazy(() => import('./pages/SignInPage.jsx'));
+const SignUpPage = lazy(() => import('./pages/SignUpPage.jsx'));
+const TrackerPage = lazy(() => import('./pages/TrackerPage.jsx'));
+const ForgotPasswordPage = lazy(() => import('./pages/ForgotPasswordPage.jsx'));
+const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
 
 const App = () => {
   const dispatch = useDispatch();
@@ -65,6 +66,7 @@ const App = () => {
                   />
                 }
               />
+              <Route path="/forgot-password" element={<ForgotPasswordPage />} />
               <Route
                 path="*"
                 element={
@@ -82,26 +84,26 @@ const App = () => {
       <Toaster
         toastOptions={{
           style: {
-            background: "var(--main-white)",
-            color: "var(--main-text)",
-            fontFamily: "var(--font-family)",
-            border: "1px solid var(--main)",
-            padding: "16px",
+            background: 'var(--main-white)',
+            color: 'var(--main-text)',
+            fontFamily: 'var(--font-family)',
+            border: '1px solid var(--main)',
+            padding: '16px',
           },
           success: {
             iconTheme: {
-              primary: "var(--accent)",
-              secondary: "var(--main-white)",
+              primary: 'var(--accent)',
+              secondary: 'var(--main-white)',
             },
           },
           error: {
             style: {
-              background: "var(--error)",
-              color: "var(--main-white)",
+              background: 'var(--error)',
+              color: 'var(--main-white)',
             },
             iconTheme: {
-              primary: "var(--main-white)",
-              secondary: "var(--error)",
+              primary: 'var(--main-white)',
+              secondary: 'var(--error)',
             },
           },
         }}

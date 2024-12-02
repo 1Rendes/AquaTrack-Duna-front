@@ -1,6 +1,5 @@
 .waterlist {
   background-color: #f0eff4;
-  padding: 40px 20px;
 }
 .waterlistDay {
   color: #323f47;
@@ -16,4 +15,22 @@
   padding-top: 24px;
   padding-bottom: 24px;
   gap: 8px;
+}
+
+.horizontalScrollContainer {
+  width: 100%;
+  margin-bottom: 40px;
+  height: 140px;
+}
+
+.horizontalScrollContainer::-webkit-scrollbar {
+  height: 8px;
+  background-color: #f0eff4;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.horizontalScrollContainer::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: var(--main-text);
 }
