@@ -19,6 +19,7 @@ const SignUpPage = lazy(() => import('./pages/SignUpPage.jsx'));
 const TrackerPage = lazy(() => import('./pages/TrackerPage.jsx'));
 const ForgotPasswordPage = lazy(() => import('./pages/ForgotPasswordPage.jsx'));
 const NotFoundPage = lazy(() => import('./pages/NotFoundPage.jsx'));
+const ResetPasswordPage = lazy(() => import('./pages/ResetPasswordPage.jsx'));
 
 const App = () => {
   const dispatch = useDispatch();
@@ -66,7 +67,12 @@ const App = () => {
                   />
                 }
               />
-              <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+              <Route
+                path="/send-reset-email"
+                element={<ForgotPasswordPage />}
+              />
+              <Route path="/reset-pwd" element={<ResetPasswordPage />} />
+
               <Route
                 path="*"
                 element={

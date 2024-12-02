@@ -130,7 +130,7 @@ const SignInForm = () => {
                 />
               </div>
               <div className={css.forgotPwdBox}>
-                <Link to="/forgot-password">Forgot your password?</Link>
+                <Link to="/send-reset-email">Forgot your password?</Link>
               </div>
               <div className={css.btnWrapper}>
                 <button
