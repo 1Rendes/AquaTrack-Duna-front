@@ -46,12 +46,14 @@ const WaterForm = ({ type, id, handleClose }) => {
     return `${hours}:${minutes}`;
   };
 
-  const convertTimestampToIso = (timestamp) => {
-    const currentDate = new Date().toISOString().split("T")[0];
+  const currentDate = new Date().toISOString().split("T")[0];
+  const selectedDate = selectedTime.split("T")[0];
+
+  const convertTimestampToIso = (timestamp, day) => {
     const [hours, minutes] = timestamp.split(":");
     const paddedHours = hours.padStart(2, "0");
     const paddedMinutes = minutes.padStart(2, "0");
-    return `${currentDate}T${paddedHours}:${paddedMinutes}:00`;
+    return `${day}T${paddedHours}:${paddedMinutes}:00`;
   };
 
   //for add type
@@ -71,12 +73,13 @@ const WaterForm = ({ type, id, handleClose }) => {
     const data = {
       // Якщо в полі вводу мл, так їх і передаємо, якщо літри, переводимо в мл
       amount: Number(values.manualAmount), //Збираємо саме мануал, бо він в мл
-      time: convertTimestampToIso(values.time),
+      time: convertTimestampToIso(values.time, selectedDate),
     };
     if (type === "add") {
-      data.percentage = Math.round(
-        selectedPercentage + (data.amount * 100) / dailyRequirement
-      );
+      (data.time = convertTimestampToIso(values.time, currentDate)),
+        (data.percentage = Math.round(
+          selectedPercentage + (data.amount * 100) / dailyRequirement
+        ));
       data.percentage = data.percentage > 100 ? 100 : data.percentage;
       dispatch(addWater(data)).unwrap().then(handleClose);
       return;
