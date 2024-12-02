@@ -74,7 +74,6 @@ const authSlice = createSlice({
         state.user = payload.data.user;
         state.accessToken = payload.data.accessToken;
         state.isLoggedIn = true;
-        showSuccessToast("User successfully logged in!");
       })
       .addCase(login.rejected, (state, { payload }) => {
         state.isLoading = false;
