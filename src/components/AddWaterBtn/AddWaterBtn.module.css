@@ -8,7 +8,8 @@
   line-height: 1.29;
   letter-spacing: -0.01em;
   text-align: center;
-  padding: 0;
+  padding-top: 14px;
+  padding-bottom: 14px;
   width: 140px;
   border: none;
   border-radius: 30px;
@@ -86,5 +87,7 @@
     font-size: 16px;
     line-height: 1.5;
     width: 178px;
+    padding-top: 18px;
+    padding-bottom: 18px;
   }
 }
