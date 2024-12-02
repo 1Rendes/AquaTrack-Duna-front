@@ -100,4 +100,31 @@ export const currentUser = createAsyncThunk(
   }
 );
 
+export const sendResetEmail = createAsyncThunk(
+  "auth/sendResetEmail",
+  async ({ email }, thunkAPI) => {
+    try {
+      const { data } = await instance.post("/auth/send-reset-email", { email });
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const resetPwd = createAsyncThunk(
+  "auth/resetPwd",
+  async ({ token, password }, thunkAPI) => {
+    try {
+      const { data } = await instance.post("/auth/reset-pwd", {
+        token,
+        password,
+      });
+      return data;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
 export default instance;
