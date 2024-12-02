@@ -26,8 +26,8 @@ const UserSettingsForm = () => {
   const validationSchema = Yup.object({
     name: Yup.string().min(2),
     email: Yup.string().email().required(),
-    weight: Yup.number().nullable().positive(),
-    activityLevel: Yup.number().nullable().positive(),
+    weight: Yup.number().nullable(),
+    activityLevel: Yup.number().nullable(),
     gender: Yup.string().required(),
     dailyRequirement: Yup.number().required().positive(),
     photo: Yup.string().nullable(),
@@ -77,13 +77,14 @@ const UserSettingsForm = () => {
 
     Object.entries(values).forEach(([key, value]) => {
       if (value === photo) return;
-
       console.log(`${key}:`, value);
       formData.append(key, value);
     });
 
     dispatch(editUser(formData));
   };
+
+  const firstLetter = name ? name.slice(0, 1) : "";
 
   return (
     <div className={css.usersettingsform}>
@@ -97,25 +98,25 @@ const UserSettingsForm = () => {
             <Form>
               <div>
                 <div className={css.settings}>
-                  <div className={css.fileInputPhoto}>
-                    {previewPhoto ? (
-                      <img
-                        name="photo"
-                        src={previewPhoto}
-                        alt={`${name} photo`}
-                        className={css.userPhoto}
-                      />
-                    ) : photo ? (
-                      <img
-                        name="photo"
-                        src={photo}
-                        alt={`${name} photo`}
-                        className={css.userPhoto}
-                      />
-                    ) : (
-                      <span className={css.userPhotoInitial}></span>
-                    )}
+                  {previewPhoto ? (
+                    <img
+                      name="photo"
+                      src={previewPhoto}
+                      alt={`${name} photo`}
+                      className={css.userPhoto}
+                    />
+                  ) : photo ? (
+                    <img
+                      name="photo"
+                      src={photo}
+                      alt={`${name} photo`}
+                      className={css.userPhoto}
+                    />
+                  ) : (
+                    <span className={css.userPhotoInitial}>{firstLetter}</span>
+                  )}
 
+                  <div className={css.fileInputPhoto}>
                     <label htmlFor="photo" className={css.fileInputPhotoLabel}>
                       <svg className={css.iconUpload} width={21} height={20}>
                         <use href={`${icons}#icon-upload`}></use>
@@ -252,7 +253,7 @@ const UserSettingsForm = () => {
                     <div className={css.containerWater}>
                       <div>
                         <p className={`${css.textInput} ${css.required}`}>
-                          The required amount of water in liters per day:
+                          The required amount of water in liters per day:&nbsp;
                           <strong className={css.infoSimbol}>
                             {formatMillilitersToLiters(
                               calculateWaterIntake(
