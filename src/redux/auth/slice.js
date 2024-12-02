@@ -64,7 +64,7 @@ const authSlice = createSlice({
       })
       .addCase(register.rejected, (state, { payload }) => {
         state.isLoading = false;
-        state.error = payload;
+        payload = payload === undefined ? "Network Error" : payload;
         showErrorToast(`Sorry, ${payload}`);
       })
 
@@ -77,7 +77,7 @@ const authSlice = createSlice({
       })
       .addCase(login.rejected, (state, { payload }) => {
         state.isLoading = false;
-        state.error = payload;
+        payload = payload === undefined ? "Network Error" : payload;
         showErrorToast(`Sorry, ${payload}`);
       })
       .addCase(logOut.pending, handlePending)
@@ -98,7 +98,7 @@ const authSlice = createSlice({
       .addCase(refreshUser.rejected, (state, { payload }) => {
         state.accessToken = null;
         state.isLoading = false;
-        state.error = payload;
+        payload = payload === undefined ? "Network Error" : payload;
         showErrorToast(`Sorry, ${payload}`);
       })
       .addCase(currentUser.pending, handlePending)
@@ -109,7 +109,7 @@ const authSlice = createSlice({
       })
       .addCase(currentUser.rejected, (state, { payload }) => {
         state.isLoading = false;
-        state.error = payload;
+        payload = payload === undefined ? "Network Error" : payload;
         showErrorToast(`Sorry, ${payload}`);
       })
       .addCase(editUser.pending, handlePending)
@@ -119,7 +119,7 @@ const authSlice = createSlice({
       })
       .addCase(editUser.rejected, (state, { payload }) => {
         state.isLoading = false;
-        state.error = payload;
+        payload = payload === undefined ? "Network Error" : payload;
         showErrorToast(`Sorry, ${payload}`);
       })
       .addCase(sendResetEmail.pending, handlePending)
@@ -129,6 +129,7 @@ const authSlice = createSlice({
       })
       .addCase(sendResetEmail.rejected, (state, { payload }) => {
         state.isLoading = false;
+        payload = payload === undefined ? "Network Error" : payload;
         showErrorToast(`Sorry, ${payload}`);
       })
       .addCase(resetPwd.pending, handlePending)
@@ -139,6 +140,7 @@ const authSlice = createSlice({
       })
       .addCase(resetPwd.rejected, (state, { payload }) => {
         state.isLoading = false;
+        payload = payload === undefined ? "Network Error" : payload;
         showErrorToast(`Sorry, ${payload}`);
       });
   },
