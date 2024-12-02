@@ -8,9 +8,11 @@ const CalendarItem = ({ choosenDay, setChoosenDay, day, percentage }) => {
   const currentDay = new Date().toISOString().split("T")[0];
   const currentDayPercentage = useSelector(selectPercentage);
   const renderPercentage = Math.floor(
-    currentDay === day && currentDayPercentage
+    percentage
+      ? percentage
+      : currentDayPercentage && day === currentDay
       ? currentDayPercentage
-      : percentage
+      : 0
   );
   return (
     <>

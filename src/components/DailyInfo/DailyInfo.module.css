@@ -1,5 +1,4 @@
-
-        .dailyinfo {
-        /* Your styles here */
-        }
-        
+.dateAndButtonContainer {
+  display: flex;
+  justify-content: space-between;
+}
