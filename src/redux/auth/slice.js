@@ -64,7 +64,6 @@ const authSlice = createSlice({
       })
       .addCase(register.rejected, (state, { payload }) => {
         state.isLoading = false;
-        console.log(payload);
         payload = payload === undefined ? "Network Error" : payload;
         showErrorToast(`Sorry, ${payload}`);
       })
