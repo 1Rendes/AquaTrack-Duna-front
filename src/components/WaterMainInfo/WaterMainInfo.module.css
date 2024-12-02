@@ -3,7 +3,7 @@
   background-color: #9be1a0;
   position: relative;
   border-radius: 30px;
-  max-width: 343px;
+  min-width: 343px;
   display: flex;
   flex-direction: column;
   padding: 16px;
@@ -12,8 +12,8 @@
     url(../../img/bottle_for_water_mob_2x.webp) 2x
   );
   background-repeat: no-repeat;
-  background-position: center;
   background-size: 262px 335px;
+  background-position: calc(100% - 40px) 50px;
 }
 .logoContainer {
   margin-bottom: 78px;
@@ -42,13 +42,14 @@
     margin-bottom: 101px;
   }
   .watermaininfo {
-    max-width: 704px;
+    min-width: 704px;
     padding: 32px;
     background-image: image-set(
       url(../../img/bottle_for_water_tablet_1x.webp) 1x,
       url(../../img/bottle_for_water_tablet_2x.webp) 2x
     );
     background-size: 374px 477px;
+    background-position: calc(100% - 165px) 69px;
   }
 
   .WaterDailyNormaContainer {
@@ -69,12 +70,13 @@
 /* Desktop */
 @media (min-width: 1440px) {
   .watermaininfo {
-    max-width: 672px;
+    min-width: 672px;
     background-image: image-set(
       url(../../img/bottle_for_water_desktop_1x.webp) 1x,
       url(../../img/bottle_for_water_desktop_2x.webp) 2x
     );
-    background-size: 374px 477px;
+    background-size: 472px 604px;
+    background-position: calc(100% - 100px) 92px;
   }
 
   .WaterDailyNormaContainer {
