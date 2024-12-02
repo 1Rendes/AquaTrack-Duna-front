@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import clsx from 'clsx';
 import sprite from '../../img/icons.svg';
 import Logo from '../Logo/Logo';
+import { useDispatch } from 'react-redux';
+import { sendResetEmail } from '../../redux/auth/operations';
 
 const initialValues = {
   email: '',
@@ -17,9 +19,10 @@ const validationSchema = Yup.object().shape({
 });
 
 const ForgotPassword = () => {
+  const dispatch = useDispatch();
   const emailFieldId = 'userEmail';
   const handleSubmit = (values, actions) => {
-    //   запит на сервер
+    dispatch(sendResetEmail(values));
     actions.resetForm();
   };
   return (
