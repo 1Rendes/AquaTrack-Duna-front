@@ -4,11 +4,14 @@ import icons from "../../img/icons.svg";
 import css from "./UserBar.module.css";
 import UserSettingsModal from "../UserSettingsModal/UserSettingsModal.jsx";
 import LogOutModal from "../LogOutModal/LogOutModal.jsx";
+import { useSelector } from "react-redux";
+import { selectUser } from "../../redux/auth/selectors.js";
 
-const UserBar = ({ userName, userPhoto }) => {
+const UserBar = () => {
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
   const [settingsModalIsOpen, setSettingsModalIsOpen] = useState(false);
   const [logoutModalIsOpen, setLogoutModalIsOpen] = useState(false);
+  const { name, photo } = useSelector(selectUser);
 
   const buttonRef = useRef(null);
   const popoverRef = useRef(null);
@@ -50,7 +53,7 @@ const UserBar = ({ userName, userPhoto }) => {
   const handleLogoutModalIsClose = () => {
     setLogoutModalIsOpen(false);
   };
-  const firstLetter = userName ? userName.slice(0, 1) : "";
+  const firstLetter = name ? name.slice(0, 1) : "";
 
   return (
     <div className={css.userbar}>
@@ -60,16 +63,12 @@ const UserBar = ({ userName, userPhoto }) => {
         type="button"
         className={css.userBarButton}
       >
-        <span className={css.userBarName}>{userName}</span>
+        <span className={css.userBarName}>{name}</span>
 
-        {!userPhoto ? (
+        {!photo ? (
           <span className={css.userBarInitial}>{firstLetter}</span>
         ) : (
-          <img
-            src={userPhoto}
-            alt={`${userName} photo`}
-            className={css.userBarPhoto}
-          />
+          <img src={photo} alt={`${name} photo`} className={css.userBarPhoto} />
         )}
         {!isPopoverOpen ? (
           <svg className={css.userBarVectorDown} width={12} height={8}>

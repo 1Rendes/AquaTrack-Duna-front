@@ -1,0 +1,20 @@
+.settingsModal {
+  padding: 40px 20px;
+  width: 343px;
+}
+.titleOfModal {
+  padding-bottom: 20px;
+}
+
+@media (min-width: 768px) {
+  .settingsModal {
+    border-radius: 15px;
+    padding: 40px;
+    width: 648px;
+  }
+}
+@media (min-width: 1440px) {
+  .settingsModal {
+    width: 920px;
+  }
+}

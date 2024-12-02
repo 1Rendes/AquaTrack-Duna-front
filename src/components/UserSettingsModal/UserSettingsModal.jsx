@@ -1,11 +1,16 @@
 import Modal from "../Modal/Modal";
 import css from "./UserSettingsModal.module.css";
 import UserSettingsForm from "../UserSettingsForm/UserSettingsForm.jsx";
+import { useEffect } from "react";
 
 const SettingsModal = ({ handleClose, isOpen }) => {
+  useEffect(() => {
+    document.body.style.overflowY = "hidden";
+    return () => (document.body.style.overflowY = "scroll");
+  }, []);
   return (
     <Modal handleClose={handleClose} isOpen={isOpen} modalType="settings">
-      <div>
+      <div className={css.settingsModal}>
         <h2 className={css.titleOfModal}>Setting</h2>
         <UserSettingsForm onClose={handleClose} />
       </div>
