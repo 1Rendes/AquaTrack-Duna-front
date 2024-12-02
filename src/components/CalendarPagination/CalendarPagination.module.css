@@ -1,15 +1,21 @@
 .calendarpagination {
-  font-size: 28px;
+  font-size: 20px;
   font-weight: 700;
   display: flex;
   justify-content: space-between;
   margin-bottom: 24px;
+  @media (min-width: 768px) {
+    font-size: 28px;
+  }
 }
 .paginationMonth {
   align-items: center;
-  font-size: 16px;
+  font-size: 14px;
   display: flex;
   gap: 10px;
+  @media (min-width: 768px) {
+    font-size: 16px;
+  }
 }
 
 .iconCalendarLeft {

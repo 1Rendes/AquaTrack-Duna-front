@@ -11,8 +11,10 @@ const DailyInfo = ({ currentDay }) => {
   const handleAddModalClose = () => setAddModalIsOpen(false);
   return (
     <div className={css.dailyinfo}>
-      <ChooseDate currentDay={currentDay} />
-      <AddWaterBtn variant="dailyInfo" onClick={handleAddModalOpen} />
+      <div className={css.dateAndButtonContainer}>
+        <ChooseDate currentDay={currentDay} />
+        <AddWaterBtn variant="dailyInfo" onClick={handleAddModalOpen} />
+      </div>
       <WaterList />
       <WaterModal
         modalType="add"
