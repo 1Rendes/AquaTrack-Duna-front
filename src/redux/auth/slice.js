@@ -77,7 +77,6 @@ const authSlice = createSlice({
       })
       .addCase(login.rejected, (state, { payload }) => {
         state.isLoading = false;
-        console.log(payload);
         payload = payload === undefined ? "Network Error" : payload;
         showErrorToast(`Sorry, ${payload}`);
       })
