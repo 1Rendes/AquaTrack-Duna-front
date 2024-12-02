@@ -15,7 +15,6 @@ const LogOutModal = ({ handleLogoutModalIsClose, logoutModalIsOpen }) => {
     >
       <div className={css.logOutModal}>
       <h2 className={css.titleOfModal}>Log out</h2>
-      {/* <h2>{modalType}</h2> */}
       <p className={css.description}>Do you really want to leave?</p>
       <div className={css.btnsBox}>
         <button
@@ -26,14 +25,6 @@ const LogOutModal = ({ handleLogoutModalIsClose, logoutModalIsOpen }) => {
           Log out
         </button>
         <CancelButton handleFunc={handleLogoutModalIsClose} />
-        {/* <button className={css.cancelBtn}
-          type="button"
-          onClick={() => {
-            handleLogoutModalIsClose();
-          }}
-        >
-          Cancel
-        </button> */}
         </div>
       </div>
     </Modal>

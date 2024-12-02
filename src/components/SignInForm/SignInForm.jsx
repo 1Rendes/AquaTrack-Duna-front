@@ -1,26 +1,26 @@
-import { useState } from "react";
-import { ErrorMessage, Form, Field, Formik } from "formik";
-import { NavLink } from "react-router-dom";
-import * as Yup from "yup";
-import css from "./SignInForm.module.css";
-import sprite from "../../img/icons.svg";
-import { login, refreshUser } from "../../redux/auth/operations";
-import { useDispatch } from "react-redux";
-import Logo from "../Logo/Logo";
-import clsx from "clsx";
+import { useState } from 'react';
+import { ErrorMessage, Form, Field, Formik } from 'formik';
+import { Link, NavLink } from 'react-router-dom';
+import * as Yup from 'yup';
+import css from './SignInForm.module.css';
+import sprite from '../../img/icons.svg';
+import { login, refreshUser } from '../../redux/auth/operations';
+import { useDispatch } from 'react-redux';
+import Logo from '../Logo/Logo';
+import clsx from 'clsx';
 
 const initialValues = {
-  email: "",
-  password: "",
+  email: '',
+  password: '',
 };
 
 const validationSchema = Yup.object().shape({
   email: Yup.string()
-    .email("Invalid email address")
-    .required("Email is required"),
+    .email('Invalid email address')
+    .required('Email is required'),
   password: Yup.string()
-    .min(5, "Must contain at least 5 characters")
-    .required("Password is required"),
+    .min(5, 'Must contain at least 5 characters')
+    .required('Password is required'),
 });
 
 const SignInForm = () => {
@@ -36,8 +36,8 @@ const SignInForm = () => {
       };
       await dispatch(login(userInfo))
         .unwrap()
-        .catch((e) => {
-          if (e.message === "Access token expired") {
+        .catch(e => {
+          if (e.message === 'Access token expired') {
             dispatch(refreshUser()).then(() => {
               dispatch(login(userInfo));
             });
@@ -49,7 +49,7 @@ const SignInForm = () => {
       const errorMessage =
         err.response?.data?.message ||
         err.message ||
-        "Login failed. Try again.";
+        'Login failed. Try again.';
       actions.setFieldError(errorMessage);
     }
   };
@@ -100,7 +100,7 @@ const SignInForm = () => {
                       <div className={css.iconWrapper}>
                         <input
                           {...field}
-                          type={visiblePassword ? "text" : "password"}
+                          type={visiblePassword ? 'text' : 'password'}
                           id="password"
                           placeholder="Enter your password"
                           className={clsx(css.input, {
@@ -115,7 +115,7 @@ const SignInForm = () => {
                         >
                           <use
                             href={`${sprite}#${
-                              visiblePassword ? "icon-eye" : "icon-eye-off"
+                              visiblePassword ? 'icon-eye' : 'icon-eye-off'
                             }`}
                           />
                         </svg>
@@ -128,6 +128,9 @@ const SignInForm = () => {
                   component="div"
                   className={css.errorMessage}
                 />
+              </div>
+              <div className={css.forgotPwdBox}>
+                <Link to="/forgot-password">Forgot your password?</Link>
               </div>
               <div className={css.btnWrapper}>
                 <button

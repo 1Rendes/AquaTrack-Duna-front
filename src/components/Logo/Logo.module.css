@@ -1,5 +1,5 @@
 .titleLogo {
-  font-family: "Poppins", sans-serif;
+  font-family: 'Poppins', sans-serif;
   font-weight: 700;
   font-size: 18px;
   line-height: 1.11111;
@@ -12,5 +12,16 @@
   .titleLogo {
     font-size: 24px;
     line-height: 1;
+  }
+}
+
+.forgot {
+  margin-bottom: 172px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 225px;
+    @media screen and (min-width: 1440px) {
+      margin-bottom: 113px;
+      
+    }
   }
 }
