@@ -19,7 +19,7 @@ const INITIAL_STATE = {
     weight: null,
     activityLevel: null,
     gender: "female",
-    dailyRequirement: 1500,
+    dailyRequirement: 1800,
     photo: null,
   },
   error: null,
