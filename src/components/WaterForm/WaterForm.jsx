@@ -11,6 +11,7 @@ import { selectUser } from "../../redux/auth/selectors";
 const validationSchema = Yup.object({
   amount: Yup.number()
     .min(50, "Amount must be at least 50 ml")
+    .max(5000, "Amount shouldn't be more then 5L")
     .required("Amount is required"),
   time: Yup.string()
     .matches(/^([01]\d|2[0-3]):([0-5]\d)$/, "Time must be in HH:MM format")
@@ -89,6 +90,7 @@ const WaterForm = ({ type, id, handleClose }) => {
   const handleCounterChange = (increment, setFieldValue) => {
     let newValue = counterValue + increment;
     if (newValue < 50) newValue = 50; // Мінімум
+    if (newValue > 5000) newValue = 5000;
     setCounterValue(newValue);
     setFieldValue("amount", newValue);
     setFieldValue("manualAmount", newValue);
@@ -186,12 +188,13 @@ const WaterForm = ({ type, id, handleClose }) => {
               )}
               onChange={(e) => {
                 const value = parseInt(e.target.value, 10) || 0;
-                const clampedValue = Math.max(value, 50); // Обмеження
+                const clampedValue = Math.min(5000, Math.max(value, 50)); // Обмеження
                 setCounterValue(clampedValue);
                 setFieldValue("amount", clampedValue);
                 setFieldValue("manualAmount", clampedValue);
               }}
             />
+
             <ErrorMessage
               name="manualAmount"
               component="div"
