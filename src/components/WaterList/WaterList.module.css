@@ -17,3 +17,20 @@
   padding-bottom: 24px;
   gap: 8px;
 }
+
+.horizontalScrollContainer {
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.horizontalScrollContainer::-webkit-scrollbar {
+  height: 8px;
+  background-color: #f0eff4;
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.horizontalScrollContainer::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: var(--main-text);
+}
