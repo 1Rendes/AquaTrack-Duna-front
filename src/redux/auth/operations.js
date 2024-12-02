@@ -23,7 +23,7 @@ export const register = createAsyncThunk(
       setAuthHeader(data.data.accessToken);
       return data;
     } catch (error) {
-      console.log(error);
+
       return thunkAPI.rejectWithValue(error.response.data.data.message);
     }
   }
@@ -38,7 +38,7 @@ export const login = createAsyncThunk(
 
       return data;
     } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
+      return thunkAPI.rejectWithValue(error.response.data.data.message);
     }
   }
 );
