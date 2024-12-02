@@ -45,9 +45,8 @@ const WaterForm = ({ type, id, handleClose }) => {
     const minutes = now.getMinutes().toString().padStart(2, "0");
     return `${hours}:${minutes}`;
   };
-
   const currentDate = new Date().toISOString().split("T")[0];
-  const selectedDate = selectedTime.split("T")[0];
+  const selectedDate = selectedTime?.split("T")[0];
 
   const convertTimestampToIso = (timestamp, day) => {
     const [hours, minutes] = timestamp.split(":");
