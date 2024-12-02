@@ -53,6 +53,15 @@
   color: #323f47;
   margin-right: 10px;
 }
+.tracker:hover{
+background-color: #87d28d;
+color: #323f47;
+}
+.tracker:focus{
+background-color: #e6e6e6;
+border-color:#e6e6e6 ;
+color: #bcbcbc;
+}
 
 .singUp {
   display: flex;
@@ -69,6 +78,14 @@
   letter-spacing: -0.01em;
   text-align: center;
   color: #323f47;
+}
+.singUp:hover{
+border-color: #87d28d;
+color: #87d28d;
+}
+.singUp:focus{
+border-color: #323f47;
+color: #323f47;
 }
 
 @media (min-width: 768px) {
