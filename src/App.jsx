@@ -6,10 +6,7 @@ import PrivateRoute from "./components/PrivateRoute.jsx";
 import RestrictedRoute from "./components/RestrictedRoute.jsx";
 import SharedLayout from "./components/SharedLayout/SharedLayout.jsx";
 import { refreshUser } from "./redux/auth/operations.js";
-import {
-  selectAuthIsLoading,
-  selectIsLoggedIn,
-} from "./redux/auth/selectors.js";
+import { selectAuthIsLoading, selectToken } from "./redux/auth/selectors.js";
 import "./styles/common.css";
 import Loader from "./components/Loader/Loader.jsx";
 
@@ -24,10 +21,12 @@ const ResetPasswordPage = lazy(() => import("./pages/ResetPasswordPage.jsx"));
 const App = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectAuthIsLoading);
+  const accessToken = useSelector(selectToken);
 
   useEffect(() => {
-    dispatch(refreshUser());
-  }, [dispatch]);
+    if (accessToken) dispatch(refreshUser());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <>
