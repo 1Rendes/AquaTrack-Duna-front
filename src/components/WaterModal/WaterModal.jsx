@@ -9,8 +9,8 @@ const WaterModal = ({ modalType, id, isOpen, handleClose }) => {
         {modalType === "add" && (
           <>
             <div className={css.waterModal}>
-              <h2> Add water</h2>
-              <h3>Choose a value</h3>
+              <h2 className={css.waterModalTitle}> Add water</h2>
+              <h3 className={css.waterModalDescription}>Choose a value</h3>
             </div>
             <WaterForm type="add" />
           </>
