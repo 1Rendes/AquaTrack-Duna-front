@@ -9,11 +9,14 @@ const DailyInfo = ({ currentDay }) => {
   const [isAddModalOpen, setAddModalIsOpen] = useState(false);
   const handleAddModalOpen = () => setAddModalIsOpen(true);
   const handleAddModalClose = () => setAddModalIsOpen(false);
+  const today = new Date().toISOString().split("T")[0];
   return (
     <div className={css.dailyinfo}>
       <div className={css.dateAndButtonContainer}>
         <ChooseDate currentDay={currentDay} />
-        <AddWaterBtn variant="dailyInfo" onClick={handleAddModalOpen} />
+        {today === currentDay && (
+          <AddWaterBtn variant="dailyInfo" onClick={handleAddModalOpen} />
+        )}
       </div>
       <WaterList />
       <WaterModal

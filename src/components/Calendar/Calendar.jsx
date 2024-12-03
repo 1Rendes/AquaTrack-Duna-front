@@ -3,8 +3,9 @@ import { selectMonthWater } from "../../redux/water/selectors";
 import css from "./Calendar.module.css";
 import CalendarItem from "../CalendarItem/CalendarItem";
 
-const Calendar = ({ currentDay, setCurrentDay }) => {
+const Calendar = ({ choosenDay, setCurrentDay }) => {
   const choosenMonth = useSelector(selectMonthWater);
+  const today = new Date().toISOString().split("T")[0];
 
   return (
     <ul className={css.calendar}>
@@ -12,9 +13,10 @@ const Calendar = ({ currentDay, setCurrentDay }) => {
         return (
           <li key={day.day} className={css.calendarItem}>
             <CalendarItem
+              today={today}
               day={day.day}
               percentage={day.percentage}
-              choosenDay={currentDay}
+              choosenDay={choosenDay}
               setChoosenDay={setCurrentDay}
             ></CalendarItem>
           </li>
