@@ -2,13 +2,12 @@ import { Link } from "react-router-dom";
 import css from "./NotFound.module.css";
 import Logo from "../Logo/Logo";
 
-
 const NotFound = () => {
   return (
     <div className={css.notFoundPageBox}>
       <div className={css.logoWrapper}>
         <Link to="/">
-          <Logo/>
+          <Logo />
         </Link>
       </div>
       <div className={css.notFound404Box}>404</div>
@@ -18,7 +17,7 @@ const NotFound = () => {
         <p className={css.notFoundSorry}>
           Sorry, the page you are looking for could be not found.
         </p>
-        <Link className={css.notFoundLink} to="/">
+        <Link className={css.notFoundLink} to="/tracker">
           Go Home
         </Link>
       </div>
