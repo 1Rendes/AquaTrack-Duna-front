@@ -26,15 +26,19 @@ const ForgotPassword = () => {
     actions.resetForm();
   };
   return (
-    <div className={css.forgotBox}>
-      <Link to="/signin">
-        <Logo onPage="forgot" />
-      </Link>
-      <div className={css.formWrapper}>
+    <div className={css.forgotWrapper}>
+      <div className={css.logoWrapper}>
+        <Link to="/signin">
+          <Logo onPage="forgot" />
+        </Link>
+      </div>
+      <div className={css.forgotTextWrapper}>
         <Link className={css.goBackLink} to="/signin">
-          <svg className={css.forgotSvg}>
-            <use href={`${sprite}#icon-vector-down`}></use>
-          </svg>
+          <span className={css.forgotIconWrapper}>
+            <svg>
+              <use href={`${sprite}#icon-vector-down`}></use>
+            </svg>
+          </span>
           Go back
         </Link>
         <h1 className={css.forgotTitle}>Reset password</h1>
@@ -48,10 +52,8 @@ const ForgotPassword = () => {
         >
           {({ isValid, dirty }) => (
             <Form className={css.forgotForm}>
-              <div className={css.errorMessageBox}>
-                <label className={css.forgotLabel} htmlFor={emailFieldId}>
-                  Email
-                </label>
+              <label className={css.forgotLabel} htmlFor={emailFieldId}>
+                <span className={css.forgotLabelText}>Email</span>
                 <Field name="email">
                   {({ field, meta }) => (
                     <input
@@ -70,7 +72,8 @@ const ForgotPassword = () => {
                   name="email"
                   component="div"
                 />
-              </div>
+              </label>
+
               <button
                 className={css.forgotSendBtn}
                 type="submit"

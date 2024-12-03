@@ -7,7 +7,7 @@ const ResetPasswordPage = () => {
     <>
       <HomeWrapper>
         <ResetPassword />
-        <AdvantagesSection />
+        <AdvantagesSection onPage="reset" />
       </HomeWrapper>
     </>
   );

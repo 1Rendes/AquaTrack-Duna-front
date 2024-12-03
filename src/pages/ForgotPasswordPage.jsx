@@ -7,7 +7,7 @@ const ForgotPasswordPage = () => {
     <>
       <HomeWrapper>
         <ForgotPassword />
-        <AdvantagesSection />
+        <AdvantagesSection onPage="forgot" />
       </HomeWrapper>
     </>
   );
