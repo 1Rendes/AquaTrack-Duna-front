@@ -9,6 +9,7 @@ import { refreshUser } from "./redux/auth/operations.js";
 import {
   selectAuthIsLoading,
   selectIsLoggedIn,
+  selectToken,
 } from "./redux/auth/selectors.js";
 import "./styles/common.css";
 import Loader from "./components/Loader/Loader.jsx";
@@ -24,10 +25,11 @@ const ResetPasswordPage = lazy(() => import("./pages/ResetPasswordPage.jsx"));
 const App = () => {
   const dispatch = useDispatch();
   const isLoading = useSelector(selectAuthIsLoading);
+  const accessToken = useSelector(selectToken);
 
   useEffect(() => {
-    dispatch(refreshUser());
-  }, [dispatch]);
+    if (accessToken) dispatch(refreshUser());
+  }, []);
 
   return (
     <>

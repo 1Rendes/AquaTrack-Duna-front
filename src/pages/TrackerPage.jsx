@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import WaterMainInfo from "../components/WaterMainInfo/WaterMainInfo";
 import { useDispatch, useSelector } from "react-redux";
 import { getDayWater, getMonthWater } from "../redux/water/operations";
@@ -19,7 +19,10 @@ const TrackerPage = () => {
     return month;
   });
   const emailInRedux = useSelector(selectUser);
-  if (!emailInRedux.email) dispatch(currentUser());
+
+  useLayoutEffect(() => {
+    if (!emailInRedux.email) dispatch(currentUser());
+  }, [dispatch]);
 
   useEffect(() => {
     dispatch(getMonthWater(currentMonth));
