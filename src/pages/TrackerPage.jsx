@@ -22,7 +22,7 @@ const TrackerPage = () => {
 
   useLayoutEffect(() => {
     if (!emailInRedux.email) dispatch(currentUser());
-  }, [dispatch]);
+  }, [dispatch, emailInRedux.email]);
 
   useEffect(() => {
     dispatch(getMonthWater(currentMonth));

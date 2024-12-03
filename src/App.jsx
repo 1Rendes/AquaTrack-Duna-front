@@ -6,11 +6,7 @@ import PrivateRoute from "./components/PrivateRoute.jsx";
 import RestrictedRoute from "./components/RestrictedRoute.jsx";
 import SharedLayout from "./components/SharedLayout/SharedLayout.jsx";
 import { refreshUser } from "./redux/auth/operations.js";
-import {
-  selectAuthIsLoading,
-  selectIsLoggedIn,
-  selectToken,
-} from "./redux/auth/selectors.js";
+import { selectAuthIsLoading, selectToken } from "./redux/auth/selectors.js";
 import "./styles/common.css";
 import Loader from "./components/Loader/Loader.jsx";
 
@@ -29,6 +25,7 @@ const App = () => {
 
   useEffect(() => {
     if (accessToken) dispatch(refreshUser());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
