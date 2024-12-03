@@ -94,6 +94,9 @@
 .counter-btn {
   width: 40px;
   height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: transparent;
   border-radius: 50px;
   border: 1.5px solid #323f47;
@@ -102,7 +105,19 @@
 .counter-btn:hover {
 border:var(--hover-green) 1.5px solid;
 }
+.counterMinusBtn{
+  stroke: var(--main);
 
+}
+.counterMinusBtn:hover{
+  stroke: var(--hover-green);
+}
+.counterPlusBtn{
+  stroke: var(--main);
+}
+.counterPlusBtn:hover{
+  stroke: var(--hover-green);
+}
 .counter-display {
   border-radius: 30px;
   padding: 11px 20px;
