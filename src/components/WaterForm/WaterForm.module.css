@@ -16,12 +16,6 @@
   max-width: 600px;
   /* margin: auto; */
 }
-@media screen and(min-width:768px){
-  .water-tracker-form{
-    padding: 0;
-  }
-  
-}
 
 .field-group {
   display: flex;
@@ -150,7 +144,9 @@ border:var(--hover-green) 1.5px solid;
     height: 56px;
     padding: 16px;
   }
-
+  .water-tracker-form{
+    padding: 0;
+  }
   .water-label {
     font-size: 18px;
     line-height: 24px;
