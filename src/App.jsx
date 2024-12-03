@@ -5,7 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import PrivateRoute from "./components/PrivateRoute.jsx";
 import RestrictedRoute from "./components/RestrictedRoute.jsx";
 import SharedLayout from "./components/SharedLayout/SharedLayout.jsx";
-import { currentUser } from "./redux/auth/operations.js";
+import { refreshUser } from "./redux/auth/operations.js";
 import {
   selectAuthIsLoading,
   selectIsLoggedIn,
@@ -23,13 +23,11 @@ const ResetPasswordPage = lazy(() => import("./pages/ResetPasswordPage.jsx"));
 
 const App = () => {
   const dispatch = useDispatch();
-
-  const isLoggedIn = useSelector(selectIsLoggedIn);
   const isLoading = useSelector(selectAuthIsLoading);
 
   useEffect(() => {
-    if (!isLoggedIn) dispatch(currentUser());
-  }, []);
+    dispatch(refreshUser());
+  }, [dispatch]);
 
   return (
     <>
