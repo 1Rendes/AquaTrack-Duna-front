@@ -1,4 +1,5 @@
 @import url(../LogOutModal/LogOutModal.module.css);
+@import url(../Modal/Modal.module.css);
 
 .deleteModal {
   display: flex;

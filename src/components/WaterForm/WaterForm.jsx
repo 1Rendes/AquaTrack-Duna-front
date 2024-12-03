@@ -9,6 +9,7 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import { useState } from "react";
 import clsx from "clsx";
+import icons from "../../img/icons.svg"; 
 import { selectUser } from "../../redux/auth/selectors";
 
 const validationSchema = Yup.object({
@@ -119,7 +120,9 @@ const WaterForm = ({ type, id, handleClose }) => {
                 className={css["counter-btn"]}
                 onClick={() => handleCounterChange(-50, setFieldValue)}
               >
-                -
+              <svg className={css.counterMinusBtn} width={19} height={3}>
+                  <use href={`${icons}#icon-vector`}></use>
+                </svg>
               </button>
               <div className={css["counter-display"]}>
                 {counterValue >= 1000
@@ -131,7 +134,10 @@ const WaterForm = ({ type, id, handleClose }) => {
                 className={css["counter-btn"]}
                 onClick={() => handleCounterChange(50, setFieldValue)}
               >
-                +
+                
+                <svg className={css.counterPlusBtn} width={19} height={19}>
+                  <use href={`${icons}#icon-plus`}></use>
+                </svg>
               </button>
             </div>
             <Field
