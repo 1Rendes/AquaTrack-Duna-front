@@ -46,6 +46,7 @@
   border-radius: 15px;
   width: 343px;
   height: 514px;
+  
 }
 @media (min-width: 768px) {
   .water {
@@ -54,7 +55,7 @@
     padding: 40px;
     box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.1);
     background: var(--main-white);
-    padding: 40px;
+    
   }
 }
 .closeIcon {

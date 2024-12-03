@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import Modal from "../Modal/Modal.jsx";
 import WaterForm from "../WaterForm/WaterForm.jsx";
 import css from "./WaterModal.module.css";
@@ -24,7 +24,7 @@ const WaterModal = ({ modalType, id, isOpen, handleClose }) => {
             <div className={css.waterModalContainer}>
               <h2 className={css.waterModalTitle}>
                 {" "}
-                Edit the entered amount of water
+                Edit the entered amount <br /> of water
               </h2>
               <h3 className={css.waterModalSubtitle}>Correct entered data: </h3>
             </div>

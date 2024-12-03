@@ -10,10 +10,11 @@
 .water-tracker-form {
   display: flex;
   flex-direction: column;
+  justify-content: start;
   gap: 24px;
+  padding: 0 20px;
   max-width: 600px;
-  margin: auto;
-
+  /* margin: auto; */
 }
 
 .field-group {
@@ -93,15 +94,30 @@
 .counter-btn {
   width: 40px;
   height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: transparent;
   border-radius: 50px;
   border: 1.5px solid #323f47;
 }
 
 .counter-btn:hover {
-  background-color: #0056b3;
+border:var(--hover-green) 1.5px solid;
 }
+.counterMinusBtn{
+  stroke: var(--main);
 
+}
+.counterMinusBtn:hover{
+  stroke: var(--hover-green);
+}
+.counterPlusBtn{
+  stroke: var(--main);
+}
+.counterPlusBtn:hover{
+  stroke: var(--hover-green);
+}
 .counter-display {
   border-radius: 30px;
   padding: 11px 20px;
@@ -143,7 +159,9 @@
     height: 56px;
     padding: 16px;
   }
-
+  .water-tracker-form{
+    padding: 0;
+  }
   .water-label {
     font-size: 18px;
     line-height: 24px;
