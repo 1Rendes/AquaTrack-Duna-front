@@ -24,7 +24,7 @@ const WaterModal = ({ modalType, id, isOpen, handleClose }) => {
             <div className={css.waterModalContainer}>
               <h2 className={css.waterModalTitle}>
                 {" "}
-                Edit the entered amount of water
+                Edit the entered amount <br /> of water
               </h2>
               <h3 className={css.waterModalSubtitle}>Correct entered data: </h3>
             </div>
