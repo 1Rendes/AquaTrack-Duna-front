@@ -193,6 +193,15 @@ input:focus {
     line-height: 1.5;
     letter-spacing: -0.01em;
   }
+  @media screen and (min-width: 768px) and (max-width: 1439px) {
+    .wrapper {
+      max-width: 704px;
+      padding: 32px;
+    }
+    .formWrapper {
+      padding: 0px 102px;
+    }
+  }
 }
 
 @media only screen and (min-width: 1440px) {
