@@ -5,10 +5,11 @@ import tabletImage from "../../img/advantages-tabel.webp";
 import tabletImage2x from "../../img/advantages-tabel-2.webp";
 import mobileImage from "../../img/advantages-mobil.webp";
 import mobileImage2x from "../../img/advantages-mobil-2.webp";
+import clsx from 'clsx';
 
-const AdvantagesSection = () => {
+const AdvantagesSection = ({onPage}) => {
   return (
-    <div className={css.advantagessection}>
+    <div className={clsx  (css.advantagessection, css[onPage])}>
       <picture>
         <source
           srcSet={`${desktopImage} 1x, ${desktopImage2x} 2x`}
