@@ -1,12 +1,10 @@
 import css from "./WaterProgressBar.module.css";
 import icons from "../../img/icons.svg";
-import { useDispatch, useSelector } from "react-redux";
-import { selectPercentage } from "../../redux/water/selectors";
-import { useEffect } from "react";
-import { getDayWater } from "../../redux/water/operations";
+import { useSelector } from "react-redux";
+import { selectTodayPercentage } from "../../redux/water/selectors";
 
 const WaterProgressBar = () => {
-  const progress = useSelector(selectPercentage);
+  const progress = useSelector(selectTodayPercentage);
 
   const isValidProgress = () => {
     return progress !== 0 && progress !== 50 && progress !== 100;
