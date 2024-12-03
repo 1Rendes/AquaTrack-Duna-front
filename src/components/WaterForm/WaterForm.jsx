@@ -7,6 +7,7 @@ import * as Yup from "yup";
 import { useState } from "react";
 import clsx from "clsx";
 import { selectUser } from "../../redux/auth/selectors";
+import icons from "../../img/icons.svg"
 
 const validationSchema = Yup.object({
   amount: Yup.number()
@@ -116,7 +117,7 @@ const WaterForm = ({ type, id, handleClose }) => {
                 className={css["counter-btn"]}
                 onClick={() => handleCounterChange(-50, setFieldValue)}
               >
-                -
+               -
               </button>
               <div className={css["counter-display"]}>
                 {counterValue >= 1000
@@ -129,6 +130,7 @@ const WaterForm = ({ type, id, handleClose }) => {
                 onClick={() => handleCounterChange(50, setFieldValue)}
               >
                 +
+                
               </button>
             </div>
             <Field
