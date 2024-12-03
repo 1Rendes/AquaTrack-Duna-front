@@ -7,7 +7,6 @@ import css from "./WaterList.module.css";
 
 const WaterList = () => {
   const dayWaterList = useSelector(selectDayWater);
-
   return (
     <div>
       <ScrollMenu

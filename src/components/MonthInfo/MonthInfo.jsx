@@ -17,7 +17,7 @@ const MonthInfo = ({
         currentMonth={currentMonth}
       ></CalendarPagination>
       <Calendar
-        currentDay={currentDay}
+        choosenDay={currentDay}
         setCurrentDay={setCurrentDay}
       ></Calendar>
     </div>

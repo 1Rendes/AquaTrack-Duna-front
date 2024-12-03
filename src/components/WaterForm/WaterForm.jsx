@@ -1,6 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
 import css from "./WaterForm.module.css";
-import { selectDayWater, selectPercentage } from "../../redux/water/selectors";
+import {
+  selectDayWater,
+  selectTodayPercentage,
+} from "../../redux/water/selectors";
 import { addWater, editWater } from "../../redux/water/operations";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
@@ -24,7 +27,7 @@ const validationSchema = Yup.object({
 
 const WaterForm = ({ type, id, handleClose }) => {
   const dispatch = useDispatch();
-  const selectedPercentage = useSelector(selectPercentage);
+  const selectedPercentage = useSelector(selectTodayPercentage);
   const user = useSelector(selectUser);
   const dailyRequirement = user?.dailyRequirement;
   const dayWaterArray = useSelector(selectDayWater);

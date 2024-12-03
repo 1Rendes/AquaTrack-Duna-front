@@ -112,10 +112,10 @@ const authSlice = createSlice({
         payload = payload === undefined ? "Network Error" : payload;
         showErrorToast(`Sorry, ${payload}`);
       })
-      .addCase(editUser.pending, handlePending)
+      .addCase(editUser.pending)
       .addCase(editUser.fulfilled, (state, { payload }) => {
-        state.isLoading = false;
         state.user = payload.data;
+        showSuccessToast("Settings saved.");
       })
       .addCase(editUser.rejected, (state, { payload }) => {
         state.isLoading = false;

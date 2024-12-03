@@ -1,17 +1,20 @@
 import clsx from "clsx";
 import css from "./CalendarItem.module.css";
-import { selectPercentage } from "../../redux/water/selectors";
-import { useSelector } from "react-redux";
 
-const CalendarItem = ({ choosenDay, setChoosenDay, day, percentage }) => {
+const CalendarItem = ({
+  choosenDay,
+  setChoosenDay,
+  day,
+  percentage,
+  today,
+  todayPercentage,
+}) => {
   const numericDay = parseInt(day.split("-")[2]);
-  const currentDay = new Date().toISOString().split("T")[0];
-  const currentDayPercentage = useSelector(selectPercentage);
   const renderPercentage = Math.floor(
-    percentage
+    percentage === todayPercentage
       ? percentage
-      : currentDayPercentage && day === currentDay
-      ? currentDayPercentage
+      : todayPercentage && day === today
+      ? todayPercentage
       : 0
   );
   return (
@@ -20,7 +23,7 @@ const CalendarItem = ({ choosenDay, setChoosenDay, day, percentage }) => {
         className={clsx(
           css.calendaritem,
           (day === choosenDay && css.choosenDay) ||
-            (day === currentDay && css.currentDay),
+            (day === today && css.currentDay),
           renderPercentage === 100 && css.filled
         )}
         onClick={() => {
