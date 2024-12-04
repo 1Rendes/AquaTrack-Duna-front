@@ -1,12 +1,20 @@
 import { useSelector } from "react-redux";
-import { selectDayWater } from "../../redux/water/selectors";
+import { selectDayWater, selectTodayWater } from "../../redux/water/selectors";
 import WaterItem from "../WaterItem/WaterItem";
 import { ScrollMenu } from "react-horizontal-scrolling-menu";
 import "react-horizontal-scrolling-menu/dist/styles.css";
 import css from "./WaterList.module.css";
 
-const WaterList = () => {
+const WaterList = ({ choosenDay }) => {
   const dayWaterList = useSelector(selectDayWater);
+  const todayWaterList = useSelector(selectTodayWater);
+  const today = new Date().toISOString().split("T")[0];
+  let renderList = [];
+  if (choosenDay === today) {
+    renderList = [...todayWaterList];
+  } else {
+    renderList = [...dayWaterList];
+  }
   return (
     <div>
       <ScrollMenu
@@ -16,12 +24,12 @@ const WaterList = () => {
         wheel={true}
       >
         <div className={css.waterlist}>
-          {dayWaterList.length === 0 && (
+          {renderList.length === 0 && (
             <p>No information on water consumption for the selected day</p>
           )}
 
           <ul className={css.waterlistPortions}>
-            {dayWaterList.map((item) => (
+            {renderList.map((item) => (
               <li className={css.item} key={item._id}>
                 <WaterItem item={item} />
               </li>

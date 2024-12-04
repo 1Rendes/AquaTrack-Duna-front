@@ -18,7 +18,7 @@ const DailyInfo = ({ currentDay }) => {
           <AddWaterBtn variant="dailyInfo" onClick={handleAddModalOpen} />
         )}
       </div>
-      <WaterList />
+      <WaterList choosenDay={currentDay} />
       <WaterModal
         modalType="add"
         handleClose={handleAddModalClose}
