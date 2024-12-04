@@ -10,11 +10,14 @@ const CalendarItem = ({
   todayPercentage,
 }) => {
   const numericDay = parseInt(day.split("-")[2]);
+
   const renderPercentage = Math.floor(
     percentage === todayPercentage
       ? percentage
       : todayPercentage && day === today
       ? todayPercentage
+      : percentage
+      ? percentage
       : 0
   );
   return (
