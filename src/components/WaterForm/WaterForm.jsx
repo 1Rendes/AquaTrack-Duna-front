@@ -9,7 +9,7 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import { useState } from "react";
 import clsx from "clsx";
-import icons from "../../img/icons.svg"; 
+import icons from "../../img/icons.svg";
 import { selectUser } from "../../redux/auth/selectors";
 
 const validationSchema = Yup.object({
@@ -120,7 +120,7 @@ const WaterForm = ({ type, id, handleClose }) => {
                 className={css["counter-btn"]}
                 onClick={() => handleCounterChange(-50, setFieldValue)}
               >
-              <svg className={css.counterMinusBtn} width={19} height={3}>
+                <svg className={css.counterMinusBtn} width={19} height={3}>
                   <use href={`${icons}#icon-vector`}></use>
                 </svg>
               </button>
@@ -134,7 +134,6 @@ const WaterForm = ({ type, id, handleClose }) => {
                 className={css["counter-btn"]}
                 onClick={() => handleCounterChange(50, setFieldValue)}
               >
-                
                 <svg className={css.counterPlusBtn} width={19} height={19}>
                   <use href={`${icons}#icon-plus`}></use>
                 </svg>
@@ -197,13 +196,13 @@ const WaterForm = ({ type, id, handleClose }) => {
                   errors.recordingTime &&
                   css["field-error"]
               )}
-              onChange={(e) => {
-                const value = parseInt(e.target.value, 10) || 0;
-                const clampedValue = Math.min(5000, Math.max(value, 50)); // Обмеження
-                setCounterValue(clampedValue);
-                setFieldValue("amount", clampedValue);
-                setFieldValue("manualAmount", clampedValue);
-              }}
+              // onChange={(e) => {
+              //   const value = parseInt(e.target.value, 10) || 0;
+              //   const clampedValue = Math.min(5000, Math.max(value, 0)); // Обмеження
+              //   setCounterValue(clampedValue);
+              //   setFieldValue("amount", clampedValue);
+              //   setFieldValue("manualAmount", clampedValue);
+              // }}
             />
 
             <ErrorMessage
