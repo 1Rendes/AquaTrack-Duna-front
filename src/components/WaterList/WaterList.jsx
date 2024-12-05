@@ -9,7 +9,7 @@ const WaterList = ({ choosenDay }) => {
   const dayWaterList = useSelector(selectDayWater);
   const todayWaterList = useSelector(selectTodayWater);
   const today = new Date().toISOString().split("T")[0];
-  let renderList = choosenDay === today ? todayWaterList : dayWaterList;
+  const renderList = choosenDay === today ? todayWaterList : dayWaterList;
 
   return (
     <div>
