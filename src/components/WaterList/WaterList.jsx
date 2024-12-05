@@ -27,7 +27,7 @@ const WaterList = ({ choosenDay }) => {
           <ul className={css.waterlistPortions}>
             {renderList.map((item) => (
               <li className={css.item} key={item._id}>
-                <WaterItem item={item} />
+                <WaterItem item={item} choosenDay={choosenDay} />
               </li>
             ))}
           </ul>
