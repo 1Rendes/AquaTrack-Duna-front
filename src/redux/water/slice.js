@@ -75,8 +75,9 @@ const waterSlice = createSlice({
         const searchIndex = state.dayWater.findIndex(
           (item) => item._id === payload
         );
-        state.dayWater.splice(searchIndex, 1);
-        state.todayWater = [...state.dayWater];
+
+        state.todayWater.splice(searchIndex, 1);
+        state.dayWater = [...state.dayWater];
         showSuccessToast("Water removed successfully!");
       })
       .addCase(deleteWater.rejected, (state, { payload }) => {
@@ -88,7 +89,7 @@ const waterSlice = createSlice({
       .addCase(getDayWater.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.dayWater = payload.date;
-        state.todayWater = payload.date.today || [...state.todayWater];
+        state.todayWater = payload.today || [...state.todayWater];
       })
       .addCase(getDayWater.rejected, (state, { payload }) => {
         state.isLoading = false;
@@ -98,7 +99,7 @@ const waterSlice = createSlice({
       .addCase(getMonthWater.pending, handlePending)
       .addCase(getMonthWater.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        state.monthWater = payload.date;
+        state.monthWater = payload.data;
       })
       .addCase(getMonthWater.rejected, (state, { payload }) => {
         state.isLoading = false;
