@@ -1,0 +1,59 @@
+.statistic {
+  width: 100%;
+  height: 301px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.ResponsiveContainer {
+  width: 640px;
+  height: 100hv;
+}
+
+.controls {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* .ComposedChart {
+  width: 100%;
+  height: 100%;
+} */
+
+.tooltip {
+  width: 80px;
+  background-color: #fff;
+  border-radius: 50%;
+  padding: 10px;
+  text-align: center;
+  box-shadow: 0 5px 10px 0 rgba(203, 209, 223, 0.5);
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 1.86667;
+  color: #323f47;
+}
+.iconCalendarLeft {
+  transform: rotate(90deg);
+}
+
+.iconCalendarRight {
+  transform: rotate(-90deg);
+}
+
+.iconCalendarRight,
+.iconCalendarLeft {
+  fill: var(--main-text);
+  stroke: var(--main-text);
+  padding: 0;
+  margin: 0;
+
+  width: 40px;
+  height: 20px;
+  transition: fill var(--Animation_cubic), stroke var(--Animation_cubic);
+}
+.controls button.disabled svg {
+  fill: #ccc;
+  stroke: #ccc;
+}

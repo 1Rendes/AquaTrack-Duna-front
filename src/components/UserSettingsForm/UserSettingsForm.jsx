@@ -80,7 +80,6 @@ const UserSettingsForm = () => {
 
     Object.entries(values).forEach(([key, value]) => {
       if (value === photo) return;
-      console.log(`${key}:`, value);
       formData.append(key, value);
     });
 

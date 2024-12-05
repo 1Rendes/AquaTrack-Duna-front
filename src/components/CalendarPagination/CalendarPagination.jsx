@@ -6,6 +6,7 @@ const CalendarPagination = ({
   currentMonth,
   handleNextMonth,
   handlePreviousMonth,
+  handleOpenGraphic,
 }) => {
   const monthForPagination =
     months[currentMonth.split("-")[1] - 1] + ", " + currentMonth.split("-")[0];
@@ -36,7 +37,10 @@ const CalendarPagination = ({
           </svg>
         </button>
 
-        <button className={css.showStatisticsButton}>
+        <button
+          className={css.showStatisticsButton}
+          onClick={handleOpenGraphic}
+        >
           <svg className={css.iconPieChart}>
             <use href={`${icons}#icon-pie-chart`}></use>
           </svg>
