@@ -2,6 +2,7 @@ import { createSelector } from "@reduxjs/toolkit";
 import { selectUser } from "../auth/selectors";
 
 export const selectDayWater = (state) => state.water.dayWater;
+export const selectTodayWater = (state) => state.water.todayWater;
 export const selectMonthWater = (state) => state.water.monthWater;
 export const selectWaterIsLoading = (state) => state.water.isLoading;
 
@@ -15,6 +16,17 @@ export const selectWaterIsLoading = (state) => state.water.isLoading;
 //}
 export const selectPercentage = createSelector(
   [selectUser, selectDayWater],
+  (user, waterPortions) => {
+    if (waterPortions.length === 0) return 0;
+    const percentage = Math.round(
+      (waterPortions.reduce((acc, item) => acc + item.amount, 0) * 100) /
+        user.dailyRequirement
+    );
+    return percentage > 100 ? 100 : percentage;
+  }
+);
+export const selectTodayPercentage = createSelector(
+  [selectUser, selectTodayWater],
   (user, waterPortions) => {
     if (waterPortions.length === 0) return 0;
     const percentage = Math.round(

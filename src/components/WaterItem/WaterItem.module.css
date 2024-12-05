@@ -76,6 +76,15 @@
   stroke: var(--hover-green);
 }
 
+.deleteBtn[disabled],
+.editBtn[disabled] {
+  cursor: auto;
+}
+.deleteBtn[disabled] .trash,
+.editBtn[disabled] .pencil {
+  stroke: #99999e;
+}
+
 @media screen and (min-width: 768px) {
   .waterItemActions {
     gap: 14px;
@@ -104,15 +113,4 @@
   .waterTime {
     line-height: 187%;
   }
-}
-
-:root {
-  --main: #323f47;
-  --main-text: #2f2f2f;
-  --accent: #9be1a0;
-  --background: #f0eff4;
-  --main-white: #fff;
-  --font-family: "Poppins", sans-serif;
-  --error: #ef5050;
-  --hover-green: #87d28d;
 }

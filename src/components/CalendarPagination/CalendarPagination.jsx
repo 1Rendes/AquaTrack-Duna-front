@@ -1,5 +1,6 @@
 import css from "./CalendarPagination.module.css";
 import icons from "../../img/icons.svg";
+import { months } from "./../../constants/constants.js";
 
 const CalendarPagination = ({
   currentMonth,
@@ -7,20 +8,6 @@ const CalendarPagination = ({
   handlePreviousMonth,
   handleOpenGraphic,
 }) => {
-  const months = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
   const monthForPagination =
     months[currentMonth.split("-")[1] - 1] + ", " + currentMonth.split("-")[0];
 

@@ -1,11 +1,16 @@
 import { useDispatch, useSelector } from "react-redux";
 import css from "./WaterForm.module.css";
-import { selectDayWater, selectPercentage } from "../../redux/water/selectors";
+import {
+  selectDayWater,
+  selectTodayPercentage,
+  selectTodayWater,
+} from "../../redux/water/selectors";
 import { addWater, editWater } from "../../redux/water/operations";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import * as Yup from "yup";
 import { useState } from "react";
 import clsx from "clsx";
+import icons from "../../img/icons.svg";
 import { selectUser } from "../../redux/auth/selectors";
 
 const validationSchema = Yup.object({
@@ -24,10 +29,10 @@ const validationSchema = Yup.object({
 
 const WaterForm = ({ type, id, handleClose }) => {
   const dispatch = useDispatch();
-  const selectedPercentage = useSelector(selectPercentage);
+  const selectedPercentage = useSelector(selectTodayPercentage);
   const user = useSelector(selectUser);
   const dailyRequirement = user?.dailyRequirement;
-  const dayWaterArray = useSelector(selectDayWater);
+  const dayWaterArray = useSelector(selectTodayWater);
 
   const waterPortion = dayWaterArray.find(({ _id }) => _id === id);
   const selectedTime = waterPortion?.time;
@@ -63,9 +68,11 @@ const WaterForm = ({ type, id, handleClose }) => {
   };
 
   if (type === "edit") {
-    const [minutes, hours, seconds] = selectedTime.split("T")[1].split(":");
-    const formattedTime = [minutes, hours].join(":");
+    const [hours, minutes, seconds] = selectedTime.split("T")[1].split(":");
+    const formattedTime = [hours, minutes].join(":");
     INITIAL_VALUES.time = formattedTime;
+    console.log(selectedTime);
+    console.log(waterPortion);
   }
 
   const handleSubmit = (values) => {
@@ -91,8 +98,8 @@ const WaterForm = ({ type, id, handleClose }) => {
 
   const handleCounterChange = (increment, setFieldValue) => {
     let newValue = counterValue + increment;
-    if (newValue < 50) newValue = 50; // Мінімум
-    if (newValue > 5000) newValue = 5000;
+    // if (newValue < 50) newValue = 50; // Мінімум
+    // if (newValue > 5000) newValue = 5000;
     setCounterValue(newValue);
     setFieldValue("amount", newValue);
     setFieldValue("manualAmount", newValue);
@@ -116,7 +123,9 @@ const WaterForm = ({ type, id, handleClose }) => {
                 className={css["counter-btn"]}
                 onClick={() => handleCounterChange(-50, setFieldValue)}
               >
-                -
+                <svg className={css.counterMinusBtn} width={19} height={3}>
+                  <use href={`${icons}#icon-vector`}></use>
+                </svg>
               </button>
               <div className={css["counter-display"]}>
                 {counterValue >= 1000
@@ -128,7 +137,9 @@ const WaterForm = ({ type, id, handleClose }) => {
                 className={css["counter-btn"]}
                 onClick={() => handleCounterChange(50, setFieldValue)}
               >
-                +
+                <svg className={css.counterPlusBtn} width={19} height={19}>
+                  <use href={`${icons}#icon-plus`}></use>
+                </svg>
               </button>
             </div>
             <Field
@@ -190,7 +201,7 @@ const WaterForm = ({ type, id, handleClose }) => {
               )}
               onChange={(e) => {
                 const value = parseInt(e.target.value, 10) || 0;
-                const clampedValue = Math.min(5000, Math.max(value, 50)); // Обмеження
+                const clampedValue = Math.min(5000, value); // Обмеження
                 setCounterValue(clampedValue);
                 setFieldValue("amount", clampedValue);
                 setFieldValue("manualAmount", clampedValue);

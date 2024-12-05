@@ -10,6 +10,7 @@ import {
 
 const INITIAL_STATE = {
   dayWater: [],
+  todayWater: [],
   monthWater: [],
   isLoading: false,
   error: null,
@@ -46,7 +47,7 @@ const waterSlice = createSlice({
       .addCase(addWater.pending, handlePending)
       .addCase(addWater.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        state.dayWater.push(payload.data);
+        state.todayWater.push(payload.data);
         showSuccessToast("Water added successfully!");
       })
       .addCase(addWater.rejected, (state, { payload }) => {
@@ -60,7 +61,7 @@ const waterSlice = createSlice({
         const index = state.dayWater.findIndex(
           (item) => item._id === payload.data._id
         );
-        state.dayWater.splice(index, 1, payload.data);
+        state.todayWater.splice(index, 1, payload.data);
         showSuccessToast("Water edited successfully!");
       })
       .addCase(editWater.rejected, (state, { payload }) => {
@@ -74,7 +75,9 @@ const waterSlice = createSlice({
         const searchIndex = state.dayWater.findIndex(
           (item) => item._id === payload
         );
-        state.dayWater.splice(searchIndex, 1);
+
+        state.todayWater.splice(searchIndex, 1);
+        state.dayWater = [...state.dayWater];
         showSuccessToast("Water removed successfully!");
       })
       .addCase(deleteWater.rejected, (state, { payload }) => {
@@ -85,7 +88,8 @@ const waterSlice = createSlice({
       .addCase(getDayWater.pending, handlePending)
       .addCase(getDayWater.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        state.dayWater = payload.date;
+        state.dayWater = payload.data;
+        state.todayWater = payload.today || [...state.todayWater];
       })
       .addCase(getDayWater.rejected, (state, { payload }) => {
         state.isLoading = false;
@@ -95,7 +99,7 @@ const waterSlice = createSlice({
       .addCase(getMonthWater.pending, handlePending)
       .addCase(getMonthWater.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        state.monthWater = payload.date;
+        state.monthWater = payload.data;
       })
       .addCase(getMonthWater.rejected, (state, { payload }) => {
         state.isLoading = false;

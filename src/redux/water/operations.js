@@ -43,6 +43,9 @@ export const getDayWater = createAsyncThunk(
   async (date, thunkAPI) => {
     try {
       const { data } = await instance.get(`/water/day/${date}`);
+      if (date === new Date().toISOString().split("T")[0]) {
+        data.today = [...data.data];
+      }
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

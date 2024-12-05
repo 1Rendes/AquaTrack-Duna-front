@@ -23,7 +23,6 @@ export const register = createAsyncThunk(
       setAuthHeader(data.data.accessToken);
       return data;
     } catch (error) {
-
       return thunkAPI.rejectWithValue(error.response.data.data.message);
     }
   }
@@ -84,7 +83,6 @@ export const currentUser = createAsyncThunk(
   async (_, { getState, rejectWithValue }) => {
     try {
       const state = getState();
-
       setAuthHeader(state.auth.accessToken);
       const response = await instance.get("/users/current");
       return response.data;
