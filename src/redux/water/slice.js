@@ -47,7 +47,6 @@ const waterSlice = createSlice({
       .addCase(addWater.pending, handlePending)
       .addCase(addWater.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        console.log("payload", payload);
         state.todayWater.push(payload.data);
         showSuccessToast("Water added successfully!");
       })
