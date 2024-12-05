@@ -77,7 +77,6 @@ const waterSlice = createSlice({
         );
 
         state.todayWater.splice(searchIndex, 1);
-        console.log(state.dayWater);
         state.dayWater = [...state.dayWater];
         showSuccessToast("Water removed successfully!");
       })
