@@ -11,8 +11,7 @@ const CalendarItem = ({
 }) => {
   const numericDay = parseInt(day.split("-")[2]);
   const renderPercentage = today === day ? todayPercentage : percentage;
-  console.log(day, "day");
-  console.log(choosenDay, "chossenDay");
+
   return (
     <>
       <button
