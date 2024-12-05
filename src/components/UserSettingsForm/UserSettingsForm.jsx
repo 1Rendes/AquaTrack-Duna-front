@@ -1,6 +1,6 @@
 import * as Yup from "yup";
 import { useState } from "react";
-import { Formik, Form, Field } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useDispatch, useSelector } from "react-redux";
 
 import css from "./UserSettingsForm.module.css";
@@ -25,9 +25,14 @@ const UserSettingsForm = () => {
 
   const validationSchema = Yup.object({
     name: Yup.string().min(2),
-    email: Yup.string().email().required(),
-    weight: Yup.number().nullable().max(500),
-    activityLevel: Yup.number().nullable(),
+    email: Yup.string()
+      .email("Invalid email address")
+      .required("Email is required"),
+    weight: Yup.number().nullable().max(500, "Weight must not exceed 500 kg"),
+    activityLevel: Yup.number()
+      .nullable()
+      .max(24)
+      .integer("Activity level must be a whole number"),
     gender: Yup.string().required(),
     dailyRequirement: Yup.number().required().positive(),
     photo: Yup.string().nullable(),
@@ -172,7 +177,9 @@ const UserSettingsForm = () => {
                           className={`${css.inputStyle} ${css.textInput}`}
                         />
                       </div>
-                      <div className={css.blokNameEmail}>
+                      <div
+                        className={`${css.blokNameEmail} ${css.inputErrorMessage}`}
+                      >
                         <label
                           htmlFor="email"
                           className={css.settingsTitleText}
@@ -185,6 +192,13 @@ const UserSettingsForm = () => {
                           type="email"
                           className={`${css.inputStyle} ${css.textInput}`}
                         />
+                        <div className={css.errorMessage}>
+                          <ErrorMessage
+                            name="email"
+                            component="div"
+                            className={css.errorText}
+                          />
+                        </div>
                       </div>
                     </div>
 
@@ -220,7 +234,9 @@ const UserSettingsForm = () => {
 
                   <div className={css.kilogramContainer}>
                     <div className={css.blokInputNameEmail}>
-                      <div className={css.blokNameEmail}>
+                      <div
+                        className={`${css.blokNameEmail} ${css.inputErrorMessage}`}
+                      >
                         <label htmlFor="weight" className={css.textInput}>
                           Your weight in kilograms:
                         </label>
@@ -230,9 +246,18 @@ const UserSettingsForm = () => {
                           type="number"
                           className={`${css.inputStyle} ${css.textInput}`}
                         />
+                        <div className={css.errorMessage}>
+                          <ErrorMessage
+                            name="weight"
+                            component="div"
+                            className={css.errorText}
+                          />
+                        </div>
                       </div>
 
-                      <div className={css.blokNameEmail}>
+                      <div
+                        className={`${css.blokNameEmail} ${css.inputErrorMessage}`}
+                      >
                         <label
                           htmlFor="activityLevel"
                           className={`${css.textInput} ${css.required}`}
@@ -245,6 +270,13 @@ const UserSettingsForm = () => {
                           type="number"
                           className={`${css.inputStyle} ${css.textInput}`}
                         />
+                        <div className={css.errorMessage}>
+                          <ErrorMessage
+                            name="activityLevel"
+                            component="div"
+                            className={css.errorText}
+                          />
+                        </div>
                       </div>
                     </div>
 
