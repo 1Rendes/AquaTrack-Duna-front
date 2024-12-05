@@ -4,7 +4,7 @@ import WaterModal from "../WaterModal/WaterModal";
 import DeleteWaterModal from "../DeleteWaterModal/DeleteWaterModal";
 import icons from "../../img/icons.svg";
 
-const WaterItem = ({ item: { _id, time, amount } }) => {
+const WaterItem = ({ item: { _id, time, amount }, choosenDay }) => {
   const [isEditModalOpen, setEditModalIsOpen] = useState(false);
   const [isDeleteModalOpen, setDeleteModalIsOpen] = useState(false);
 
@@ -19,6 +19,9 @@ const WaterItem = ({ item: { _id, time, amount } }) => {
   const formatWaterAmount =
     amount >= 1000 ? `${(amount / 1000).toFixed(1)} L` : `${amount} mL`;
 
+  const today = new Date().toISOString().split("T")[0];
+  const isDisabled = choosenDay !== today;
+
   return (
     <div className={css.waterItem}>
       <svg width="38" height="38" className={css.glass}>
@@ -32,6 +35,7 @@ const WaterItem = ({ item: { _id, time, amount } }) => {
         <button
           className={css.editBtn}
           onClick={handleOpenEditModal}
+          disabled={isDisabled}
           aria-label="Edit water card"
         >
           <svg width="14" height="14" className={css.pencil}>
@@ -42,6 +46,7 @@ const WaterItem = ({ item: { _id, time, amount } }) => {
         <button
           className={css.deleteBtn}
           onClick={handleOpenDeleteModal}
+          disabled={isDisabled}
           aria-label="Delete water card"
         >
           <svg width="14" height="14" className={css.trash}>

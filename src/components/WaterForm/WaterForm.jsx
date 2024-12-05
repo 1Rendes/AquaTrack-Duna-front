@@ -3,6 +3,7 @@ import css from "./WaterForm.module.css";
 import {
   selectDayWater,
   selectTodayPercentage,
+  selectTodayWater,
 } from "../../redux/water/selectors";
 import { addWater, editWater } from "../../redux/water/operations";
 import { ErrorMessage, Field, Form, Formik } from "formik";
@@ -31,7 +32,7 @@ const WaterForm = ({ type, id, handleClose }) => {
   const selectedPercentage = useSelector(selectTodayPercentage);
   const user = useSelector(selectUser);
   const dailyRequirement = user?.dailyRequirement;
-  const dayWaterArray = useSelector(selectDayWater);
+  const dayWaterArray = useSelector(selectTodayWater);
 
   const waterPortion = dayWaterArray.find(({ _id }) => _id === id);
   const selectedTime = waterPortion?.time;
@@ -67,9 +68,11 @@ const WaterForm = ({ type, id, handleClose }) => {
   };
 
   if (type === "edit") {
-    const [minutes, hours, seconds] = selectedTime.split("T")[1].split(":");
-    const formattedTime = [minutes, hours].join(":");
+    const [hours, minutes, seconds] = selectedTime.split("T")[1].split(":");
+    const formattedTime = [hours, minutes].join(":");
     INITIAL_VALUES.time = formattedTime;
+    console.log(selectedTime);
+    console.log(waterPortion);
   }
 
   const handleSubmit = (values) => {
@@ -95,8 +98,8 @@ const WaterForm = ({ type, id, handleClose }) => {
 
   const handleCounterChange = (increment, setFieldValue) => {
     let newValue = counterValue + increment;
-    if (newValue < 50) newValue = 50; // Мінімум
-    if (newValue > 5000) newValue = 5000;
+    // if (newValue < 50) newValue = 50; // Мінімум
+    // if (newValue > 5000) newValue = 5000;
     setCounterValue(newValue);
     setFieldValue("amount", newValue);
     setFieldValue("manualAmount", newValue);
@@ -196,13 +199,13 @@ const WaterForm = ({ type, id, handleClose }) => {
                   errors.recordingTime &&
                   css["field-error"]
               )}
-              // onChange={(e) => {
-              //   const value = parseInt(e.target.value, 10) || 0;
-              //   const clampedValue = Math.min(5000, Math.max(value, 0)); // Обмеження
-              //   setCounterValue(clampedValue);
-              //   setFieldValue("amount", clampedValue);
-              //   setFieldValue("manualAmount", clampedValue);
-              // }}
+              onChange={(e) => {
+                const value = parseInt(e.target.value, 10) || 0;
+                const clampedValue = Math.min(5000, value); // Обмеження
+                setCounterValue(clampedValue);
+                setFieldValue("amount", clampedValue);
+                setFieldValue("manualAmount", clampedValue);
+              }}
             />
 
             <ErrorMessage
