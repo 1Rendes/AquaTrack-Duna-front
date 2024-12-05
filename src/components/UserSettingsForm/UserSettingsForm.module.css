@@ -193,7 +193,19 @@
   gap: 5px;
   width: 303px;
 }
-.requirement {
+.errorText {
+  position: absolute;
+  top: 90%;
+  left: 0;
+  color: red;
+  font-size: 14px;
+  z-index: 5;
+}
+.inputErrorMessage {
+  position: relative;
+}
+.inputErrorBorder {
+  border: 1px solid red;
 }
 
 @media (min-width: 768px) {
@@ -258,7 +270,7 @@
   }
   .required {
     display: block;
-    width: 400px;
+    width: 408px;
   }
 }
 
