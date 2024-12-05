@@ -25,7 +25,7 @@ const MonthInfo = ({
         <WaterConsumChart currentMonth={currentMonth} />
       ) : (
         <Calendar
-          currentDay={currentDay}
+          choosenDay={currentDay}
           setCurrentDay={setCurrentDay}
         ></Calendar>
       )}
