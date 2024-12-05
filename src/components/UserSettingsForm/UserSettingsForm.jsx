@@ -53,8 +53,6 @@ const UserSettingsForm = () => {
   // Обчислення водного балансу
 
   const calculateWaterIntake = (weight, activityLevel, gender) => {
-    if (!weight || !activityLevel) return 0;
-
     return gender === "female"
       ? (weight * 0.03 + activityLevel * 0.4).toFixed(1)
       : (weight * 0.04 + activityLevel * 0.6).toFixed(1);
