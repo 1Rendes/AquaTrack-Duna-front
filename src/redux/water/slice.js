@@ -101,7 +101,7 @@ const waterSlice = createSlice({
       .addCase(getMonthWater.pending, handlePending)
       .addCase(getMonthWater.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        state.monthWater = payload.date;
+        state.monthWater = payload.data;
       })
       .addCase(getMonthWater.rejected, (state, { payload }) => {
         state.isLoading = false;
