@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import css from "./WaterForm.module.css";
 import {
-  selectDayWater,
   selectTodayPercentage,
   selectTodayWater,
 } from "../../redux/water/selectors";
@@ -28,6 +27,7 @@ const validationSchema = Yup.object({
 });
 
 const WaterForm = ({ type, id, handleClose }) => {
+  const [customValid, setCustomValid] = useState(false);
   const dispatch = useDispatch();
   const selectedPercentage = useSelector(selectTodayPercentage);
   const user = useSelector(selectUser);
@@ -71,8 +71,6 @@ const WaterForm = ({ type, id, handleClose }) => {
     const [hours, minutes, seconds] = selectedTime.split("T")[1].split(":");
     const formattedTime = [hours, minutes].join(":");
     INITIAL_VALUES.time = formattedTime;
-    console.log(selectedTime);
-    console.log(waterPortion);
   }
 
   const handleSubmit = (values) => {
@@ -103,6 +101,13 @@ const WaterForm = ({ type, id, handleClose }) => {
     setCounterValue(newValue);
     setFieldValue("amount", newValue);
     setFieldValue("manualAmount", newValue);
+  };
+  const handleChange = (value) => {
+    if (value < 50) {
+      setCustomValid(true);
+    } else {
+      setCustomValid(false);
+    }
   };
 
   return (
@@ -205,9 +210,9 @@ const WaterForm = ({ type, id, handleClose }) => {
                 setCounterValue(clampedValue);
                 setFieldValue("amount", clampedValue);
                 setFieldValue("manualAmount", clampedValue);
+                handleChange(value);
               }}
             />
-
             <ErrorMessage
               name="manualAmount"
               component="div"
@@ -218,7 +223,7 @@ const WaterForm = ({ type, id, handleClose }) => {
           <button
             type="submit"
             className={css["submit-btn"]}
-            disabled={!isValid}
+            disabled={customValid}
           >
             Save
           </button>
