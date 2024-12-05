@@ -90,7 +90,7 @@ const waterSlice = createSlice({
       .addCase(getDayWater.pending, handlePending)
       .addCase(getDayWater.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        state.dayWater = payload.date;
+        state.dayWater = payload.data;
         state.todayWater = payload.today || [...state.todayWater];
       })
       .addCase(getDayWater.rejected, (state, { payload }) => {
