@@ -44,7 +44,8 @@ export const getDayWater = createAsyncThunk(
     try {
       const { data } = await instance.get(`/water/day/${date}`);
       if (date === new Date().toISOString().split("T")[0]) {
-        data.date.today = [...data.date];
+        data.today = [...data.date];
+        console.log("getDay", data);
       }
       return data;
     } catch (error) {
