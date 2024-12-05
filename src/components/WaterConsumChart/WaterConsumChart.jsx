@@ -7,6 +7,9 @@ import {
   Area,
 } from "recharts";
 import { useSelector } from "react-redux";
+import { useRef } from "react";
+import useComponentSize from "@rehooks/component-size";
+
 import css from "./WaterConsumChart.module.css";
 import { selectMonthWater } from "../../redux/water/selectors";
 import { selectUser } from "../../redux/auth/selectors";
@@ -29,7 +32,6 @@ const WaterConsumChart = ({ currentMonth }) => {
   // Получаем текущий месяц
   const [year, month] = new Date().toISOString().split("T")[0].split("-");
   const todayMonth = [year, month].join("-");
-  // const todayDay = parseInt(day, 10);
 
   // Фильтрация дней в зависимости от текущего месяца
   const filteredDays =
@@ -41,7 +43,7 @@ const WaterConsumChart = ({ currentMonth }) => {
 
   // Подготовка данных для Recharts
   const chartData = last7Days.map((item) => ({
-    date: item.day.split("-")[2],
+    date: parseInt(item.day.split("-")[2]),
     value: valueInLiters[filteredDays.indexOf(item)] || 0,
   }));
 
@@ -67,8 +69,12 @@ const WaterConsumChart = ({ currentMonth }) => {
     setRangeStart((prev) => Math.min(filteredDays.length - 7, prev + 7));
   };
 
+  let ref = useRef(null);
+  let size = useComponentSize(ref);
+  let { Width, Height } = size;
+
   return (
-    <div className={css.statistic}>
+    <div className={css.statistic} ref={ref}>
       <div className={css.controls}>
         <button
           onClick={handlePrevWeek}
@@ -89,10 +95,15 @@ const WaterConsumChart = ({ currentMonth }) => {
           </svg>
         </button>
       </div>
-      <ResponsiveContainer width="100%" aspect={2.4}>
+      <ResponsiveContainer width="100%" height="100%" aspect={Width / Height}>
         <ComposedChart data={chartData} margin={{ right: 14, left: -10 }}>
           <Tooltip content={content} />
-          <XAxis dataKey="date" tickLine={false} axisLine={false} />
+          <XAxis
+            dataKey="date"
+            tickLine={false}
+            axisLine={false}
+            tickSize={15}
+          />
           <YAxis
             type="number"
             domain={[0, dailyWaterNorm]}
@@ -101,6 +112,7 @@ const WaterConsumChart = ({ currentMonth }) => {
             axisLine={false}
             tickCount={Math.ceil(dailyWaterNorm / 0.5) + 1}
             tickFormatter={(value) => `${value.toFixed(1)} L`}
+            tickSize={12}
           />
           <defs>
             <linearGradient id="colorUv" x1="0" y1="0" x2="0" y2="1">
@@ -117,10 +129,10 @@ const WaterConsumChart = ({ currentMonth }) => {
               stroke: "#87d28d",
               strokeWidth: 1,
               fill: "#FFFFFF",
-              r: 9,
+              r: 7,
             }}
             activeDot={{
-              r: 10,
+              r: 8,
               fill: "#FFFFFF",
               stroke: "#87d28d",
               strokeWidth: 2,

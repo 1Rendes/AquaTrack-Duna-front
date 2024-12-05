@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.2.7",
+    "@rehooks/component-size": "^1.0.3",
     "axios": "^1.7.5",
     "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
