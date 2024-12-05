@@ -20,14 +20,14 @@
   color: #323f47;
 }
 
-.choosenDay {
-  background-color: #323f47;
-  color: #9be1a0;
-}
-
 .currentDay {
   border: 1px solid #323f47;
   color: #323f47;
+}
+
+.choosenDay {
+  background-color: #323f47;
+  color: #9be1a0;
 }
 
 .percentage {
