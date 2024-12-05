@@ -1,6 +1,8 @@
+import { useState } from "react";
 import Calendar from "../Calendar/Calendar";
 import CalendarPagination from "../CalendarPagination/CalendarPagination";
 import css from "./MonthInfo.module.css";
+import WaterConsumChart from "../WaterConsumChart/WaterConsumChart";
 
 const MonthInfo = ({
   currentDay,
@@ -9,17 +11,24 @@ const MonthInfo = ({
   handleNextMonth,
   handlePreviousMonth,
 }) => {
+  const [isGraphicOpen, setIsGraphicOpen] = useState(false);
+  const handleOpenGraphic = () => setIsGraphicOpen((prev) => !prev);
   return (
     <div className={css.monthinfo}>
       <CalendarPagination
+        handleOpenGraphic={handleOpenGraphic}
         handleNextMonth={handleNextMonth}
         handlePreviousMonth={handlePreviousMonth}
         currentMonth={currentMonth}
       ></CalendarPagination>
-      <Calendar
-        currentDay={currentDay}
-        setCurrentDay={setCurrentDay}
-      ></Calendar>
+      {isGraphicOpen ? (
+        <WaterConsumChart currentMonth={currentMonth} />
+      ) : (
+        <Calendar
+          currentDay={currentDay}
+          setCurrentDay={setCurrentDay}
+        ></Calendar>
+      )}
     </div>
   );
 };
