@@ -24,14 +24,17 @@ const UserSettingsForm = () => {
   } = useSelector(selectUser);
 
   const validationSchema = Yup.object({
-    name: Yup.string().min(2),
+    name: Yup.string()
+      .min(3, "Name must be at least 3 characters long")
+      .max(20, "Name must not exceed 20 characters"),
     email: Yup.string()
       .email("Invalid email address")
       .required("Email is required"),
     weight: Yup.number().nullable().max(500, "Weight must not exceed 500 kg"),
     activityLevel: Yup.number()
       .nullable()
-      .max(24)
+      .min(0, "Activity level cannot be negative")
+      .max(24, "Activity level cannot exceed 24 hours")
       .integer("Activity level must be a whole number"),
     gender: Yup.string().required(),
     dailyRequirement: Yup.number().required().positive(),
@@ -166,7 +169,9 @@ const UserSettingsForm = () => {
                     </div>
 
                     <div className={css.blokInputNameEmail}>
-                      <div className={css.blokNameEmail}>
+                      <div
+                        className={`${css.blokNameEmail} ${css.inputErrorMessage}`}
+                      >
                         <label htmlFor="name" className={css.settingsTitleText}>
                           Your name
                         </label>
@@ -175,6 +180,13 @@ const UserSettingsForm = () => {
                           name="name"
                           className={`${css.inputStyle} ${css.textInput}`}
                         />
+                        <div className={css.errorMessage}>
+                          <ErrorMessage
+                            name="name"
+                            component="div"
+                            className={css.errorText}
+                          />
+                        </div>
                       </div>
                       <div
                         className={`${css.blokNameEmail} ${css.inputErrorMessage}`}
@@ -310,7 +322,8 @@ const UserSettingsForm = () => {
                           name="dailyRequirement"
                           type="number"
                           step="0.1"
-                          min="0"
+                          min="0.2"
+                          max="15"
                           value={formatMillilitersToLiters(
                             values.dailyRequirement
                           )}

@@ -198,14 +198,11 @@
   top: 90%;
   left: 0;
   color: red;
-  font-size: 14px;
+  font-size: 12px;
   z-index: 5;
 }
 .inputErrorMessage {
   position: relative;
-}
-.inputErrorBorder {
-  border: 1px solid red;
 }
 
 @media (min-width: 768px) {
