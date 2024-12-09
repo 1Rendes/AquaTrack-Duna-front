@@ -5,12 +5,13 @@
   border-radius: 30px;
   padding: 24px 16px;
   height: 780px;
+  width: 100%;
 }
 
 .formWrapper {
   display: flex;
   flex-direction: column;
-  margin: auto;
+  margin: auto 0;
   justify-content: center;
 }
 picture {
@@ -48,15 +49,13 @@ picture {
   display: flex;
   padding: 16px;
   margin-bottom: 20px;
-  width: 311px;
+  width: 100%;
   font-size: 14px;
-
   color: var(--main-text);
   outline: none;
   border: 1px solid rgba(47, 47, 47, 0.2);
   background-color: transparent;
   border-radius: 15px;
-
   transition: border-color 0.3s ease, color 0.3s ease;
 }
 
@@ -108,7 +107,7 @@ input:focus {
   display: flex;
   margin-top: 16px;
   justify-content: center;
-  gap: 10px;
+  gap: 8px;
   font-size: 16px;
   line-height: 18px;
   letter-spacing: -0.01em;
@@ -126,7 +125,6 @@ input:focus {
 
 .iconWrapper {
   position: relative;
-  width: 311px;
 }
 
 .icon {
@@ -160,13 +158,16 @@ input:focus {
     padding: 32px;
     height: 960px;
   }
+  .formWrapper {
+    width: 436px;
+    margin: auto;
+  }
   .title {
     font-size: 36px;
     line-height: 1.06;
   }
 
   .input {
-    position: relative;
     max-width: 436px;
   }
 
@@ -199,7 +200,7 @@ input:focus {
       padding: 32px;
     }
     .formWrapper {
-      padding: 0px 102px;
+      padding: 0;
     }
   }
 }
