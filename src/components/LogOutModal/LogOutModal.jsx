@@ -3,14 +3,8 @@ import Modal from "../Modal/Modal";
 import css from "./LogOutModal.module.css";
 import { logOut } from "../../redux/auth/operations";
 import CancelButton from "../CancelButton/CancelButton";
-import { useEffect } from "react";
 
 const LogOutModal = ({ handleLogoutModalIsClose, logoutModalIsOpen }) => {
-  useEffect(() => {
-    document.body.style.overflowY = "hidden";
-    return () => (document.body.style.overflowY = "scroll");
-  }, []);
-
   const dispatch = useDispatch();
   return (
     <Modal
