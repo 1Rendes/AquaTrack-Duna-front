@@ -1,7 +1,6 @@
 .calendar {
   display: flex;
   flex-wrap: wrap;
-  gap: 17px;
   row-gap: 20px;
 }
 
@@ -28,4 +27,8 @@
   justify-content: center;
   align-items: center;
   gap: 4px;
+  width: calc((100%) / 7);
+  @media (min-width: 768px) {
+    width: auto;
+  }
 }

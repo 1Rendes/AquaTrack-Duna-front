@@ -3,7 +3,6 @@ import Modal from "../Modal/Modal";
 import css from "./DeleteWaterModal.module.css";
 import { deleteWater } from "../../redux/water/operations";
 import CancelButton from "../CancelButton/CancelButton";
-import { useEffect } from "react";
 
 const DeleteWaterModal = ({ isOpen, handleClose, id }) => {
   const dispatch = useDispatch();
@@ -11,10 +10,6 @@ const DeleteWaterModal = ({ isOpen, handleClose, id }) => {
     dispatch(deleteWater(id)).unwrap().then(handleClose);
   };
   const handleClickRejectBtn = handleClose;
-  useEffect(() => {
-    document.body.style.overflowY = "hidden";
-    return () => (document.body.style.overflowY = "scroll");
-  }, []);
 
   return (
     <Modal handleClose={handleClose} isOpen={isOpen} modalType="delete">

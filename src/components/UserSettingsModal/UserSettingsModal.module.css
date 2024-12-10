@@ -1,6 +1,6 @@
 .settingsModal {
   padding: 40px 20px;
-  width: 343px;
+  max-width: 343px;
 }
 .titleOfModal {
   padding-bottom: 20px;
@@ -10,6 +10,7 @@
   .settingsModal {
     border-radius: 15px;
     padding: 40px;
+    max-width: fit-content;
     width: 648px;
   }
 }

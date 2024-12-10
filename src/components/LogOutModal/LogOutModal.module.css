@@ -37,12 +37,14 @@
 }
 
 .btnsBox {
+  width: 100%;
   padding: 0px 6px;
   margin-top: 0;
   gap: 9px;
 }
 @media (min-width: 768px) {
   .btnsBox {
+    width: auto;
     display: flex;
     gap: 10px;
   }
@@ -50,7 +52,8 @@
 
 .logOutBtn {
   border-radius: 30px;
-  padding: 14px 126px;
+  padding: 14px 0;
+  width: 100%;
   background: var(--accent);
   font-family: var(--font-family);
   font-weight: 700;

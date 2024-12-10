@@ -96,11 +96,12 @@ const WaterForm = ({ type, id, handleClose }) => {
 
   const handleCounterChange = (increment, setFieldValue) => {
     let newValue = counterValue + increment;
-    // if (newValue < 50) newValue = 50; // Мінімум
-    // if (newValue > 5000) newValue = 5000;
+    if (newValue < 0) newValue = 50; // Мінімум
+    if (newValue > 5000) newValue = 5000;
     setCounterValue(newValue);
     setFieldValue("amount", newValue);
     setFieldValue("manualAmount", newValue);
+    handleChange(newValue);
   };
   const handleChange = (value) => {
     if (value < 50) {
@@ -116,7 +117,7 @@ const WaterForm = ({ type, id, handleClose }) => {
       onSubmit={handleSubmit}
       validationSchema={validationSchema}
     >
-      {({ values, setFieldValue, touched, errors, isValid }) => (
+      {({ values, setFieldValue, touched, errors }) => (
         <Form className={css["water-tracker-form"]}>
           <div className={css["field-group"]}>
             <label htmlFor="amount" className={css["water-label"]}>
@@ -125,6 +126,7 @@ const WaterForm = ({ type, id, handleClose }) => {
             <div className={css["counter-container"]}>
               <button
                 type="button"
+                disabled={!counterValue}
                 className={css["counter-btn"]}
                 onClick={() => handleCounterChange(-50, setFieldValue)}
               >
