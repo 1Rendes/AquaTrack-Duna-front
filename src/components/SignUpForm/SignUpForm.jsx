@@ -17,6 +17,7 @@ const initialValues = {
 const validationSchema = Yup.object().shape({
   email: Yup.string()
     .email("Invalid email address")
+    .matches(/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/, "Invalid email address")
     .required("Email is required!"),
   password: Yup.string()
     .min(5, "Must contain at least 5 characters")
