@@ -10,9 +10,12 @@
 }
 .paginationMonth {
   align-items: center;
-  font-size: 14px;
+  font-size: 10px;
   display: flex;
   gap: 10px;
+  @media (min-width: 375px) {
+    font-size: 14px;
+  }
   @media (min-width: 768px) {
     font-size: 16px;
   }

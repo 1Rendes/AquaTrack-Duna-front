@@ -14,7 +14,8 @@
 .modal {
   position: absolute;
   box-sizing: border-box;
-  max-width: 95%;
+  max-width: 90%;
+  margin: 0 16px;
   display: flex;
   top: 80px;
   flex-direction: column;
@@ -26,6 +27,7 @@
 .delete {
   max-width: 344px;
   max-height: 267px;
+  width: 90%;
   padding: 40px 14px;
   border-radius: 15px;
   box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.1);
@@ -43,19 +45,18 @@
 }
 
 .water {
-  border-radius: 15px;
-  width: 343px;
   height: 514px;
-  
+  max-width: 343px;
+  width: 90%;
 }
 @media (min-width: 768px) {
   .water {
+    max-width: 90%;
     width: 518px;
     height: 555px;
     padding: 40px;
     box-shadow: 0 4px 50px 0 rgba(0, 0, 0, 0.1);
     background: var(--main-white);
-    
   }
 }
 .closeIcon {

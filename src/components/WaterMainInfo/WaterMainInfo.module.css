@@ -1,9 +1,7 @@
-/* mobile */
 .watermaininfo {
   background-color: #9be1a0;
   position: relative;
   border-radius: 30px;
-  min-width: 343px;
   display: flex;
   flex-direction: column;
   padding: 16px;
